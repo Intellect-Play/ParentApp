@@ -31,7 +31,7 @@ const WelcomePage = () => {
         <Text style={styles.loginBtn}>Log in.</Text>
       </View>
       <View style={styles.centeredDiv}>
-        <Text style={[styles.textOr]}>OR</Text>
+        <Text style={styles.textOr}>OR</Text>
       </View>
       <View style={styles.generalNetworkContainer}>
         <View style={styles.icons}>
@@ -138,15 +138,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textOr: {
-    paddingBottom: 70,
+    paddingBottom: 27,
     color: '#6b6b6b',
+    fontFamily: 'POPPINS',
   },
   policiesSection: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 30,
-    marginRight: 30,
+    marginLeft: 40,
+    marginRight: 40,
   },
   policiesTextCenter: {
     textAlign: 'center',
@@ -154,5 +155,6 @@ const styles = StyleSheet.create({
   },
   policiesTextColor: {
     color: '#6b6b6b',
+    fontSize: 12,
   },
 });
