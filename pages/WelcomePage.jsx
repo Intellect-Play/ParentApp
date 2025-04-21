@@ -29,8 +29,10 @@ const WelcomePage = () => {
         </Text>
         <Text style={styles.loginBtn}>Log in.</Text>
       </View>
+      <View style={styles.centeredDiv}>
+        <Text style={[styles.textOr]}>OR</Text>
+      </View>
       <View style={styles.generalNetworkContainer}>
-        <Text style={styles.textOr}>OR</Text>
         <View style={styles.icons}>
           <View>
             <Image
@@ -50,6 +52,13 @@ const WelcomePage = () => {
             />
           </View>
         </View>
+      </View>
+      <View style={styles.policiesSection}>
+        <Text style={styles.policiesTextCenter}>
+          Signing up implies that you have read and agreed to Galactic's{' '}
+          <Text style={styles.loginBtn}>License Policy</Text> and{' '}
+          <Text style={styles.loginBtn}>Privacy Policy.</Text>
+        </Text>
       </View>
     </View>
   );
@@ -110,10 +119,10 @@ const styles = StyleSheet.create({
   },
   icons: {
     width: '100%',
-    marginTop: 10,
     display: 'flex',
     flexDirection: 'row',
     gap: 40,
+    marginBottom: 150,
     justifyContent: 'center',
   },
   generalNetworkContainer: {
@@ -121,7 +130,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  centeredDiv: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   textOr: {
-    marginBottom: 70,
+    paddingBottom: 70,
+    color: '#6b6b6b',
+  },
+  policiesSection: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 30,
+    marginRight: 30,
+  },
+  policiesTextCenter: {
+    textAlign: 'center',
+    marginBottom: 50,
   },
 });
