@@ -1,5 +1,6 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import Button from '../components/Buttons/Button';
+import LinearGradient from 'react-native-linear-gradient';
 
 const WelcomePage = () => {
   return (
@@ -54,7 +55,7 @@ const WelcomePage = () => {
         </View>
       </View>
       <View style={styles.policiesSection}>
-        <Text style={styles.policiesTextCenter}>
+        <Text style={[styles.policiesTextCenter, styles.policiesTextColor]}>
           Signing up implies that you have read and agreed to Galactic's{' '}
           <Text style={styles.loginBtn}>License Policy</Text> and{' '}
           <Text style={styles.loginBtn}>Privacy Policy.</Text>
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     gap: 40,
-    marginBottom: 150,
+    marginBottom: 120,
     justifyContent: 'center',
   },
   generalNetworkContainer: {
@@ -150,5 +151,8 @@ const styles = StyleSheet.create({
   policiesTextCenter: {
     textAlign: 'center',
     marginBottom: 50,
+  },
+  policiesTextColor: {
+    color: '#6b6b6b',
   },
 });
