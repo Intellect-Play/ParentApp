@@ -1,6 +1,6 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import Button from '../components/Buttons/Button';
-import LinearGradient from 'react-native-linear-gradient';
+import PoliciesComponent from '../components/Policies/PoliciesComponent';
 
 const WelcomePage = () => {
   return (
@@ -54,12 +54,8 @@ const WelcomePage = () => {
           </View>
         </View>
       </View>
-      <View style={styles.policiesSection}>
-        <Text style={[styles.policiesTextCenter, styles.policiesTextColor]}>
-          Signing up implies that you have read and agreed to Galactic's{' '}
-          <Text style={styles.loginBtn}>License Policy</Text> and{' '}
-          <Text style={styles.loginBtn}>Privacy Policy.</Text>
-        </Text>
+      <View style={styles.marginPolicies}>
+        <PoliciesComponent />
       </View>
     </View>
   );
@@ -123,7 +119,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     gap: 40,
-    marginBottom: 120,
+    marginBottom: 100,
     justifyContent: 'center',
   },
   generalNetworkContainer: {
@@ -142,19 +138,7 @@ const styles = StyleSheet.create({
     color: '#6b6b6b',
     fontFamily: 'POPPINS',
   },
-  policiesSection: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 40,
-    marginRight: 40,
-  },
-  policiesTextCenter: {
-    textAlign: 'center',
+  marginPolicies: {
     marginBottom: 50,
-  },
-  policiesTextColor: {
-    color: '#6b6b6b',
-    fontSize: 12,
   },
 });
