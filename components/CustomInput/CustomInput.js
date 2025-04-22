@@ -1,3 +1,4 @@
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import React, {useState} from 'react';
 import {
   View,
@@ -6,7 +7,8 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome6';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 
 const CustomInput = ({label, placeholder, isPassword = false, ...props}) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -27,8 +29,8 @@ const CustomInput = ({label, placeholder, isPassword = false, ...props}) => {
           <TouchableOpacity
             onPress={() => setShowPassword(!showPassword)}
             style={styles.iconButton}>
-            <Icon
-              name={showPassword ? 'eye-slash' : 'eye'}
+            <FontAwesomeIcon
+              icon={showPassword ? faEye : faEyeSlash}
               size={24}
               color="#666"
             />
