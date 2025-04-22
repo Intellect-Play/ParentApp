@@ -1,6 +1,7 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import Button from '../components/Buttons/Button';
 import PoliciesComponent from '../components/Policies/PoliciesComponent';
+import SocialNetworkComponent from '../components/SocialNetworks/SocialNetworksComponent';
 
 const WelcomePage = () => {
   return (
@@ -33,26 +34,8 @@ const WelcomePage = () => {
       <View style={styles.centeredDiv}>
         <Text style={styles.textOr}>OR</Text>
       </View>
-      <View style={styles.generalNetworkContainer}>
-        <View style={styles.icons}>
-          <View>
-            <Image
-              source={require('../assets/images/socialNetworks/google.png')}
-            />
-          </View>
-
-          <View>
-            <Image
-              source={require('../assets/images/socialNetworks/apple.png')}
-            />
-          </View>
-
-          <View>
-            <Image
-              source={require('../assets/images/socialNetworks/facebook.png')}
-            />
-          </View>
-        </View>
+      <View style={styles.marginIcons}>
+        <SocialNetworkComponent />
       </View>
       <View style={styles.marginPolicies}>
         <PoliciesComponent />
@@ -114,19 +97,6 @@ const styles = StyleSheet.create({
     color: 'rgba(74, 95, 255, 1)',
     fontFamily: 'Poppins',
   },
-  icons: {
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 40,
-    marginBottom: 100,
-    justifyContent: 'center',
-  },
-  generalNetworkContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   centeredDiv: {
     flex: 1,
     display: 'flex',
@@ -140,5 +110,8 @@ const styles = StyleSheet.create({
   },
   marginPolicies: {
     marginBottom: 50,
+  },
+  marginIcons: {
+    marginBottom: 90,
   },
 });
