@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome6';
 
-// Veya başka bir icon kütüphanesi
 const CustomInput = ({label, placeholder, isPassword = false, ...props}) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -56,6 +55,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#ddd',
+    backgroundColor: '#f6f6f9',
     borderRadius: 8,
     paddingHorizontal: 12,
   },

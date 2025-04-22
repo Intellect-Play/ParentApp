@@ -1,6 +1,8 @@
 import {StyleSheet, Text, View} from 'react-native';
 import CustomInput from '../components/CustomInput/CustomInput';
 import Button from '../components/Buttons/Button';
+import SocialNetworkComponent from '../components/SocialNetworks/SocialNetworksComponent';
+import PoliciesComponent from '../components/Policies/PoliciesComponent';
 
 const LoginPage = () => {
   return (
@@ -24,13 +26,30 @@ const LoginPage = () => {
       <View style={styles.buttonSection}>
         <Button text="Log in" />
       </View>
+
+      <View style={styles.loginSection}>
+        <Text style={styles.loginSectionColor}>
+          Do not have a Galactic ID?{' '}
+        </Text>
+        <Text style={styles.loginBtn}>Register</Text>
+      </View>
+      <View style={styles.centeredDiv}>
+        <Text style={styles.textOr}>OR</Text>
+      </View>
+      <View style={styles.socialMargin}>
+        <SocialNetworkComponent />
+      </View>
+      <View style={styles.footer}>
+        <PoliciesComponent />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   loginPageContainer: {
-    backgroundColor: '#fffff',
+    flex: 1,
+    backgroundColor: '#ffffff',
   },
   margin: {
     marginTop: 10,
@@ -48,6 +67,40 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginLeft: 10,
     marginRight: 10,
+  },
+  centeredDiv: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textOr: {
+    color: '#6b6b6b',
+    fontFamily: 'POPPINS',
+    marginTop: 10,
+  },
+  loginSection: {
+    display: 'flex',
+    marginTop: 20,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    fontFamily: 'Poppins',
+  },
+  loginSectionColor: {
+    color: '#6b6b6b',
+  },
+  loginBtn: {
+    color: 'rgba(74, 95, 255, 1)',
+    fontFamily: 'Poppins',
+  },
+  socialMargin: {
+    marginTop: 20,
+  },
+  footer: {
+    position: 'absolute',
+    bottom: 40,
+    left: 0,
+    right: 0,
+    padding: 16,
   },
 });
 
