@@ -16,7 +16,7 @@ const LoginPage = () => {
 
         <CustomInput
           label="Password"
-          placeholder="Şifrenizi girin"
+          placeholder="Type your password..."
           isPassword={true}
         />
       </View>
