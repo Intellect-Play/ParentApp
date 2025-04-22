@@ -2,8 +2,11 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import Button from '../components/Buttons/Button';
 import PoliciesComponent from '../components/Policies/PoliciesComponent';
 import SocialNetworkComponent from '../components/SocialNetworks/SocialNetworksComponent';
+import {useNavigation} from '@react-navigation/native';
 
 const WelcomePage = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.imgContainer}>
@@ -29,7 +32,11 @@ const WelcomePage = () => {
         <Text style={styles.loginSectionColor}>
           Already have a Galactic ID?{' '}
         </Text>
-        <Text style={styles.loginBtn}>Log in.</Text>
+        <Text
+          onPress={() => navigation.navigate('LoginPage')}
+          style={styles.loginBtn}>
+          Log in.
+        </Text>
       </View>
       <View style={styles.centeredDiv}>
         <Text style={styles.textOr}>OR</Text>
