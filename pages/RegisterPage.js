@@ -41,12 +41,18 @@ const RegisterPage = () => {
 
       <View style={styles.loginSection}>
         <Text style={styles.loginSectionColor}>
-          Already have a Galactic ID?{' '}
+          Already have a Galactic IDD?{' '}
         </Text>
         <Text
           onPress={() => navigation.navigate('LoginPage')}
           style={styles.loginBtn}>
           Log in.
+        </Text>
+
+        <Text
+          onPress={() => navigation.navigate('ResetPassword')}
+          style={styles.loginBtn}>
+          RESET
         </Text>
       </View>
       <View style={styles.centeredDiv}>

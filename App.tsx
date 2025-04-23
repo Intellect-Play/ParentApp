@@ -9,6 +9,7 @@ import {fab} from '@fortawesome/free-brands-svg-icons';
 import {faSquareCheck} from '@fortawesome/free-solid-svg-icons/faSquareCheck';
 import {faMugSaucer} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
 import RegisterPage from './pages/RegisterPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
 
@@ -42,6 +43,20 @@ function App(): React.JSX.Element {
           component={RegisterPage}
           options={{
             title: 'New Account',
+            headerTitleAlign: 'center',
+            headerTintColor: '#2260ff',
+            headerTitleStyle: {
+              fontFamily: 'POPPINS',
+              fontWeight: 'bold',
+            },
+          }}
+        />
+
+        <Stack.Screen
+          name="ResetPassword"
+          component={ResetPasswordPage}
+          options={{
+            title: 'Reset Password',
             headerTitleAlign: 'center',
             headerTintColor: '#2260ff',
             headerTitleStyle: {
