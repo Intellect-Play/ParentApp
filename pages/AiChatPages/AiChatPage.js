@@ -7,14 +7,9 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faPlus, faClock} from '@fortawesome/free-solid-svg-icons';
 import {mockData} from '../../mockdb/mockdb';
 import ChatScreen from './ChatScreen';
+import HistoryPage from '../HistoryPage';
 
 const Drawer = createDrawerNavigator();
-
-const SidebarScreen = () => (
-  <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <Text>Sidebar örneği</Text>
-  </View>
-);
 
 const AiChatPage = () => {
   return (
@@ -60,7 +55,7 @@ const AiChatPage = () => {
 
       <Drawer.Screen
         name="History"
-        component={SidebarScreen}
+        component={HistoryPage}
         options={{
           drawerLabel: 'History',
           drawerIcon: ({color, size}) => (
