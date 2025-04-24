@@ -45,6 +45,7 @@ const AiChatPage = () => {
           ),
           drawerItemStyle: {
             backgroundColor: '#ffff',
+            marginLeft: 15,
           },
           drawerLabelStyle: {
             color: '#212120',
@@ -75,6 +76,7 @@ const AiChatPage = () => {
           ),
           drawerItemStyle: {
             backgroundColor: '#ffff',
+            marginLeft: 15,
           },
           drawerLabelStyle: {
             color: '#212120',
