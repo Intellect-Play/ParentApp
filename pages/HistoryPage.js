@@ -29,13 +29,8 @@ const HistoryPage = () => {
         {groupedMessages.map((pair, index) => (
           <View key={index} style={styles.messagePairContainer}>
             {/* Yorum Emojisi - SOLDA */}
-            <View style={styles.commentIcon}>
-              <FontAwesomeIcon
-                icon={faMessage}
-                name="comment-o"
-                size={20}
-                color="#666"
-              />
+            <View style={styles.commentIconCircle}>
+              <FontAwesomeIcon icon={faMessage} size={20} color="#666" />
             </View>
 
             {/* Soru-Cevap Çifti - SAĞDA */}
@@ -52,7 +47,7 @@ const HistoryPage = () => {
               <View
                 style={[styles.messageContainer, styles.aiMessageContainer]}>
                 <Text style={styles.messageText}>
-                  {truncateText(pair.answer.text, 40)}
+                  {truncateText(pair.answer.text, 33)}
                 </Text>
               </View>
             </View>
@@ -96,7 +91,7 @@ const styles = StyleSheet.create({
   },
   commentIcon: {
     marginRight: 10,
-    paddingTop: 8, // Mesajlarla hizalamak için
+    paddingTop: 8,
   },
   messagesColumn: {
     flex: 1,
@@ -111,13 +106,27 @@ const styles = StyleSheet.create({
   },
   userMessageColor: {
     fontWeight: 'bold',
+    fontFamily: 'POPPINS',
   },
   aiMessageContainer: {
     borderBottomRightRadius: 4,
+    fontFamily: 'POPPINS',
   },
   messageText: {
     fontSize: 16,
     color: 'black',
+    fontFamily: 'POPPINS',
+  },
+  commentIconCircle: {
+    width: 50,
+    height: 50,
+    borderRadius: 30, // Tam yuvarlak yapar
+    backgroundColor: '#f0f0f0', // Açık gri arkaplan
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 10,
+    borderColor: 'gray',
+    borderWidth: 1,
   },
 });
 
