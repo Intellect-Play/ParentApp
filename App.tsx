@@ -10,6 +10,7 @@ import {faSquareCheck} from '@fortawesome/free-solid-svg-icons/faSquareCheck';
 import {faMugSaucer} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
 import RegisterPage from './pages/RegisterPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
+import MainPage from './pages/MainPage';
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
 
@@ -64,6 +65,12 @@ function App(): React.JSX.Element {
               fontWeight: 'bold',
             },
           }}
+        />
+
+        <Stack.Screen
+          name="MainPage"
+          component={MainPage}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
