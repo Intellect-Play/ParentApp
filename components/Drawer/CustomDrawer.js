@@ -1,6 +1,6 @@
 // CustomDrawer.tsx
 
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -17,8 +17,16 @@ export default function CustomDrawer(props) {
         overflow: 'hidden',
         backgroundColor: '#ffff',
       }}>
-      <View style={styles.header}>
-        <Text style={styles.title}>👽 GalacticAi</Text>
+      <View style={styles.userContainer}>
+        <View>
+          <Image
+            source={require('../../assets/images/avatar/avatar_default.png')}
+          />
+        </View>
+        <View>
+          <Text>Farid</Text>
+          <Text>faridgalactic@gmail.com</Text>
+        </View>
       </View>
 
       <DrawerItemList {...props} />
@@ -45,5 +53,12 @@ const styles = StyleSheet.create({
   logout: {
     color: 'red',
     fontWeight: 'bold',
+  },
+  userContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 20,
   },
 });
