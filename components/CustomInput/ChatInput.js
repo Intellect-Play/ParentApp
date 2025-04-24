@@ -7,7 +7,6 @@ import LinearGradient from 'react-native-linear-gradient';
 const ChatInput = () => {
   return (
     <View style={styles.container}>
-      {/* Input ve mikrofon container'ı */}
       <View style={styles.inputAndMicContainer}>
         <View style={styles.inputContainer}>
           <TextInput
@@ -17,14 +16,11 @@ const ChatInput = () => {
           />
 
           <TouchableOpacity style={styles.micButton}>
-            <FontAwesomeIcon icon={faMicrophone} size={24} color="#666" />
+            <FontAwesomeIcon icon={faMicrophone} size={24} color="black" />
           </TouchableOpacity>
         </View>
-
-        {/* Mikrofon butonu */}
       </View>
 
-      {/* Gradient Send butonu */}
       <TouchableOpacity style={styles.sendButtonContainer}>
         <LinearGradient
           colors={['#6a11cb', '#2575fc']}
@@ -55,6 +51,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flex: 1,
+    borderWidth: 1,
     backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',
