@@ -22,12 +22,6 @@ export default function CustomDrawer(props) {
       </View>
 
       <DrawerItemList {...props} />
-
-      <View style={styles.footer}>
-        <TouchableOpacity onPress={() => console.log('Çıkış yap')}>
-          <Text style={styles.logout}>🚪 Logout</Text>
-        </TouchableOpacity>
-      </View>
     </DrawerContentScrollView>
   );
 }

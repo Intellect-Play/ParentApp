@@ -34,7 +34,7 @@ const AiChatPage = () => {
       drawerContent={props => <CustomDrawer {...props} />}>
       <Drawer.Screen
         options={{
-          drawerLabel: 'Chat',
+          drawerLabel: 'New Chat',
           drawerIcon: ({color, size}) => (
             <FontAwesomeIcon
               icon={faPlus}
@@ -50,7 +50,7 @@ const AiChatPage = () => {
             color: '#212120',
             marginLeft: -15,
           },
-          title: 'Chat',
+          title: 'New Chat',
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 20,
@@ -59,7 +59,34 @@ const AiChatPage = () => {
         name="Chat"
         component={ChatScreen}
       />
-      {/* <Drawer.Screen name="Menu" component={SidebarScreen} /> */}
+
+      <Drawer.Screen
+        name="History"
+        component={SidebarScreen}
+        options={{
+          drawerLabel: 'History',
+          drawerIcon: ({color, size}) => (
+            <FontAwesomeIcon
+              icon={faClock}
+              name="chatbubbles"
+              size={size}
+              color={'black'}
+            />
+          ),
+          drawerItemStyle: {
+            backgroundColor: '#ffff',
+          },
+          drawerLabelStyle: {
+            color: '#212120',
+            marginLeft: -15,
+          },
+          title: 'History',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 20,
+          },
+        }}
+      />
     </Drawer.Navigator>
   );
 };
