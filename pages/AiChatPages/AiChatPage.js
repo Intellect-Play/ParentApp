@@ -5,13 +5,10 @@ import {Text, View} from 'react-native';
 import CustomDrawer from '../../components/Drawer/CustomDrawer';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faPlus, faClock} from '@fortawesome/free-solid-svg-icons';
-const Drawer = createDrawerNavigator();
+import {mockData} from '../../mockdb/mockdb';
+import ChatScreen from './ChatScreen';
 
-const ChatScreen = () => (
-  <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <Text>AI Chat içerik burda</Text>
-  </View>
-);
+const Drawer = createDrawerNavigator();
 
 const SidebarScreen = () => (
   <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
