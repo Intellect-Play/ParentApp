@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 // import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
@@ -10,12 +11,17 @@ import {faSquareCheck} from '@fortawesome/free-solid-svg-icons/faSquareCheck';
 import {faMugSaucer} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
 import RegisterPage from './pages/RegisterPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
+// import GalacticNavigator from './pages/AiChatPages/GalacticNavigator';
 import MainPage from './pages/MainPage';
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+// import AiChatPage from './pages/AiChatPages/AiChatPage';
+import DrawerOnlyAi from './pages/AiChatPages/DrawerOnlyAi';
 
 library.add(fab, faSquareCheck, faMugSaucer);
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 function App(): React.JSX.Element {
   return (
@@ -66,9 +72,8 @@ function App(): React.JSX.Element {
             },
           }}
         />
-
         <Stack.Screen
-          name="MainPage"
+          name="AiChatPageWithDrawer"
           component={MainPage}
           options={{headerShown: false}}
         />

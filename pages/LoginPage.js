@@ -39,7 +39,9 @@ const LoginPage = () => {
           onPress={() => navigation.navigate('RegisterPage')}>
           Register
         </Text>
-        <Text onPress={() => navigation.replace('MainPage')}>Main Page</Text>
+        <Text onPress={() => navigation.replace('AiChatPageWithDrawer')}>
+          Main Page
+        </Text>
       </View>
       <View style={styles.centeredDiv}>
         <Text style={styles.textOr}>OR</Text>

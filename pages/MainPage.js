@@ -1,4 +1,3 @@
-import {Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AiChatPage from './AiChatPages/AiChatPage';
 import WelcomePage from './WelcomePage';
