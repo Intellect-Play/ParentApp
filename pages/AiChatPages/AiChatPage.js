@@ -23,7 +23,7 @@ const AiChatPage = () => {
   return (
     <Drawer.Navigator
       screenOptions={{
-        headerTitle: 'GalacticAi',
+        headerTitle: 'GalacticAI',
         headerTitleAlign: 'center',
         drawerStyle: {
           borderTopRightRadius: 30,
