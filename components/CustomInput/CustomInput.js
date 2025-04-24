@@ -55,8 +55,6 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#ddd',
     backgroundColor: '#f6f6f9',
     borderRadius: 8,
     paddingHorizontal: 12,
@@ -66,9 +64,11 @@ const styles = StyleSheet.create({
     height: 48,
     fontSize: 16,
     backgroundColor: '#f6f6f9',
+    borderWidth: 0,
   },
   iconButton: {
     padding: 8,
+    borderWidth: 0,
   },
 });
 
