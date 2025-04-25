@@ -11,13 +11,7 @@ export default function CustomDrawer(props) {
   return (
     <DrawerContentScrollView
       {...props}
-      contentContainerStyle={{
-        flex: 1,
-        borderTopRightRadius: 25,
-        borderBottomRightRadius: 25,
-        overflow: 'hidden',
-        backgroundColor: '#ffff',
-      }}>
+      contentContainerStyle={styles.drawerStyle}>
       <UserProfileContainer />
 
       <DrawerItemList {...props} />
@@ -25,4 +19,12 @@ export default function CustomDrawer(props) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  drawerStyle: {
+    flex: 1,
+    borderTopRightRadius: 25,
+    borderBottomRightRadius: 25,
+    overflow: 'hidden',
+    backgroundColor: '#fff',
+  },
+});
