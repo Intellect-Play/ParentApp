@@ -3,6 +3,7 @@ import AiChatPage from './AiChatPages/AiChatPage';
 import HomePage from './HomePage';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHome, faRobot} from '@fortawesome/free-solid-svg-icons';
+import AiStack from './AiChatPages/AiStack';
 const Tab = createBottomTabNavigator();
 
 const MainPage = () => {
@@ -20,7 +21,7 @@ const MainPage = () => {
       />
       <Tab.Screen
         name="Ai"
-        component={AiChatPage}
+        component={AiStack}
         options={{
           tabBarIcon: ({color, size}) => (
             <FontAwesomeIcon icon={faRobot} color={color} size={size} />

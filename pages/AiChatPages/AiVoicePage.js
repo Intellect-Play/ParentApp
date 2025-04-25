@@ -8,10 +8,8 @@ const AiVoicePage = () => {
       <View>
         <View style={[styles.shadow, styles.leftShadow]} />
 
-        {/* Sağ Gölge */}
         <View style={[styles.shadow, styles.rightShadow]} />
 
-        {/* Alt Gölge */}
         <View style={[styles.shadow, styles.bottomShadow]} />
         <LinearGradient
           colors={['#376deb', '#2951e6']}
@@ -26,6 +24,15 @@ const AiVoicePage = () => {
             <FontAwesomeIcon size={30} icon={faMicrophone} color="white" />
           </LinearGradient>
         </LinearGradient>
+      </View>
+      <View style={styles.secondMicMargin}>
+        <View style={styles.secondMicParentBorder}>
+          <View style={styles.secondMicSecondBorder}>
+            <View style={styles.secondMicCircle}>
+              <FontAwesomeIcon size={25} icon={faMicrophone} />
+            </View>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -94,5 +101,41 @@ const styles = StyleSheet.create({
     right: 0,
     marginLeft: 'auto',
     marginRight: 'auto',
+  },
+
+  secondMicMargin: {
+    marginTop: 100,
+  },
+
+  secondMicCircle: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 100,
+    width: 100,
+    borderRadius: 100,
+    backgroundColor: '#c7d6fd',
+  },
+
+  secondMicParentBorder: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 150,
+    width: 150,
+    borderWidth: 1,
+    borderRadius: 100,
+    borderColor: '#c8d7ff',
+  },
+
+  secondMicSecondBorder: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 120,
+    width: 120,
+    borderWidth: 1,
+    borderRadius: 100,
+    borderColor: '#90afff',
   },
 });

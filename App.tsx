@@ -85,6 +85,7 @@ function App(): React.JSX.Element {
               fontWeight: 'bold',
               color: 'black',
             },
+            presentation: 'modal',
           }}
         />
       </Stack.Navigator>
