@@ -34,17 +34,21 @@ const AiVoicePage = () => {
           </LinearGradient>
         </View>
       ) : (
-        <TouchableOpacity>
+        <TouchableOpacity style={styles.relative}>
           <Image
             source={require('../../assets/images/voiceChat/1_00000.png')}
-            style={styles.voiceImage}
+            style={[styles.voiceImage, styles.photoPosition]}
           />
         </TouchableOpacity>
       )}
 
       <TouchableOpacity onPress={toggleVoice}>
-        <View style={styles.secondMicMargin}>
-          <View style={styles.secondMicParentBorder}>
+        <View style={[styles.secondMicMargin, styles.relative]}>
+          <View
+            style={[
+              styles.secondMicParentBorder,
+              !isVoiceActive && styles.photoButtonPosition,
+            ]}>
             <View style={styles.secondMicSecondBorder}>
               <View style={styles.secondMicCircle}>
                 <FontAwesomeIcon size={25} icon={faMicrophone} />
@@ -67,7 +71,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
   },
-
+  relative: {
+    position: 'relative',
+  },
   circleMic: {
     display: 'flex',
     justifyContent: 'center',
@@ -103,6 +109,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 80,
     filter: 'blur(2px)',
+  },
+  photoButtonPosition: {
+    position: 'absolute',
+    top: -10,
+    right: -75,
+  },
+  photoPosition: {
+    position: 'absolute',
+    right: -200,
+    top: -300,
   },
   leftShadow: {
     backgroundColor: '#a976e1',
