@@ -1,11 +1,8 @@
 // AiChatPage.tsx
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {NavigationContainer} from '@react-navigation/native';
-import {Text, View} from 'react-native';
 import CustomDrawer from '../../components/Drawer/CustomDrawer';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faPlus, faClock} from '@fortawesome/free-solid-svg-icons';
-import {mockData} from '../../mockdb/mockdb';
 import ChatScreen from './ChatScreen';
 import HistoryPage from '../HistoryPage';
 
