@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
   },
   userMessageContainer: {
     alignSelf: 'flex-end',
-    backgroundColor: '#a0a9f7',
+    // backgroundColor: '#a0a9f7',
+    backgroundColor: '#c8ccf6',
     borderBottomRightRadius: 4,
   },
   aiMessageContainer: {

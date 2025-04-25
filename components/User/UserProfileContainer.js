@@ -9,8 +9,8 @@ const UserProfileContainer = () => {
         />
       </View>
       <View>
-        <Text>Farid</Text>
-        <Text>faridgalactic@gmail.com</Text>
+        <Text style={styles.userName}>Farid</Text>
+        <Text style={styles.userMail}>faridgalactic@gmail.com</Text>
       </View>
     </View>
   );
@@ -25,5 +25,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     gap: 25,
+    fontFamily: 'POPPINS',
+  },
+  userName: {
+    fontWeight: 'bold',
+    fontFamily: 'POPPINS',
+  },
+  userMail: {
+    color: '#747778',
   },
 });

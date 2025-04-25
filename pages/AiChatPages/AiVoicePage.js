@@ -13,7 +13,7 @@ const AiVoicePage = () => {
 
   return (
     <View style={styles.container}>
-      {isVoiceActive ? (
+      {!isVoiceActive ? (
         <View style={styles.topCircle}>
           <View style={[styles.shadow, styles.leftShadow]} />
 
@@ -48,7 +48,7 @@ const AiVoicePage = () => {
           <View
             style={[
               styles.secondMicParentBorder,
-              !isVoiceActive && styles.photoButtonPosition,
+              isVoiceActive && styles.photoButtonPosition,
             ]}>
             <View style={styles.secondMicSecondBorder}>
               <View style={styles.secondMicCircle}>
