@@ -11,6 +11,7 @@ import {faMugSaucer} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
 import RegisterPage from './pages/RegisterPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import MainPage from './pages/MainPage';
+import AiVoicePage from './pages/AiChatPages/AiVoicePage';
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
 
@@ -70,6 +71,21 @@ function App(): React.JSX.Element {
           name="AiChatPageWithDrawer"
           component={MainPage}
           options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="AiVoicePage"
+          component={AiVoicePage}
+          options={{
+            title: 'Voice AI',
+            headerTitleAlign: 'center',
+            headerTintColor: '#2260ff',
+            headerTitleStyle: {
+              fontFamily: 'POPPINS',
+              fontWeight: 'bold',
+              color: 'black',
+            },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

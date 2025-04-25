@@ -18,7 +18,9 @@ const ChatInput = () => {
             placeholderTextColor="#999"
           />
 
-          <TouchableOpacity style={styles.micButton}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('AiVoicePage')}
+            style={styles.micButton}>
             <FontAwesomeIcon icon={faMicrophone} size={24} color="black" />
           </TouchableOpacity>
         </View>
