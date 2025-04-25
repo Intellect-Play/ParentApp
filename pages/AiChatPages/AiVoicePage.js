@@ -1,39 +1,58 @@
-import {StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faMicrophone} from '@fortawesome/free-solid-svg-icons';
 import LinearGradient from 'react-native-linear-gradient';
+import {useState} from 'react';
 const AiVoicePage = () => {
+  const [isVoiceActive, setIsVoiceActive] = useState(false);
+
+  const toggleVoice = () => {
+    setIsVoiceActive(!isVoiceActive);
+  };
+
   return (
     <View style={styles.container}>
-      <View>
-        <View style={[styles.shadow, styles.leftShadow]} />
+      {isVoiceActive ? (
+        <View style={styles.topCircle}>
+          <View style={[styles.shadow, styles.leftShadow]} />
 
-        <View style={[styles.shadow, styles.rightShadow]} />
+          <View style={[styles.shadow, styles.rightShadow]} />
 
-        <View style={[styles.shadow, styles.bottomShadow]} />
-        <LinearGradient
-          colors={['#376deb', '#2951e6']}
-          style={styles.circleMic}
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 1}}>
+          <View style={[styles.shadow, styles.bottomShadow]} />
           <LinearGradient
-            style={styles.circleMicSec}
-            colors={['#7395fd', '#2352e8']}
+            colors={['#376deb', '#2951e6']}
+            style={styles.circleMic}
             start={{x: 0, y: 0}}
             end={{x: 1, y: 1}}>
-            <FontAwesomeIcon size={30} icon={faMicrophone} color="white" />
+            <LinearGradient
+              style={styles.circleMicSec}
+              colors={['#7395fd', '#2352e8']}
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 1}}>
+              <FontAwesomeIcon size={30} icon={faMicrophone} color="white" />
+            </LinearGradient>
           </LinearGradient>
-        </LinearGradient>
-      </View>
-      <View style={styles.secondMicMargin}>
-        <View style={styles.secondMicParentBorder}>
-          <View style={styles.secondMicSecondBorder}>
-            <View style={styles.secondMicCircle}>
-              <FontAwesomeIcon size={25} icon={faMicrophone} />
+        </View>
+      ) : (
+        <TouchableOpacity>
+          <Image
+            source={require('../../assets/images/voiceChat/1_00000.png')}
+            style={styles.voiceImage}
+          />
+        </TouchableOpacity>
+      )}
+
+      <TouchableOpacity onPress={toggleVoice}>
+        <View style={styles.secondMicMargin}>
+          <View style={styles.secondMicParentBorder}>
+            <View style={styles.secondMicSecondBorder}>
+              <View style={styles.secondMicCircle}>
+                <FontAwesomeIcon size={25} icon={faMicrophone} />
+              </View>
             </View>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -48,6 +67,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
   },
+
   circleMic: {
     display: 'flex',
     justifyContent: 'center',
@@ -107,6 +127,10 @@ const styles = StyleSheet.create({
     marginTop: 100,
   },
 
+  secondMicMarginPhoto: {
+    marginTop: 100,
+  },
+
   secondMicCircle: {
     display: 'flex',
     justifyContent: 'center',
@@ -137,5 +161,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 100,
     borderColor: '#90afff',
+  },
+  voiceImage: {
+    width: 400,
+    height: 400,
+    borderRadius: 65,
   },
 });
