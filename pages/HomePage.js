@@ -1,18 +1,21 @@
-import {Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 const HomePage = () => {
   return (
-    <View
-      style={{
-        display: 'flex',
-        width: '100%',
-        height: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
+    <View style={styles.container}>
       <Text>BOS BIR SEHIFE</Text>
     </View>
   );
 };
 
 export default HomePage;
+
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
