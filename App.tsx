@@ -20,76 +20,78 @@ const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="WelcomePage">
-        <Stack.Screen
-          name="WelcomePage"
-          component={WelcomePage}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="LoginPage"
-          component={LoginPage}
-          options={{
-            title: 'Log In',
-            headerTitleAlign: 'center',
-            headerTintColor: '#2260ff',
-            headerTitleStyle: {
-              fontFamily: 'POPPINS',
-              fontWeight: 'bold',
-            },
-          }}
-        />
-        <Stack.Screen
-          name="RegisterPage"
-          component={RegisterPage}
-          options={{
-            title: 'New Account',
-            headerTitleAlign: 'center',
-            headerTintColor: '#2260ff',
-            headerTitleStyle: {
-              fontFamily: 'POPPINS',
-              fontWeight: 'bold',
-            },
-          }}
-        />
+    <>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="WelcomePage">
+          <Stack.Screen
+            name="WelcomePage"
+            component={WelcomePage}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="LoginPage"
+            component={LoginPage}
+            options={{
+              title: 'Log In',
+              headerTitleAlign: 'center',
+              headerTintColor: '#2260ff',
+              headerTitleStyle: {
+                fontFamily: 'POPPINS',
+                fontWeight: 'bold',
+              },
+            }}
+          />
+          <Stack.Screen
+            name="RegisterPage"
+            component={RegisterPage}
+            options={{
+              title: 'New Account',
+              headerTitleAlign: 'center',
+              headerTintColor: '#2260ff',
+              headerTitleStyle: {
+                fontFamily: 'POPPINS',
+                fontWeight: 'bold',
+              },
+            }}
+          />
 
-        <Stack.Screen
-          name="ResetPassword"
-          component={ResetPasswordPage}
-          options={{
-            title: 'Reset Password',
-            headerTitleAlign: 'center',
-            headerTintColor: '#2260ff',
-            headerTitleStyle: {
-              fontFamily: 'POPPINS',
-              fontWeight: 'bold',
-            },
-          }}
-        />
-        <Stack.Screen
-          name="AiChatPageWithDrawer"
-          component={MainPage}
-          options={{headerShown: false}}
-        />
+          <Stack.Screen
+            name="ResetPassword"
+            component={ResetPasswordPage}
+            options={{
+              title: 'Reset Password',
+              headerTitleAlign: 'center',
+              headerTintColor: '#2260ff',
+              headerTitleStyle: {
+                fontFamily: 'POPPINS',
+                fontWeight: 'bold',
+              },
+            }}
+          />
+          <Stack.Screen
+            name="AiChatPageWithDrawer"
+            component={MainPage}
+            options={{headerShown: false}}
+          />
 
-        <Stack.Screen
-          name="AiVoicePage"
-          component={AiVoicePage}
-          options={{
-            title: 'Voice AI',
-            headerTitleAlign: 'center',
-            headerTintColor: '#2260ff',
-            headerTitleStyle: {
-              fontFamily: 'POPPINS',
-              fontWeight: 'bold',
-              color: 'black',
-            },
-            presentation: 'modal',
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+          <Stack.Screen
+            name="AiVoicePage"
+            component={AiVoicePage}
+            options={{
+              title: 'Voice AI',
+              headerTitleAlign: 'center',
+              headerTintColor: '#2260ff',
+              headerTitleStyle: {
+                fontFamily: 'POPPINS',
+                fontWeight: 'bold',
+                color: 'black',
+              },
+              presentation: 'modal',
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 
