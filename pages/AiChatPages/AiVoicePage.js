@@ -3,6 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faMicrophone} from '@fortawesome/free-solid-svg-icons';
 import LinearGradient from 'react-native-linear-gradient';
 import {useState} from 'react';
+
 const AiVoicePage = () => {
   const [isVoiceActive, setIsVoiceActive] = useState(false);
 
