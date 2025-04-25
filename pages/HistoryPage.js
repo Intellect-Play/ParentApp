@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faMessage, faClock} from '@fortawesome/free-solid-svg-icons';
 import {truncateText} from '../utils/TruncateText';
 const HistoryPage = () => {
-  // Mesajları [soru, cevap] çiftleri halinde grupla
+  // Group messages as question and answer
   const groupedMessages = [];
   for (let i = 0; i < mockData.data.length; i += 2) {
     if (i + 1 < mockData.data.length) {
@@ -25,17 +25,14 @@ const HistoryPage = () => {
           <View style={styles.underline} />
         </View>
 
-        {/* Gruplanmış Mesajlar */}
+        {/* Grouped Messages */}
         {groupedMessages.map((pair, index) => (
           <View key={index} style={styles.messagePairContainer}>
-            {/* Yorum Emojisi - SOLDA */}
             <View style={styles.commentIconCircle}>
               <FontAwesomeIcon icon={faMessage} size={20} color="#666" />
             </View>
 
-            {/* Soru-Cevap Çifti - SAĞDA */}
             <View style={styles.messagesColumn}>
-              {/* User Sorusu */}
               <View
                 style={[styles.messageContainer, styles.userMessageContainer]}>
                 <Text style={[styles.messageText, styles.userMessageColor]}>
@@ -120,8 +117,8 @@ const styles = StyleSheet.create({
   commentIconCircle: {
     width: 50,
     height: 50,
-    borderRadius: 30, // Tam yuvarlak yapar
-    backgroundColor: '#f0f0f0', // Açık gri arkaplan
+    borderRadius: 30,
+    backgroundColor: '#f0f0f0',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 10,

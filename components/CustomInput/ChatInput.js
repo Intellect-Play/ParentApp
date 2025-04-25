@@ -3,8 +3,11 @@ import React from 'react';
 import {View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 import {faMicrophone, faPaperPlane} from '@fortawesome/free-solid-svg-icons';
 import LinearGradient from 'react-native-linear-gradient';
+import {useNavigation} from '@react-navigation/native';
 
 const ChatInput = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.inputAndMicContainer}>
