@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 
 const CustomInput = ({label, placeholder, isPassword = false, ...props}) => {
