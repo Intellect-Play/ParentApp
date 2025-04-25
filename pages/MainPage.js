@@ -1,5 +1,4 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import AiChatPage from './AiChatPages/AiChatPage';
 import HomePage from './HomePage';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHome, faRobot} from '@fortawesome/free-solid-svg-icons';
@@ -16,7 +15,7 @@ const MainPage = () => {
           tabBarIcon: ({color, size}) => (
             <FontAwesomeIcon icon={faHome} color={color} size={size} />
           ),
-          tabBarLabel: 'Home', // Opsiyonel: Label'ı özelleştirme
+          tabBarLabel: 'Home',
         }}
       />
       <Tab.Screen
