@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 const HomePage = () => {
   return (
     <View style={styles.container}>
-      <Text>BOS BIR SEHIFE</Text>
+      <Text>COMING SOON...</Text>
     </View>
   );
 };
