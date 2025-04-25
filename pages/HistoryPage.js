@@ -2,7 +2,7 @@ import React from 'react';
 import {View, ScrollView, Text, StyleSheet} from 'react-native';
 import {mockData} from '../mockdb/mockdb';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faMessage, faClock} from '@fortawesome/free-solid-svg-icons';
+import {faMessage} from '@fortawesome/free-solid-svg-icons';
 import {truncateText} from '../utils/TruncateText';
 const HistoryPage = () => {
   // Group messages as question and answer
