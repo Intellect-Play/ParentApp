@@ -1,6 +1,4 @@
-// CustomDrawer.tsx
-
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   DrawerContentScrollView,
   DrawerItemList,
