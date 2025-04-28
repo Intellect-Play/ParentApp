@@ -1,28 +1,33 @@
 import {faCrown} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {Text, View, StyleSheet, Image} from 'react-native';
-import {useSelector} from 'react-redux';
-
+import {useDispatch, useSelector} from 'react-redux';
+import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
+import {
+  endGame,
+  resetGame,
+} from '../../../src/redux/games/colorGuess/colorGuessSlice';
+import {useNavigation} from '@react-navigation/native';
 const WinColorGuessPage = ({route}) => {
   const {winner} = route.params;
   const scores = useSelector(state => state.colorGuess.scores);
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   // Skorları yüksekten düşüğe sırala
   const sortedPlayers = Object.entries(scores).sort((a, b) => b[1] - a[1]);
 
-  const topThree = sortedPlayers.slice(0, 3);
   const others = sortedPlayers.slice(3);
 
-  const first = sortedPlayers[0]; // Kazanan
+  const first = sortedPlayers[0];
   const second = sortedPlayers[1];
   const third = sortedPlayers[2];
 
   // İlk 3 sıralamasını ortalama için ayarla (Ortadaki kazanan olacak)
-  const customOrder = [1, 0, 2];
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.leaderboardTitle, styles.font]}>Leaderboard</Text>
+      <Text style={styles.leaderboardTitle}>Leaderboard</Text>
 
       {/* İlk 3 kişi */}
       <View style={styles.topThreeContainer}>
@@ -92,6 +97,26 @@ const WinColorGuessPage = ({route}) => {
           </View>
         ))}
       </View>
+
+      <View style={styles.buttonContainer}>
+        <ColorGuessButton
+          backgroundColor="#5df9f6"
+          width={300}
+          title="Next Round"
+          onPress={() => {
+            dispatch(resetGame());
+            navigation.navigate('EnterNumberOfPlayersColorGuess');
+          }}
+        />
+        <ColorGuessButton
+          width={300}
+          title="Finish Game"
+          onPress={() => {
+            dispatch(resetGame());
+            navigation.navigate('GuessColorPage');
+          }}
+        />
+      </View>
     </View>
   );
 };
@@ -114,15 +139,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   leaderboardTitle: {
-    fontSize: 24,
+    fontFamily: 'LuckiestGuy-Regular',
+    fontSize: 34,
     color: '#fff',
     fontWeight: 'bold',
     marginBottom: 40,
-    fontFamily: 'LuckiestGuy-Regular',
+    textAlign: 'center',
+    textTransform: 'uppercase',
   },
-  font: {
-    fontFamily: 'LuckiestGuy-Regular',
-  },
+
   topThreeContainer: {
     flexDirection: 'row',
     // alignItems: 'flex-end',
@@ -237,5 +262,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#5df9f6',
     height: 22,
     width: 22,
+  },
+  buttonContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 15,
+    marginTop: 20,
   },
 });
