@@ -8,7 +8,16 @@ import {
   nextPlayer,
 } from '../../../src/redux/games/colorGuess/colorGuessSlice';
 import {useNavigation} from '@react-navigation/native';
-const colors = ['Red', 'Green', 'Blue', 'Yellow', 'Orange', 'Purple'];
+const colors = ['White', 'Purple', 'Green', 'Yellow', 'Orange', 'Blue'];
+
+const colorMap = {
+  White: '#ebece9',
+  Purple: '#8e36d1',
+  Green: '#47d031',
+  Yellow: '#ffcd00',
+  Orange: '#ff8400',
+  Blue: '#0cd0da',
+};
 
 const GuessWordsPage = () => {
   const navigation = useNavigation();
@@ -65,13 +74,30 @@ const GuessWordsPage = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.timer}>Time left: {timeLeft}s</Text>
-      <Text style={styles.player}>
-        {currentPlayer}'s turn - Score: {scores[currentPlayer]}
-      </Text>
+      <Text style={styles.pageTitleHeading}>Guess</Text>
+      <Text style={styles.pageTitleHeading2}>2 words</Text>
 
-      <Text style={styles.pageTitleHeading}>Say something</Text>
-      <Text style={styles.pageTitleHeading2}>{currentColor}</Text>
+      <View style={styles.forBorder}>
+        <View
+          style={[
+            styles.colorCircle,
+            {backgroundColor: colorMap[currentColor] || '#000'},
+          ]}
+        />
+      </View>
+
+      <View style={styles.textCenter}>
+        <Text style={[styles.player, styles.textCenter]}>
+          {currentPlayer}'s turn
+        </Text>
+        <Text style={[styles.textCenter, styles.scoreText]}>
+          {' '}
+          Score: {scores[currentPlayer]}
+        </Text>
+        <Text style={[styles.timer, styles.textCenter]}>
+          in {timeLeft} seconds
+        </Text>
+      </View>
 
       <View style={styles.buttonContainer}>
         <ColorGuessButton
@@ -101,13 +127,13 @@ const styles = StyleSheet.create({
   },
   timer: {
     color: '#fff',
-    fontSize: 20,
-    marginBottom: 10,
+    fontSize: 16,
+    marginTop: 2,
   },
   player: {
+    fontSize: 35,
     color: '#fff',
-    fontSize: 18,
-    marginBottom: 30,
+    fontWeight: 'bold',
   },
   pageTitleHeading: {
     fontWeight: 'medium',
@@ -128,5 +154,30 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
     marginTop: 40,
+  },
+  colorCircle: {
+    width: 250,
+    height: 250,
+    borderRadius: 200,
+    backgroundColor: '#000',
+    marginVertical: 20,
+    borderWidth: 7,
+    borderColor: '#fff',
+  },
+  forBorder: {
+    width: 270, // dış çember biraz büyük olmalı
+    height: 270,
+    borderRadius: 150,
+    borderWidth: 10,
+    borderColor: '#b7bde2', // dış çember rengi
+    alignItems: 'center', // ORTALA
+    justifyContent: 'center', // ORTALA
+    marginVertical: 20,
+  },
+  scoreText: {
+    color: '#ffff',
+  },
+  textCenter: {
+    textAlign: 'center',
   },
 });
