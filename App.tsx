@@ -15,6 +15,7 @@ import AiVoicePage from './pages/AiChatPages/AiVoicePage';
 import GuessColorPage from './pages/MiniGames/GuessColor/GuessColorPage';
 import {Provider} from 'react-redux';
 import store from './src/redux/store';
+import EnterNumberOfPlayersColorGuess from './pages/MiniGames/GuessColor/EnterNumberOfPlayersColorGuess';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -101,6 +102,16 @@ function App(): React.JSX.Element {
               options={{
                 title: '',
 
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="EnterNumberOfPlayersColorGuess"
+              component={EnterNumberOfPlayersColorGuess}
+              options={{
+                title: '',
                 headerShown: false,
                 presentation: 'modal',
               }}

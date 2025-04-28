@@ -1,8 +1,11 @@
 import {Image, StyleSheet, View} from 'react-native';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
+import {useNavigation} from '@react-navigation/native';
 
 // imperson
 const GuessColorPage = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.mainScreen}>
       <View style={styles.centeredItems}>
@@ -20,6 +23,9 @@ const GuessColorPage = () => {
             backgroundColor="#fff"
             textColor="#333"
             borderRadius={20}
+            onPress={() => {
+              navigation.navigate('EnterNumberOfPlayersColorGuess');
+            }}
           />
 
           <ColorGuessButton
