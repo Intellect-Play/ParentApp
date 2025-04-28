@@ -19,6 +19,7 @@ import EnterNumberOfPlayersColorGuess from './pages/MiniGames/GuessColor/EnterNu
 import PlayerNames from './pages/MiniGames/GuessColor/PlayerNames';
 import DifficultyPage from './pages/MiniGames/GuessColor/DifficultyPage';
 import GuessWordsPage from './pages/MiniGames/GuessColor/GuessWordsPage';
+import WinColorGuessPage from './pages/MiniGames/GuessColor/WinColorGuessPage';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -144,6 +145,16 @@ function App(): React.JSX.Element {
             <Stack.Screen
               name="GuessWordsPage"
               component={GuessWordsPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="WinColorGuessPage"
+              component={WinColorGuessPage}
               options={{
                 title: '',
                 headerShown: false,
