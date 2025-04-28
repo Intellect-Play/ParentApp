@@ -1,4 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {
+  EASY_MODE,
+  HARD_MODE,
+  MEDIUM_MODE,
+} from '../../../../gameSettings/ColorGuess/settings';
 
 const initialState = {
   numberOfPlayers: 0,
@@ -27,13 +32,13 @@ const colorGuessSlice = createSlice({
       state.difficulty = action.payload;
       switch (action.payload) {
         case 'easy':
-          state.timePerRound = 15;
+          state.timePerRound = EASY_MODE;
           break;
         case 'medium':
-          state.timePerRound = 10;
+          state.timePerRound = MEDIUM_MODE;
           break;
         case 'hard':
-          state.timePerRound = 5;
+          state.timePerRound = HARD_MODE;
           break;
       }
     },
