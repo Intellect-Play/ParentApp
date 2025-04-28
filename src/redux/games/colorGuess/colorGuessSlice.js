@@ -25,8 +25,21 @@ const colorGuessSlice = createSlice({
       state.numberOfPlayers = action.payload;
     },
     setPlayerNames: (state, action) => {
-      state.playerNames = action.payload;
-      state.scores = Object.fromEntries(action.payload.map(name => [name, 0]));
+      const uniqueNames = [];
+      const nameCounts = {};
+
+      action.payload.forEach(name => {
+        if (nameCounts[name]) {
+          nameCounts[name] += 1;
+          uniqueNames.push(`${name} (${nameCounts[name]})`);
+        } else {
+          nameCounts[name] = 1;
+          uniqueNames.push(name);
+        }
+      });
+
+      state.playerNames = uniqueNames;
+      state.scores = Object.fromEntries(uniqueNames.map(name => [name, 0]));
     },
     setDifficulty: (state, action) => {
       state.difficulty = action.payload;

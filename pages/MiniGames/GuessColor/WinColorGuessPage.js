@@ -1,24 +1,12 @@
-import {useFocusEffect} from '@react-navigation/native';
-import {useCallback} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {resetGame} from '../../../src/redux/games/colorGuess/colorGuessSlice';
+import {useSelector} from 'react-redux';
 
 const WinColorGuessPage = ({route}) => {
   const {winner} = route.params;
   const scores = useSelector(state => state.colorGuess.scores);
-  const dispatch = useDispatch();
 
   // Skorları yüksekten düşüğe sırala
   const sortedPlayers = Object.entries(scores).sort((a, b) => b[1] - a[1]);
-
-  useFocusEffect(
-    useCallback(() => {
-      return () => {
-        dispatch(resetGame());
-      };
-    }, [dispatch]),
-  );
 
   return (
     <View style={styles.container}>

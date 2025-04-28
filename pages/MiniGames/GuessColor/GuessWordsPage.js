@@ -87,16 +87,22 @@ const GuessWordsPage = () => {
       </View>
 
       <View style={styles.textCenter}>
-        <Text style={[styles.player, styles.textCenter]}>
-          {currentPlayer}'s turn
-        </Text>
-        <Text style={[styles.textCenter, styles.scoreText]}>
-          {' '}
-          Score: {scores[currentPlayer]}
-        </Text>
-        <Text style={[styles.timer, styles.textCenter]}>
-          in {timeLeft} seconds
-        </Text>
+        {currentPlayer ? (
+          <>
+            <Text style={[styles.player, styles.textCenter]}>
+              {currentPlayer}'s turn
+            </Text>
+            <Text style={[styles.textCenter, styles.scoreText]}>
+              {' '}
+              Score: {scores[currentPlayer]}
+            </Text>
+            <Text style={[styles.timer, styles.textCenter]}>
+              in {timeLeft} seconds
+            </Text>
+          </>
+        ) : (
+          <Text style={styles.player}>Waiting...</Text>
+        )}
       </View>
 
       <View style={styles.buttonContainer}>
