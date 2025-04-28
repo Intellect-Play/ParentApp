@@ -35,6 +35,9 @@ const GuessColorPage = () => {
             backgroundColor="#fff"
             textColor="#333"
             borderRadius={20}
+            onPress={() => {
+              navigation.navigate('Home');
+            }}
           />
         </View>
       </View>

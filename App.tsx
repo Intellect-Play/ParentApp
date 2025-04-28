@@ -97,6 +97,7 @@ function App(): React.JSX.Element {
               }}
             />
 
+            {/* GUESS COLOR GAME */}
             <Stack.Screen
               name="GuessColorPage"
               component={GuessColorPage}
