@@ -1,10 +1,20 @@
 import {StyleSheet, Text, View} from 'react-native';
+import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 
 const GuessWordsPage = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.pageTitleHeading}>Guess</Text>
       <Text style={styles.pageTitleHeading2}>2 words</Text>
+
+      <View style={styles.buttonContainer}>
+        <ColorGuessButton width={150} title="Got it wrong" />
+        <ColorGuessButton
+          width={150}
+          backgroundColor="#5df9f6"
+          title="Got it right"
+        />
+      </View>
     </View>
   );
 };
@@ -33,5 +43,10 @@ const styles = StyleSheet.create({
     fontFamily: 'LuckiestGuy-Regular',
     textAlign: 'center',
     textTransform: 'uppercase',
+  },
+  buttonContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 10,
   },
 });
