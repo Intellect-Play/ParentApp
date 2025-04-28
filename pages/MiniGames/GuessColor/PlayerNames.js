@@ -52,7 +52,13 @@ const PlayerNames = () => {
             textColor="#333"
             borderRadius={20}
             onPress={() => {
-              const hasEmpty = playerNames.some(name => name.trim() === '');
+              const hasEmpty = Array.from({length: numberOfPlayers}).some(
+                (_, index) => {
+                  const name = playerNames[index];
+                  return !name || name.trim() === '';
+                },
+              );
+
               if (hasEmpty) {
                 setError('Please fill in all player names');
                 return;

@@ -30,9 +30,8 @@ const EnterNumberOfPlayersColorGuess = () => {
           const isSelected = num === selected;
 
           return (
-            <View style={styles.centeredDiv}>
+            <View key={num} style={styles.centeredDiv}>
               <TouchableOpacity
-                key={num}
                 style={[
                   styles.item,
                   {
