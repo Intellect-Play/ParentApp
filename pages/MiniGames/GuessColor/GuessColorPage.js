@@ -1,6 +1,7 @@
 import {Image, StyleSheet, View} from 'react-native';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 
+// imperson
 const GuessColorPage = () => {
   return (
     <View style={styles.mainScreen}>
