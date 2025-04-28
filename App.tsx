@@ -18,6 +18,7 @@ import store from './src/redux/store';
 import EnterNumberOfPlayersColorGuess from './pages/MiniGames/GuessColor/EnterNumberOfPlayersColorGuess';
 import PlayerNames from './pages/MiniGames/GuessColor/PlayerNames';
 import DifficultyPage from './pages/MiniGames/GuessColor/DifficultyPage';
+import GuessWordsPage from './pages/MiniGames/GuessColor/GuessWordsPage';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -133,6 +134,16 @@ function App(): React.JSX.Element {
             <Stack.Screen
               name="DifficultyColorGuessPage"
               component={DifficultyPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="GuessWordsPage"
+              component={GuessWordsPage}
               options={{
                 title: '',
                 headerShown: false,

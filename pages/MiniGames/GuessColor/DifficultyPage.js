@@ -47,7 +47,7 @@ const DifficultyPage = () => {
           backgroundColor="#5df9f6"
           textColor="#333"
           borderRadius={20}
-          onPress={() => navigation.navigate('PlayerColorGuessNames')}
+          onPress={() => navigation.navigate('GuessWordsPage')}
         />
       </View>
     </View>
