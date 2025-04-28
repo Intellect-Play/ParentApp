@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   messagesContent: {
     padding: 10,
-    paddingBottom: 70, // Input yüksekliği kadar alt boşluk
+    paddingBottom: 70,
   },
   messageContainer: {
     maxWidth: '80%',

@@ -1,9 +1,18 @@
+import {useNavigation} from '@react-navigation/native';
 import {StyleSheet, Text, View} from 'react-native';
 
+// Luckiest guys
+
 const HomePage = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Text>COMING SOON...</Text>
+
+      <Text onPress={() => navigation.navigate('GuessColorPage')}>
+        Color guess
+      </Text>
     </View>
   );
 };

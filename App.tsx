@@ -12,6 +12,7 @@ import RegisterPage from './pages/RegisterPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import MainPage from './pages/MainPage';
 import AiVoicePage from './pages/AiChatPages/AiVoicePage';
+import GuessColorPage from './pages/MiniGames/GuessColor/GuessColorPage';
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
 
@@ -86,6 +87,17 @@ function App(): React.JSX.Element {
                 fontWeight: 'bold',
                 color: 'black',
               },
+              presentation: 'modal',
+            }}
+          />
+
+          <Stack.Screen
+            name="GuessColorPage"
+            component={GuessColorPage}
+            options={{
+              title: '',
+
+              headerShown: false,
               presentation: 'modal',
             }}
           />
