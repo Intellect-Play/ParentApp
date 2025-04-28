@@ -2,10 +2,13 @@ import {StyleSheet, Text, View} from 'react-native';
 import DifficultyOptionButton from '../../../components/miniGames/ColorGuess/DifficultyOptionButton';
 import {setDifficulty} from '../../../src/redux/games/colorGuess/colorGuessSlice';
 import {useDispatch, useSelector} from 'react-redux';
+import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
+import {useNavigation} from '@react-navigation/native';
 
 const DifficultyPage = () => {
   const dispatch = useDispatch();
   const selectedDifficulty = useSelector(state => state.colorGuess.difficulty);
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -35,6 +38,18 @@ const DifficultyPage = () => {
         secondsColor="red"
         onPress={() => dispatch(setDifficulty('hard'))}
       />
+
+      <View style={styles.buttonContainer}>
+        <ColorGuessButton
+          title="Next"
+          width={350}
+          height={60}
+          backgroundColor="#5df9f6"
+          textColor="#333"
+          borderRadius={20}
+          onPress={() => navigation.navigate('PlayerColorGuessNames')}
+        />
+      </View>
     </View>
   );
 };
@@ -62,5 +77,8 @@ const styles = StyleSheet.create({
     fontFamily: 'LuckiestGuy-Regular',
     textAlign: 'center',
     textTransform: 'uppercase',
+  },
+  buttonContainer: {
+    marginTop: 30,
   },
 });
