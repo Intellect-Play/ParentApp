@@ -1,3 +1,5 @@
+import {faCrown} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import {useSelector} from 'react-redux';
 
@@ -21,7 +23,6 @@ const WinColorGuessPage = ({route}) => {
   return (
     <View style={styles.container}>
       <Text style={[styles.leaderboardTitle, styles.font]}>Leaderboard</Text>
-      <Text style={styles.winnerText}>🎉 {winner} Wins! 🎉</Text>
 
       {/* İlk 3 kişi */}
       <View style={styles.topThreeContainer}>
@@ -54,6 +55,9 @@ const WinColorGuessPage = ({route}) => {
               <Text style={styles.avatarScore}>{first[1]} pts</Text>
               <View style={styles.firstPlayerCircle}>
                 <Text>1</Text>
+              </View>
+              <View style={styles.firstPlayerCrown}>
+                <FontAwesomeIcon icon={faCrown} size={30} color="#5df9f6" />
               </View>
             </View>
           </View>
@@ -111,9 +115,10 @@ const styles = StyleSheet.create({
   },
   leaderboardTitle: {
     fontSize: 24,
-    color: '#5df9f6',
+    color: '#fff',
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 40,
+    fontFamily: 'LuckiestGuy-Regular',
   },
   font: {
     fontFamily: 'LuckiestGuy-Regular',
@@ -201,6 +206,10 @@ const styles = StyleSheet.create({
   },
   relative: {
     position: 'relative',
+  },
+  firstPlayerCrown: {
+    position: 'absolute',
+    top: -30,
   },
   firstPlayerCircle: {
     position: 'absolute',
