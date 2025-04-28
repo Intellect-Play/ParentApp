@@ -13,6 +13,9 @@ import ResetPasswordPage from './pages/ResetPasswordPage';
 import MainPage from './pages/MainPage';
 import AiVoicePage from './pages/AiChatPages/AiVoicePage';
 import GuessColorPage from './pages/MiniGames/GuessColor/GuessColorPage';
+import {Provider} from 'react-redux';
+import store from './src/redux/store';
+
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
 
@@ -22,87 +25,89 @@ const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
   return (
     <>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="WelcomePage">
-          <Stack.Screen
-            name="WelcomePage"
-            component={WelcomePage}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="LoginPage"
-            component={LoginPage}
-            options={{
-              title: 'Log In',
-              headerTitleAlign: 'center',
-              headerTintColor: '#2260ff',
-              headerTitleStyle: {
-                fontFamily: 'POPPINS',
-                fontWeight: 'bold',
-              },
-            }}
-          />
-          <Stack.Screen
-            name="RegisterPage"
-            component={RegisterPage}
-            options={{
-              title: 'New Account',
-              headerTitleAlign: 'center',
-              headerTintColor: '#2260ff',
-              headerTitleStyle: {
-                fontFamily: 'POPPINS',
-                fontWeight: 'bold',
-              },
-            }}
-          />
+      <Provider store={store}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="WelcomePage">
+            <Stack.Screen
+              name="WelcomePage"
+              component={WelcomePage}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="LoginPage"
+              component={LoginPage}
+              options={{
+                title: 'Log In',
+                headerTitleAlign: 'center',
+                headerTintColor: '#2260ff',
+                headerTitleStyle: {
+                  fontFamily: 'POPPINS',
+                  fontWeight: 'bold',
+                },
+              }}
+            />
+            <Stack.Screen
+              name="RegisterPage"
+              component={RegisterPage}
+              options={{
+                title: 'New Account',
+                headerTitleAlign: 'center',
+                headerTintColor: '#2260ff',
+                headerTitleStyle: {
+                  fontFamily: 'POPPINS',
+                  fontWeight: 'bold',
+                },
+              }}
+            />
 
-          <Stack.Screen
-            name="ResetPassword"
-            component={ResetPasswordPage}
-            options={{
-              title: 'Reset Password',
-              headerTitleAlign: 'center',
-              headerTintColor: '#2260ff',
-              headerTitleStyle: {
-                fontFamily: 'POPPINS',
-                fontWeight: 'bold',
-              },
-            }}
-          />
-          <Stack.Screen
-            name="AiChatPageWithDrawer"
-            component={MainPage}
-            options={{headerShown: false}}
-          />
+            <Stack.Screen
+              name="ResetPassword"
+              component={ResetPasswordPage}
+              options={{
+                title: 'Reset Password',
+                headerTitleAlign: 'center',
+                headerTintColor: '#2260ff',
+                headerTitleStyle: {
+                  fontFamily: 'POPPINS',
+                  fontWeight: 'bold',
+                },
+              }}
+            />
+            <Stack.Screen
+              name="AiChatPageWithDrawer"
+              component={MainPage}
+              options={{headerShown: false}}
+            />
 
-          <Stack.Screen
-            name="AiVoicePage"
-            component={AiVoicePage}
-            options={{
-              title: 'Voice AI',
-              headerTitleAlign: 'center',
-              headerTintColor: '#2260ff',
-              headerTitleStyle: {
-                fontFamily: 'POPPINS',
-                fontWeight: 'bold',
-                color: 'black',
-              },
-              presentation: 'modal',
-            }}
-          />
+            <Stack.Screen
+              name="AiVoicePage"
+              component={AiVoicePage}
+              options={{
+                title: 'Voice AI',
+                headerTitleAlign: 'center',
+                headerTintColor: '#2260ff',
+                headerTitleStyle: {
+                  fontFamily: 'POPPINS',
+                  fontWeight: 'bold',
+                  color: 'black',
+                },
+                presentation: 'modal',
+              }}
+            />
 
-          <Stack.Screen
-            name="GuessColorPage"
-            component={GuessColorPage}
-            options={{
-              title: '',
+            <Stack.Screen
+              name="GuessColorPage"
+              component={GuessColorPage}
+              options={{
+                title: '',
 
-              headerShown: false,
-              presentation: 'modal',
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
     </>
   );
 }
