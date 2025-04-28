@@ -27,42 +27,51 @@ const WinColorGuessPage = ({route}) => {
       <View style={styles.topThreeContainer}>
         {/* Solda 2. olan */}
         {second && (
-          <View style={styles.smallAvatarContainer}>
+          <View style={[styles.smallAvatarContainer, styles.relative]}>
             <View style={styles.avatarContainer}>
               <Image
                 source={require('../../../assets/images/avatar/avatar_default.png')}
-                style={styles.avatarOther}
+                style={[styles.avatarOther, styles.avatarBorder]}
               />
               <Text style={styles.avatarName}>{second[0]}</Text>
               <Text style={styles.avatarScore}>{second[1]} pts</Text>
+              <View style={styles.horizontalPlayerCircle}>
+                <Text>2</Text>
+              </View>
             </View>
           </View>
         )}
 
         {/* Ortada 1. olan (kazanan) */}
         {first && (
-          <View style={styles.bigAvatarContainer}>
+          <View style={[styles.bigAvatarContainer, styles.relative]}>
             <View style={styles.avatarContainer}>
               <Image
                 source={require('../../../assets/images/avatar/avatar_default.png')}
-                style={styles.avatarFirst}
+                style={[styles.avatarFirst, styles.avatarBorder]}
               />
               <Text style={styles.avatarName}>{first[0]}</Text>
               <Text style={styles.avatarScore}>{first[1]} pts</Text>
+              <View style={styles.firstPlayerCircle}>
+                <Text>1</Text>
+              </View>
             </View>
           </View>
         )}
 
         {/* Sağda 3. olan */}
         {third && (
-          <View style={styles.smallAvatarContainer}>
+          <View style={[styles.smallAvatarContainer, styles.relative]}>
             <View style={styles.avatarContainer}>
               <Image
                 source={require('../../../assets/images/avatar/avatar_default.png')}
-                style={styles.avatarOther}
+                style={[styles.avatarOther, styles.avatarBorder]}
               />
               <Text style={styles.avatarName}>{third[0]}</Text>
               <Text style={styles.avatarScore}>{third[1]} pts</Text>
+              <View style={styles.horizontalPlayerCircle}>
+                <Text>3</Text>
+              </View>
             </View>
           </View>
         )}
@@ -185,7 +194,39 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 90,
   },
-  //   sidePlayer: {
-  //     marginBottom: 40, // Yanlardakiler yukarıda kalacak
-  //   },
+  avatarBorder: {
+    borderWidth: 3,
+    borderRadius: 100,
+    borderColor: '#5df9f6',
+  },
+  relative: {
+    position: 'relative',
+  },
+  firstPlayerCircle: {
+    position: 'absolute',
+    display: 'flex',
+    bottom: 32,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: '#5df9f6',
+    backgroundColor: '#5df9f6',
+    height: 22,
+    width: 22,
+  },
+
+  horizontalPlayerCircle: {
+    position: 'absolute',
+    display: 'flex',
+    bottom: 37,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: '#5df9f6',
+    backgroundColor: '#5df9f6',
+    height: 22,
+    width: 22,
+  },
 });
