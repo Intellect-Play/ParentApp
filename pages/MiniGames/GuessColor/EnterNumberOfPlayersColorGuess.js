@@ -1,36 +1,74 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import RNPickerSelect from 'react-native-picker-select';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {setNumberOfPlayers} from '../../../src/redux/games/colorGuess/colorGuessSlice';
+import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
+
+const {height} = Dimensions.get('window');
 
 const EnterNumberOfPlayersColorGuess = () => {
   const dispatch = useDispatch();
-  const numberOfPlayers = useSelector(
-    state => state.colorGuess.numberOfPlayers,
-  );
+  const selected = useSelector(state => state.colorGuess.numberOfPlayers);
+
+  const options = [1, 2, 3, 4, 5];
+
+  const handleSelect = value => {
+    dispatch(setNumberOfPlayers(value));
+  };
 
   return (
-    <View style={styles.mainScreen}>
-      <Text style={styles.title}>Select Number of Players</Text>
+    <View style={styles.container}>
+      <Text style={styles.pageTitleHeading}>Enter{'\n'}the number of</Text>
+      <Text style={styles.pageTitleHeading2}>Players</Text>
 
-      <RNPickerSelect
-        onValueChange={value => {
-          if (value) dispatch(setNumberOfPlayers(value));
-        }}
-        placeholder={{label: 'Select players...', value: null}}
-        value={numberOfPlayers}
-        items={[
-          {label: '1', value: 1},
-          {label: '2', value: 2},
-          {label: '3', value: 3},
-          {label: '4', value: 4},
-          {label: '5', value: 5},
-        ]}
-        style={pickerSelectStyles}
-      />
+      <View style={styles.optionContainer}>
+        {options.map((num, index) => {
+          const distance = Math.abs(index - (selected - 1));
+          const maxWidth = 300;
+          const minWidth = 160;
+          const width = Math.max(minWidth, maxWidth - distance * 40);
+          const isSelected = num === selected;
 
-      <Text style={styles.text}>Selected: {numberOfPlayers}</Text>
+          return (
+            <View style={styles.centeredDiv}>
+              <TouchableOpacity
+                key={num}
+                style={[
+                  styles.item,
+                  {
+                    width,
+                    opacity: isSelected ? 1 : 0.5,
+                    backgroundColor: isSelected ? '#00e6e6' : '#6dd5fa',
+                    transform: [{scale: isSelected ? 1.1 : 1}],
+                  },
+                ]}
+                onPress={() => handleSelect(num)}
+                activeOpacity={0.8}>
+                <Text
+                  style={[styles.itemText, isSelected && styles.selectedText]}>
+                  {num}
+                </Text>
+              </TouchableOpacity>
+            </View>
+          );
+        })}
+        <View style={styles.buttonContainer}>
+          <ColorGuessButton
+            title="Next"
+            width={350}
+            height={60}
+            backgroundColor="#5df9f6"
+            textColor="#333"
+            borderRadius={20}
+          />
+        </View>
+      </View>
     </View>
   );
 };
@@ -38,40 +76,53 @@ const EnterNumberOfPlayersColorGuess = () => {
 export default EnterNumberOfPlayersColorGuess;
 
 const styles = StyleSheet.create({
-  mainScreen: {
+  container: {
     flex: 1,
     backgroundColor: '#7985e9',
     alignItems: 'center',
+    paddingTop: 80,
+  },
+  optionContainer: {
+    marginTop: 40,
+    gap: 10,
+  },
+  centeredDiv: {
+    display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  title: {
-    fontSize: 20,
-    marginBottom: 20,
-    color: 'white',
+  buttonContainer: {
+    marginTop: 30,
   },
-  text: {
-    color: 'white',
-    marginTop: 20,
+  item: {
+    height: 70,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-});
-
-const pickerSelectStyles = StyleSheet.create({
-  inputIOS: {
-    fontSize: 18,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 10,
-    backgroundColor: '#b2fefa',
+  itemText: {
+    fontSize: 22,
+    color: '#333',
+    fontWeight: '600',
+  },
+  selectedText: {
+    fontSize: 30,
     color: '#000',
-    marginBottom: 10,
+    fontWeight: 'bold',
   },
-  inputAndroid: {
-    fontSize: 18,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 10,
-    backgroundColor: '#b2fefa',
-    color: '#000',
-    marginBottom: 10,
+  pageTitleHeading: {
+    fontWeight: 'medium',
+    color: '#ffff',
+    fontSize: 34,
+    fontFamily: 'LuckiestGuy-Regular',
+    textAlign: 'center',
+    textTransform: 'uppercase',
+  },
+  pageTitleHeading2: {
+    color: '#ffff',
+    fontSize: 64,
+    fontFamily: 'LuckiestGuy-Regular',
+    textAlign: 'center',
+    textTransform: 'uppercase',
   },
 });
