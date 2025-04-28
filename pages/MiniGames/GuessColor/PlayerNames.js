@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import CustomPlayerInput from '../../../components/miniGames/ColorGuess/CustomPlayerInput';
@@ -13,6 +13,7 @@ const PlayerNames = () => {
     state => state.colorGuess.numberOfPlayers,
   );
   const playerNames = useSelector(state => state.colorGuess.playerNames);
+  const [error, setError] = useState('');
 
   const handleNameChange = (text, index) => {
     const newNames = [...playerNames];
@@ -50,8 +51,22 @@ const PlayerNames = () => {
             backgroundColor="#5df9f6"
             textColor="#333"
             borderRadius={20}
-            onPress={() => navigation.navigate('')}
+            onPress={() => {
+              const hasEmpty = playerNames.some(name => name.trim() === '');
+              if (hasEmpty) {
+                setError('Please fill in all player names');
+                return;
+              }
+
+              setError('');
+              navigation.navigate('DifficultyColorGuessPage');
+            }}
           />
+          {error ? (
+            <Text style={{color: 'red', textAlign: 'center', marginTop: 10}}>
+              {error}
+            </Text>
+          ) : null}
         </View>
       </ScrollView>
     </View>
