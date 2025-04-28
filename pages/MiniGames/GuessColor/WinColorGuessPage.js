@@ -1,4 +1,4 @@
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, Image} from 'react-native';
 import {useSelector} from 'react-redux';
 
 const WinColorGuessPage = ({route}) => {
@@ -8,19 +8,77 @@ const WinColorGuessPage = ({route}) => {
   // Skorları yüksekten düşüğe sırala
   const sortedPlayers = Object.entries(scores).sort((a, b) => b[1] - a[1]);
 
+  const topThree = sortedPlayers.slice(0, 3);
+  const others = sortedPlayers.slice(3);
+
+  const first = sortedPlayers[0]; // Kazanan
+  const second = sortedPlayers[1];
+  const third = sortedPlayers[2];
+
+  // İlk 3 sıralamasını ortalama için ayarla (Ortadaki kazanan olacak)
+  const customOrder = [1, 0, 2];
+
   return (
     <View style={styles.container}>
+      <Text style={[styles.leaderboardTitle, styles.font]}>Leaderboard</Text>
       <Text style={styles.winnerText}>🎉 {winner} Wins! 🎉</Text>
-      <Text style={styles.leaderboardTitle}>Leaderboard</Text>
 
-      {sortedPlayers.map(([name, score], index) => (
-        <View key={name} style={styles.playerRow}>
-          <Text style={styles.playerName}>
-            {index + 1}. {name}
-          </Text>
-          <Text style={styles.playerScore}>{score} pts</Text>
-        </View>
-      ))}
+      {/* İlk 3 kişi */}
+      <View style={styles.topThreeContainer}>
+        {/* Solda 2. olan */}
+        {second && (
+          <View style={styles.smallAvatarContainer}>
+            <View style={styles.avatarContainer}>
+              <Image
+                source={require('../../../assets/images/avatar/avatar_default.png')}
+                style={styles.avatarOther}
+              />
+              <Text style={styles.avatarName}>{second[0]}</Text>
+              <Text style={styles.avatarScore}>{second[1]} pts</Text>
+            </View>
+          </View>
+        )}
+
+        {/* Ortada 1. olan (kazanan) */}
+        {first && (
+          <View style={styles.bigAvatarContainer}>
+            <View style={styles.avatarContainer}>
+              <Image
+                source={require('../../../assets/images/avatar/avatar_default.png')}
+                style={styles.avatarFirst}
+              />
+              <Text style={styles.avatarName}>{first[0]}</Text>
+              <Text style={styles.avatarScore}>{first[1]} pts</Text>
+            </View>
+          </View>
+        )}
+
+        {/* Sağda 3. olan */}
+        {third && (
+          <View style={styles.smallAvatarContainer}>
+            <View style={styles.avatarContainer}>
+              <Image
+                source={require('../../../assets/images/avatar/avatar_default.png')}
+                style={styles.avatarOther}
+              />
+              <Text style={styles.avatarName}>{third[0]}</Text>
+              <Text style={styles.avatarScore}>{third[1]} pts</Text>
+            </View>
+          </View>
+        )}
+      </View>
+
+      {/* Diğer oyuncular */}
+      <View style={{marginTop: 40, width: '100%'}}>
+        {others.map(([name, score], index) => (
+          <View key={name} style={styles.playerRow}>
+            <Text style={styles.playerName}>
+              {index + 4}. {name}
+            </Text>
+            <Text style={styles.playerScore}>{score} pts</Text>
+          </View>
+        ))}
+      </View>
     </View>
   );
 };
@@ -39,14 +97,61 @@ const styles = StyleSheet.create({
     fontSize: 32,
     color: '#fff',
     fontWeight: 'bold',
-    marginBottom: 30,
+    marginBottom: 20,
     textAlign: 'center',
   },
   leaderboardTitle: {
     fontSize: 24,
     color: '#5df9f6',
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 10,
+  },
+  font: {
+    fontFamily: 'LuckiestGuy-Regular',
+  },
+  topThreeContainer: {
+    flexDirection: 'row',
+    // alignItems: 'flex-end',
+    justifyContent: 'center',
+    gap: 20,
+    marginTop: 20,
+  },
+  avatarContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  firstPlace: {
+    // marginBottom: 0,
+    transform: [{translateY: 20}],
+  },
+  otherPlaces: {
+    marginBottom: 0,
+  },
+  avatarImage: {
+    borderRadius: 100,
+    borderWidth: 4,
+    borderColor: '#fff',
+  },
+  avatarFirst: {
+    width: 80,
+    height: 80,
+  },
+  avatarOther: {
+    width: 80,
+    height: 80,
+  },
+  avatarName: {
+    color: '#fff',
+    fontSize: 16,
+    marginTop: 8,
+    textAlign: 'center',
+  },
+  avatarScore: {
+    color: '#ccc',
+    fontSize: 14,
+    marginTop: 2,
+    textAlign: 'center',
   },
   playerRow: {
     flexDirection: 'row',
@@ -56,6 +161,7 @@ const styles = StyleSheet.create({
     padding: 14,
     borderRadius: 12,
     marginBottom: 12,
+    alignSelf: 'center',
   },
   playerName: {
     fontSize: 18,
@@ -66,4 +172,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333',
   },
+  centerPlayer: {
+    marginBottom: 0,
+  },
+  smallAvatarContainer: {
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: 120,
+  },
+  bigAvatarContainer: {
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: 90,
+  },
+  //   sidePlayer: {
+  //     marginBottom: 40, // Yanlardakiler yukarıda kalacak
+  //   },
 });
