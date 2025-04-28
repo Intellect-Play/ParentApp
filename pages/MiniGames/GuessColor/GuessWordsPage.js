@@ -171,13 +171,13 @@ const styles = StyleSheet.create({
     borderColor: '#fff',
   },
   forBorder: {
-    width: 270, // dış çember biraz büyük olmalı
+    width: 270,
     height: 270,
     borderRadius: 150,
     borderWidth: 10,
-    borderColor: '#b7bde2', // dış çember rengi
-    alignItems: 'center', // ORTALA
-    justifyContent: 'center', // ORTALA
+    borderColor: '#b7bde2',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginVertical: 20,
   },
   scoreText: {
