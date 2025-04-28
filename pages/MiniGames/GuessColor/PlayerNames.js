@@ -3,8 +3,11 @@ import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import CustomPlayerInput from '../../../components/miniGames/ColorGuess/CustomPlayerInput';
 import {setPlayerNames} from '../../../src/redux/games/colorGuess/colorGuessSlice';
+import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
+import {useNavigation} from '@react-navigation/native';
 
 const PlayerNames = () => {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const numberOfPlayers = useSelector(
     state => state.colorGuess.numberOfPlayers,
@@ -19,7 +22,8 @@ const PlayerNames = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>ENTER PLAYER NAMES</Text>
+      <Text style={styles.pageTitleHeading}>Enter player</Text>
+      <Text style={styles.pageTitleHeading2}>names</Text>
 
       <ScrollView contentContainerStyle={styles.inputContainer}>
         {Array.from({length: numberOfPlayers}).map((_, index) => (
@@ -28,7 +32,7 @@ const PlayerNames = () => {
             placeholder={`Player ${index + 1}`}
             value={playerNames[index] || ''}
             onChangeText={text => handleNameChange(text, index)}
-            width={320}
+            width={350}
             height={50}
             borderRadius={16}
             backgroundColor="#f2f2f2"
@@ -37,6 +41,18 @@ const PlayerNames = () => {
             style={{marginVertical: 8}}
           />
         ))}
+
+        <View style={styles.buttonContainer}>
+          <ColorGuessButton
+            title="Next"
+            width={350}
+            height={60}
+            backgroundColor="#5df9f6"
+            textColor="#333"
+            borderRadius={20}
+            onPress={() => navigation.navigate('')}
+          />
+        </View>
       </ScrollView>
     </View>
   );
@@ -61,5 +77,23 @@ const styles = StyleSheet.create({
   inputContainer: {
     alignItems: 'center',
     paddingBottom: 60,
+  },
+  buttonContainer: {
+    marginTop: 30,
+  },
+  pageTitleHeading: {
+    fontWeight: 'medium',
+    color: '#ffff',
+    fontSize: 34,
+    fontFamily: 'LuckiestGuy-Regular',
+    textAlign: 'center',
+    textTransform: 'uppercase',
+  },
+  pageTitleHeading2: {
+    color: '#5df9f6',
+    fontSize: 64,
+    fontFamily: 'LuckiestGuy-Regular',
+    textAlign: 'center',
+    textTransform: 'uppercase',
   },
 });
