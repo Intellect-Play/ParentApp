@@ -1,4 +1,5 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
+import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 
 const GuessColorPage = () => {
   return (
@@ -10,7 +11,25 @@ const GuessColorPage = () => {
             source={require('../../../assets/images/miniGames/ColorGuess/guessByColor.png')}
           />
         </View>
-        <View></View>
+        <View style={styles.buttonsContainer}>
+          <ColorGuessButton
+            title="Play"
+            width={350}
+            height={60}
+            backgroundColor="#fff"
+            textColor="#333"
+            borderRadius={20}
+          />
+
+          <ColorGuessButton
+            title="Quit"
+            width={350}
+            height={60}
+            backgroundColor="#fff"
+            textColor="#333"
+            borderRadius={20}
+          />
+        </View>
       </View>
     </View>
   );
@@ -37,5 +56,11 @@ const styles = StyleSheet.create({
     width: 390,
     height: 520,
     objectFit: 'cover',
+  },
+  buttonsContainer: {
+    display: 'flex',
+    marginTop: 20,
+    flexDirection: 'column',
+    gap: '25',
   },
 });
