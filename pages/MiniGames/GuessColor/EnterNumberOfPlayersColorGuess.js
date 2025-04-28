@@ -1,18 +1,12 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Dimensions,
-} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {setNumberOfPlayers} from '../../../src/redux/games/colorGuess/colorGuessSlice';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
-
-const {height} = Dimensions.get('window');
+import {useNavigation} from '@react-navigation/native';
 
 const EnterNumberOfPlayersColorGuess = () => {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const selected = useSelector(state => state.colorGuess.numberOfPlayers);
 
@@ -66,6 +60,7 @@ const EnterNumberOfPlayersColorGuess = () => {
             backgroundColor="#5df9f6"
             textColor="#333"
             borderRadius={20}
+            onPress={() => navigation.navigate('PlayerColorGuessNames')}
           />
         </View>
       </View>
