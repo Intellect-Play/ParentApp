@@ -3,10 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
-import {
-  endGame,
-  resetGame,
-} from '../../../src/redux/games/colorGuess/colorGuessSlice';
+import {resetGame} from '../../../src/redux/games/colorGuess/colorGuessSlice';
 import {useNavigation} from '@react-navigation/native';
 const WinColorGuessPage = ({route}) => {
   const {winner} = route.params;
