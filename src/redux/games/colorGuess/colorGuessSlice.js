@@ -6,7 +6,7 @@ import {
 } from '../../../../gameSettings/ColorGuess/settings';
 
 const initialState = {
-  numberOfPlayers: 0,
+  numberOfPlayers: 3,
   playerNames: [],
   difficulty: 'easy',
   timePerRound: 10,
