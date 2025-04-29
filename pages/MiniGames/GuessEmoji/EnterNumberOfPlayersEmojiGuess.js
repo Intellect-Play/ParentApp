@@ -58,7 +58,7 @@ const EnterNumberOfPlayersEmojiGuess = () => {
             backgroundColor="#fdd05b"
             textColor="#333"
             borderRadius={20}
-            onPress={() => navigation.navigate('PlayerColorGuessNames')}
+            onPress={() => navigation.navigate('PlayerEmojiGuessNames')}
           />
         </View>
       </View>
