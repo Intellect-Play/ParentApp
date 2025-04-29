@@ -1,6 +1,7 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
+import InfoButton from '../../../components/miniGames/infoButton';
 
 const GuessEmojiPage = () => {
   const navigation = useNavigation();
@@ -39,6 +40,7 @@ const GuessEmojiPage = () => {
             }}
           />
         </View>
+        <InfoButton message="Emoji Guess is a fun guessing game where players see a set of emojis and try to guess the word they represent. Each round, a different player gives clues based on the emojis. Points are earned for correct answers. First to 10 points wins!" />
       </View>
     </View>
   );

@@ -1,6 +1,7 @@
 import {Image, StyleSheet, View} from 'react-native';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
+import InfoButton from '../../../components/miniGames/infoButton';
 
 // imperson
 const GuessColorPage = () => {
@@ -40,6 +41,7 @@ const GuessColorPage = () => {
             }}
           />
         </View>
+        <InfoButton message="Color Guess is a turn-based party game where players must describe objects that match a randomly shown color. Each player takes turns guessing based on the color prompt. Correct guesses earn points. The first player to reach 10 points wins the game!" />
       </View>
     </View>
   );
