@@ -15,7 +15,6 @@ const WinEmojiGuessPage = ({route}) => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
-  // Skorları yüksekten düşüğe sırala
   const sortedPlayers = Object.entries(scores).sort((a, b) => b[1] - a[1]);
 
   const others = sortedPlayers.slice(3);
@@ -44,7 +43,6 @@ const WinEmojiGuessPage = ({route}) => {
           </View>
         )}
 
-        {/* Ortada 1. olan (kazanan) */}
         {first && (
           <View style={[styles.bigAvatarContainer, styles.relative]}>
             <View style={styles.avatarContainer}>
@@ -64,7 +62,6 @@ const WinEmojiGuessPage = ({route}) => {
           </View>
         )}
 
-        {/* Sağda 3. olan */}
         {third && (
           <View style={[styles.smallAvatarContainer, styles.relative]}>
             <View style={styles.avatarContainer}>
@@ -82,7 +79,6 @@ const WinEmojiGuessPage = ({route}) => {
         )}
       </View>
 
-      {/* Diğer oyuncular */}
       <View style={{marginTop: 40, width: '100%'}}>
         {others.map(([name, score], index) => (
           <View key={name} style={styles.playerRow}>
