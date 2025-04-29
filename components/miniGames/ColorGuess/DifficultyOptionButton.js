@@ -13,6 +13,7 @@ const DifficultyOptionButton = ({
   borderRadius = 16,
   fontSize = 18,
   selected = false,
+  selectedColor = '#00e6e6',
 }) => {
   return (
     <TouchableOpacity
@@ -21,7 +22,7 @@ const DifficultyOptionButton = ({
       style={[
         styles.button,
         {
-          backgroundColor: selected ? '#00e6e6' : backgroundColor,
+          backgroundColor: selected ? selectedColor : backgroundColor,
           width,
           height,
           borderRadius,

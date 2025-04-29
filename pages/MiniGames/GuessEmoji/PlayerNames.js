@@ -12,7 +12,7 @@ const PlayerEmojiNames = () => {
   const numberOfPlayers = useSelector(
     state => state.emojiGuess.numberOfPlayers,
   );
-  const playerNames = useSelector(state => state.colorGuess.playerNames);
+  const playerNames = useSelector(state => state.emojiGuess.playerNames);
   const [error, setError] = useState('');
 
   const handleNameChange = (text, index) => {
@@ -65,7 +65,7 @@ const PlayerEmojiNames = () => {
               }
 
               setError('');
-              navigation.navigate('DifficultyColorGuessPage');
+              navigation.navigate('DifficultyEmojiGuessPage');
             }}
           />
           {error ? (
