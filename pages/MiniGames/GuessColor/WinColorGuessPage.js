@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     color: 'black',
     fontWeight: 'bold',
     fontSize: 16,
-    marginTop: 8,
+    marginTop: 12,
     textAlign: 'center',
   },
   avatarScore: {
