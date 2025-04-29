@@ -20,6 +20,8 @@ import PlayerNames from './pages/MiniGames/GuessColor/PlayerNames';
 import DifficultyPage from './pages/MiniGames/GuessColor/DifficultyPage';
 import GuessWordsPage from './pages/MiniGames/GuessColor/GuessWordsPage';
 import WinColorGuessPage from './pages/MiniGames/GuessColor/WinColorGuessPage';
+import GuessEmojiPage from './pages/MiniGames/GuessEmoji/GuessEmojiPage';
+import EnterNumberOfPlayersEmojiGuess from './pages/MiniGames/GuessEmoji/EnterNumberOfPlayersEmojiGuess';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -100,7 +102,7 @@ function App(): React.JSX.Element {
               }}
             />
 
-            {/* GUESS COLOR GAME */}
+            {/*-------------------------------- GUESS COLOR GAME ---------------------------------------*/}
             <Stack.Screen
               name="GuessColorPage"
               component={GuessColorPage}
@@ -155,6 +157,28 @@ function App(): React.JSX.Element {
             <Stack.Screen
               name="WinColorGuessPage"
               component={WinColorGuessPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            {/* ---------------------------GUESS EMOJI GAME----------------------------- */}
+
+            <Stack.Screen
+              name="GuessEmojiPage"
+              component={GuessEmojiPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="EnterNumberOfPlayersEmojiGuess"
+              component={EnterNumberOfPlayersEmojiGuess}
               options={{
                 title: '',
                 headerShown: false,

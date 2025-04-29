@@ -13,6 +13,10 @@ const HomePage = () => {
       <Text onPress={() => navigation.navigate('GuessColorPage')}>
         Color guess
       </Text>
+
+      <Text onPress={() => navigation.navigate('GuessEmojiPage')}>
+        Emoji guess
+      </Text>
     </View>
   );
 };
