@@ -42,7 +42,6 @@ const GuessWordsPage = () => {
   // Zamanlayıcı
   useEffect(() => {
     if (timeLeft === 0) {
-      dispatch(nextPlayer());
       return;
     }
 
@@ -65,11 +64,11 @@ const GuessWordsPage = () => {
 
   const handleCorrect = () => {
     dispatch(incrementScore(currentPlayer));
-    dispatch(nextPlayer());
+    navigation.navigate('WinColorGuessPage', {winner: currentPlayer});
   };
 
   const handleWrong = () => {
-    dispatch(nextPlayer());
+    navigation.navigate('WinColorGuessPage', {winner: currentPlayer});
   };
 
   return (
@@ -97,7 +96,7 @@ const GuessWordsPage = () => {
               Score: {scores[currentPlayer]}
             </Text>
             <Text style={[styles.timer, styles.textCenter]}>
-              in {timeLeft} seconds
+              {timeLeft > 0 ? `in ${timeLeft} seconds` : 'Time is up!'}
             </Text>
           </>
         ) : (
