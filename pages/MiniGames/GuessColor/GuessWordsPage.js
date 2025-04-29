@@ -5,7 +5,6 @@ import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGues
 import {
   endGame,
   incrementScore,
-  nextPlayer,
 } from '../../../src/redux/games/colorGuess/colorGuessSlice';
 import {useNavigation} from '@react-navigation/native';
 const colors = ['White', 'Purple', 'Green', 'Yellow', 'Orange', 'Blue'];
