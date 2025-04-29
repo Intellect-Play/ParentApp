@@ -8,6 +8,7 @@ import {
   resetGame,
 } from '../../../src/redux/games/colorGuess/colorGuessSlice';
 import {useNavigation} from '@react-navigation/native';
+import LuckiestText from '../../../components/miniGames/LuckiestText';
 const WinColorGuessPage = ({route}) => {
   const {winner} = route.params;
   const scores = useSelector(state => state.colorGuess.scores);
@@ -23,15 +24,11 @@ const WinColorGuessPage = ({route}) => {
   const second = sortedPlayers[1];
   const third = sortedPlayers[2];
 
-  // İlk 3 sıralamasını ortalama için ayarla (Ortadaki kazanan olacak)
-
   return (
     <View style={styles.container}>
-      <Text style={styles.leaderboardTitle}>Leaderboard</Text>
+      <LuckiestText style={styles.leaderboardTitle}>Leaderboard</LuckiestText>
 
-      {/* İlk 3 kişi */}
       <View style={styles.topThreeContainer}>
-        {/* Solda 2. olan */}
         {second && (
           <View style={[styles.smallAvatarContainer, styles.relative]}>
             <View style={styles.avatarContainer}>
@@ -139,10 +136,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   leaderboardTitle: {
-    fontFamily: 'LuckiestGuy-Regular',
     fontSize: 34,
     color: '#fff',
-    fontWeight: 'bold',
     marginBottom: 40,
     textAlign: 'center',
     textTransform: 'uppercase',
