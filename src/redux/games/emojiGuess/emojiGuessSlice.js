@@ -16,13 +16,11 @@ const initialState = {
   gameStarted: false,
   gameEnded: false,
 
-  // NEW for Emoji Guess
   emojis: [
     {emojis: ['🦶', '⚽'], answer: 'football'},
     {emojis: ['🚗', '💨'], answer: 'fast car'},
     {emojis: ['🌧️', '☂️'], answer: 'rainy day'},
     {emojis: ['🍎', '📱'], answer: 'apple phone'},
-    // buraya daha sonra istediğin kadar ekleyebiliriz
   ],
   currentEmojiIndex: 0,
   showAnswer: false,
