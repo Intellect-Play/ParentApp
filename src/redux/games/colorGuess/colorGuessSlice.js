@@ -29,12 +29,19 @@ const colorGuessSlice = createSlice({
       const nameCounts = {};
 
       action.payload.forEach(name => {
-        if (nameCounts[name]) {
-          nameCounts[name] += 1;
-          uniqueNames.push(`${name} (${nameCounts[name]})`);
+        const trimmedName = name.trim();
+
+        if (trimmedName === '') {
+          uniqueNames.push('');
+          return;
+        }
+
+        if (nameCounts[trimmedName]) {
+          nameCounts[trimmedName] += 1;
+          uniqueNames.push(`${trimmedName} (${nameCounts[trimmedName]})`);
         } else {
-          nameCounts[name] = 1;
-          uniqueNames.push(name);
+          nameCounts[trimmedName] = 1;
+          uniqueNames.push(trimmedName);
         }
       });
 
