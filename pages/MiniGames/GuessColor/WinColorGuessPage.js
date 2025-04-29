@@ -176,13 +176,14 @@ const styles = StyleSheet.create({
     height: 80,
   },
   avatarName: {
-    color: '#fff',
+    color: 'black',
+    fontWeight: 'bold',
     fontSize: 16,
     marginTop: 8,
     textAlign: 'center',
   },
   avatarScore: {
-    color: '#ccc',
+    color: 'black',
     fontSize: 14,
     marginTop: 2,
     textAlign: 'center',
