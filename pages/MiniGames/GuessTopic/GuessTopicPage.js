@@ -12,7 +12,7 @@ const GuessTopicPage = () => {
         <View style={[styles.centeredItems, styles.imageContainer]}>
           <Image
             style={styles.image}
-            source={require('../../../assets/images/miniGames/EmojiGuess/emojiGuess.png')}
+            source={require('../../../assets/images/miniGames/topicGuess/topicGuess.png')}
           />
         </View>
         <View style={styles.buttonsContainer}>
@@ -20,11 +20,11 @@ const GuessTopicPage = () => {
             title="Play"
             width={350}
             height={60}
-            backgroundColor="#fdd05b"
+            backgroundColor="#ecfd5a"
             textColor="#333"
             borderRadius={20}
             onPress={() => {
-              navigation.navigate('EnterNumberOfPlayersEmojiGuess');
+              navigation.navigate('EnterNumberOfPlayersTopicGuess');
             }}
           />
 
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 390,
-    height: 520,
+    height: 550,
     objectFit: 'cover',
   },
   buttonsContainer: {
