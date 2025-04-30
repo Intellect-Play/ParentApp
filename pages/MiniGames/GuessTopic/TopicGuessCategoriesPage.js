@@ -18,6 +18,7 @@ const TopicGuessCategoriesPage = () => {
   );
   const scores = useSelector(state => state.topicGuess.scores);
   const timePerRound = useSelector(state => state.topicGuess.timePerRound);
+  const currentRound = useSelector(state => state.topicGuess.currentRound);
 
   const currentPlayer = playerNames[currentIndex];
   const [timeLeft, setTimeLeft] = useState(timePerRound);
@@ -32,7 +33,7 @@ const TopicGuessCategoriesPage = () => {
     setTimeLeft(timePerRound);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentIndex, timePerRound]);
+  }, [currentIndex, currentRound, timePerRound]);
 
   // Zamanlayıcı
   useEffect(() => {
@@ -47,15 +48,15 @@ const TopicGuessCategoriesPage = () => {
     return () => clearTimeout(timer);
   }, [dispatch, timeLeft]);
 
-  useEffect(() => {
-    const winner = Object.entries(scores).find(([_, score]) => score >= 10);
+  // useEffect(() => {
+  //   const winner = Object.entries(scores).find(([_, score]) => score >= 10);
 
-    if (winner) {
-      const [winnerName] = winner;
-      dispatch(endGame());
-      navigation.navigate('WinColorGuessPage', {winner: winnerName});
-    }
-  }, [scores, dispatch, navigation]);
+  //   if (winner) {
+  //     const [winnerName] = winner;
+  //     dispatch(endGame());
+  //     navigation.navigate('WinColorGuessPage', {winner: winnerName});
+  //   }
+  // }, [scores, dispatch, navigation]);
 
   const handleCorrect = () => {
     dispatch(incrementScore(currentPlayer));

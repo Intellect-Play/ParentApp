@@ -19,14 +19,33 @@ const EmojiGuessWordsPage = () => {
     scores,
     timePerRound,
     emojis,
-    currentEmojiIndex,
     showAnswer,
   } = useSelector(state => state.emojiGuess);
-
+  const currentRound = useSelector(state => state.emojiGuess.currentRound);
   const currentPlayer = playerNames[currentPlayerIndex];
-  const currentEmoji = emojis[currentEmojiIndex];
 
   const [timeLeft, setTimeLeft] = useState(timePerRound);
+  const [lastIndex, setLastIndex] = useState(null);
+  const [randomEmojiIndex, setRandomEmojiIndex] = useState(null);
+
+  const getRandomIndex = () => {
+    if (emojis.length <= 1) return 0;
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * emojis.length);
+    } while (newIndex === lastIndex);
+    return newIndex;
+  };
+
+  useEffect(() => {
+    const index = getRandomIndex();
+    setRandomEmojiIndex(index);
+    setLastIndex(index);
+
+    //eslint-disable-next-line
+  }, [currentPlayerIndex, currentRound]);
+
+  const currentEmoji = emojis[randomEmojiIndex];
 
   useEffect(() => {
     setTimeLeft(timePerRound);
@@ -42,14 +61,14 @@ const EmojiGuessWordsPage = () => {
     return () => clearTimeout(timer);
   }, [timeLeft]);
 
-  useEffect(() => {
-    const winner = Object.entries(scores).find(([_, score]) => score >= 10);
-    if (winner) {
-      const [winnerName] = winner;
-      dispatch(endGame());
-      navigation.navigate('WinEmojiGuessPage', {winner: winnerName});
-    }
-  }, [scores, dispatch, navigation]);
+  // useEffect(() => {
+  //   const winner = Object.entries(scores).find(([_, score]) => score >= 10);
+  //   if (winner) {
+  //     const [winnerName] = winner;
+  //     dispatch(endGame());
+  //     navigation.navigate('WinEmojiGuessPage', {winner: winnerName});
+  //   }
+  // }, [scores, dispatch, navigation]);
 
   const handleCorrect = () => {
     dispatch(incrementScore(currentPlayer));
@@ -71,11 +90,11 @@ const EmojiGuessWordsPage = () => {
 
       {/* Emoji gösterimi */}
       <View style={styles.emojiBox}>
-        <Text style={styles.emojiText}>{currentEmoji.emojis.join(' + ')}</Text>
+        <Text style={styles.emojiText}>{currentEmoji?.emojis.join(' + ')}</Text>
       </View>
       <ColorGuessButton
         width={150}
-        title={showAnswer ? currentEmoji.answer : 'Show Answer'}
+        title={showAnswer ? currentEmoji?.answer : 'Show Answer'}
         backgroundColor="#fdd05b"
         onPress={handleShowAnswer}
       />

@@ -27,6 +27,7 @@ const GuessWordsPage = () => {
   );
   const scores = useSelector(state => state.colorGuess.scores);
   const timePerRound = useSelector(state => state.colorGuess.timePerRound);
+  const currentRound = useSelector(state => state.colorGuess.currentRound);
 
   const currentPlayer = playerNames[currentIndex];
   const [timeLeft, setTimeLeft] = useState(timePerRound);
@@ -36,7 +37,7 @@ const GuessWordsPage = () => {
   useEffect(() => {
     setCurrentColor(colors[Math.floor(Math.random() * colors.length)]);
     setTimeLeft(timePerRound);
-  }, [currentIndex, timePerRound]);
+  }, [currentIndex, timePerRound, currentRound]);
 
   // Zamanlayıcı
   useEffect(() => {
@@ -51,15 +52,15 @@ const GuessWordsPage = () => {
     return () => clearTimeout(timer);
   }, [dispatch, timeLeft]);
 
-  useEffect(() => {
-    const winner = Object.entries(scores).find(([_, score]) => score >= 10);
+  // useEffect(() => {
+  //   const winner = Object.entries(scores).find(([_, score]) => score >= 10);
 
-    if (winner) {
-      const [winnerName] = winner;
-      dispatch(endGame());
-      navigation.navigate('WinColorGuessPage', {winner: winnerName});
-    }
-  }, [scores, dispatch, navigation]);
+  //   if (winner) {
+  //     const [winnerName] = winner;
+  //     dispatch(endGame());
+  //     navigation.navigate('WinColorGuessPage', {winner: winnerName});
+  //   }
+  // }, [scores, dispatch, navigation]);
 
   const handleCorrect = () => {
     dispatch(incrementScore(currentPlayer));

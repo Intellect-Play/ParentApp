@@ -1,9 +1,10 @@
 import {createSlice} from '@reduxjs/toolkit';
+import shadows from '../../../../gameSettings/shadowGuess/shadows';
 import {
   EASY_MODE,
-  MEDIUM_MODE,
   HARD_MODE,
-} from '../../../../gameSettings/TopicGuess/settings';
+  MEDIUM_MODE,
+} from '../../../../gameSettings/shadowGuess/settings';
 
 const initialState = {
   numberOfPlayers: 3,
@@ -15,10 +16,14 @@ const initialState = {
   currentPlayerIndex: 0,
   gameStarted: false,
   gameEnded: false,
+
+  shadows: shadows,
+  currentShadowIndex: 0,
+  showAnswer: false,
 };
 
-const topicGuessSlice = createSlice({
-  name: 'topicGuess',
+const shadowGuessSlice = createSlice({
+  name: 'shadowGuess',
   initialState,
   reducers: {
     setNumberOfPlayers: (state, action) => {
@@ -72,6 +77,11 @@ const topicGuessSlice = createSlice({
         state.currentPlayerIndex =
           (state.currentPlayerIndex + 1) % state.numberOfPlayers;
       }
+
+      state.showAnswer = false;
+    },
+    showAnswerNow: state => {
+      state.showAnswer = true;
     },
     startGame: state => {
       state.gameStarted = true;
@@ -91,9 +101,10 @@ export const {
   setDifficulty,
   incrementScore,
   nextPlayer,
+  showAnswerNow,
   startGame,
   endGame,
   resetGame,
-} = topicGuessSlice.actions;
+} = shadowGuessSlice.actions;
 
-export default topicGuessSlice.reducer;
+export default shadowGuessSlice.reducer;

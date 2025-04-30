@@ -4,6 +4,7 @@ import {
   MEDIUM_MODE,
   HARD_MODE,
 } from '../../../../gameSettings/EmojiGuess/settings';
+import emojis from '../../../../gameSettings/EmojiGuess/emojis';
 
 const initialState = {
   numberOfPlayers: 3,
@@ -16,12 +17,7 @@ const initialState = {
   gameStarted: false,
   gameEnded: false,
 
-  emojis: [
-    {emojis: ['🦶', '⚽'], answer: 'football'},
-    {emojis: ['🚗', '💨'], answer: 'fast car'},
-    {emojis: ['🌧️', '☂️'], answer: 'rainy day'},
-    {emojis: ['🍎', '📱'], answer: 'apple phone'},
-  ],
+  emojis: emojis,
   currentEmojiIndex: 0,
   showAnswer: false,
 };
@@ -74,12 +70,21 @@ const emojiGuessSlice = createSlice({
     incrementScore: (state, action) => {
       state.scores[action.payload]++;
     },
+    // nextPlayer: state => {
+    //   state.currentPlayerIndex =
+    //     (state.currentPlayerIndex + 1) % state.numberOfPlayers;
+    //   state.showAnswer = false;
+    //   state.currentEmojiIndex =
+    //     (state.currentEmojiIndex + 1) % state.emojis.length;
+    // },
     nextPlayer: state => {
-      state.currentPlayerIndex =
-        (state.currentPlayerIndex + 1) % state.numberOfPlayers;
+      if (state.numberOfPlayers === 1) {
+        state.currentRound += 1;
+      } else {
+        state.currentPlayerIndex =
+          (state.currentPlayerIndex + 1) % state.numberOfPlayers;
+      }
       state.showAnswer = false;
-      state.currentEmojiIndex =
-        (state.currentEmojiIndex + 1) % state.emojis.length;
     },
     showAnswerNow: state => {
       state.showAnswer = true;

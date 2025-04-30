@@ -66,8 +66,12 @@ const colorGuessSlice = createSlice({
       state.scores[action.payload]++;
     },
     nextPlayer: state => {
-      state.currentPlayerIndex =
-        (state.currentPlayerIndex + 1) % state.numberOfPlayers;
+      if (state.numberOfPlayers === 1) {
+        state.currentRound += 1;
+      } else {
+        state.currentPlayerIndex =
+          (state.currentPlayerIndex + 1) % state.numberOfPlayers;
+      }
     },
     startGame: state => {
       state.gameStarted = true;
