@@ -8,9 +8,9 @@ import {
   EASY_MODE,
   HARD_MODE,
   MEDIUM_MODE,
-} from '../../../gameSettings/EmojiGuess/settings';
+} from '../../../gameSettings/TopicGuess/settings';
 
-const DifficultyEmojiGuessPage = () => {
+const DifficultyTopicGuessPage = () => {
   const dispatch = useDispatch();
   const selectedDifficulty = useSelector(state => state.emojiGuess.difficulty);
   const navigation = useNavigation();
@@ -62,7 +62,7 @@ const DifficultyEmojiGuessPage = () => {
   );
 };
 
-export default DifficultyEmojiGuessPage;
+export default DifficultyTopicGuessPage;
 
 const styles = StyleSheet.create({
   container: {

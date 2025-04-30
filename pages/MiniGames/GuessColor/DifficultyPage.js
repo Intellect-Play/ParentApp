@@ -4,6 +4,11 @@ import {setDifficulty} from '../../../src/redux/games/colorGuess/colorGuessSlice
 import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
+import {
+  EASY_MODE,
+  HARD_MODE,
+  MEDIUM_MODE,
+} from '../../../gameSettings/ColorGuess/settings';
 
 const DifficultyPage = () => {
   const dispatch = useDispatch();
@@ -17,7 +22,7 @@ const DifficultyPage = () => {
 
       <DifficultyOptionButton
         level="Easy"
-        seconds={15}
+        seconds={EASY_MODE}
         selected={selectedDifficulty === 'easy'}
         secondsColor="green"
         onPress={() => dispatch(setDifficulty('easy'))}
@@ -25,7 +30,7 @@ const DifficultyPage = () => {
 
       <DifficultyOptionButton
         level="Medium"
-        seconds={10}
+        seconds={MEDIUM_MODE}
         selected={selectedDifficulty === 'medium'}
         secondsColor="orange"
         onPress={() => dispatch(setDifficulty('medium'))}
@@ -33,7 +38,7 @@ const DifficultyPage = () => {
 
       <DifficultyOptionButton
         level="Hard"
-        seconds={5}
+        seconds={HARD_MODE}
         selected={selectedDifficulty === 'hard'}
         secondsColor="red"
         onPress={() => dispatch(setDifficulty('hard'))}
