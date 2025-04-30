@@ -29,19 +29,22 @@ const topicGuessSlice = createSlice({
       const nameCounts = {};
 
       action.payload.forEach(name => {
-        const trimmedName = name.trim();
+        const trimmed = name.trim();
 
-        if (trimmedName === '') {
+        if (trimmed === '') {
           uniqueNames.push('');
           return;
         }
 
-        if (nameCounts[trimmedName]) {
-          nameCounts[trimmedName] += 1;
-          uniqueNames.push(`${trimmedName} (${nameCounts[trimmedName]})`);
+        // Aratırken yalnızca orijinal adı baz al
+        const baseName = trimmed.replace(/\s\(\d+\)$/, '');
+
+        nameCounts[baseName] = (nameCounts[baseName] || 0) + 1;
+
+        if (nameCounts[baseName] === 1) {
+          uniqueNames.push(baseName);
         } else {
-          nameCounts[trimmedName] = 1;
-          uniqueNames.push(trimmedName);
+          uniqueNames.push(`${baseName} (${nameCounts[baseName]})`);
         }
       });
 

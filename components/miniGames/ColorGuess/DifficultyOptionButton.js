@@ -7,7 +7,9 @@ const DifficultyOptionButton = ({
   onPress = () => {},
   backgroundColor = '#f2f2f2',
   textColor = '#000',
-  secondsColor = '#000', // ✅ yeni eklendi
+  secondsColor = '#000',
+  selectedTextColor, // ✅ yeni prop
+  selectedSecondsColor, // ✅ yeni prop
   wordCount = false,
   width = 330,
   height = 60,
@@ -16,6 +18,11 @@ const DifficultyOptionButton = ({
   selected = false,
   selectedColor = '#00e6e6',
 }) => {
+  const actualTextColor = selected ? selectedTextColor || textColor : textColor;
+  const actualSecondsColor = selected
+    ? selectedSecondsColor || secondsColor
+    : secondsColor;
+
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -29,13 +36,13 @@ const DifficultyOptionButton = ({
           borderRadius,
         },
       ]}>
-      <Text style={[styles.levelText, {color: textColor, fontSize}]}>
+      <Text style={[styles.levelText, {color: actualTextColor, fontSize}]}>
         {level}
       </Text>
       <Text
         style={[
           styles.secondsText,
-          {color: secondsColor, fontSize: fontSize - 2},
+          {color: actualSecondsColor, fontSize: fontSize - 2},
         ]}>
         {seconds} seconds {wordCount && `- ${wordCount} words`}
       </Text>

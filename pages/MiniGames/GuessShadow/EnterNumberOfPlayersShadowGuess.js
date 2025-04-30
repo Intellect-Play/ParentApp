@@ -2,12 +2,12 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
-import {setNumberOfPlayers} from '../../../src/redux/games/emojiGuess/emojiGuessSlice';
+import {setNumberOfPlayers} from '../../../src/redux/games/shadowGuess/shadowGuessSlice';
 
 const EnterNumberOfPlayersShadowGuess = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const selected = useSelector(state => state.emojiGuess.numberOfPlayers);
+  const selected = useSelector(state => state.shadowGuess.numberOfPlayers);
 
   const options = [1, 2, 3, 4, 5];
 
@@ -58,7 +58,7 @@ const EnterNumberOfPlayersShadowGuess = () => {
             backgroundColor="#7985e9"
             textColor="#fff"
             borderRadius={20}
-            onPress={() => navigation.navigate('PlayerEmojiGuessNames')}
+            onPress={() => navigation.navigate('PlayerShadowGuessNames')}
           />
         </View>
       </View>
