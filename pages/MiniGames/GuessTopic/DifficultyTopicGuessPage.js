@@ -27,6 +27,7 @@ const DifficultyTopicGuessPage = () => {
         secondsColor="green"
         selectedColor="#ecfd5a"
         onPress={() => dispatch(setDifficulty('easy'))}
+        wordCount={2}
       />
 
       <DifficultyOptionButton
@@ -36,6 +37,7 @@ const DifficultyTopicGuessPage = () => {
         secondsColor="orange"
         selectedColor="#ecfd5a"
         onPress={() => dispatch(setDifficulty('medium'))}
+        wordCount={3}
       />
 
       <DifficultyOptionButton
@@ -44,6 +46,7 @@ const DifficultyTopicGuessPage = () => {
         selected={selectedDifficulty === 'hard'}
         secondsColor="red"
         selectedColor="#ecfd5a"
+        wordCount={4}
         onPress={() => dispatch(setDifficulty('hard'))}
       />
 
@@ -55,7 +58,7 @@ const DifficultyTopicGuessPage = () => {
           backgroundColor="#ecfd5a"
           textColor="#333"
           borderRadius={20}
-          onPress={() => navigation.navigate('EmojiGuessWordsPage')}
+          onPress={() => navigation.navigate('TopicGuessCategoriesPage')}
         />
       </View>
     </View>

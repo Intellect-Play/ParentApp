@@ -30,6 +30,8 @@ import GuessTopicPage from './pages/MiniGames/GuessTopic/GuessTopicPage';
 import EnterNumberOfPlayersTopicGuess from './pages/MiniGames/GuessTopic/EnterNumberOfPlayersTopicGuess';
 import PlayerTopicNames from './pages/MiniGames/GuessTopic/PlayerNames';
 import DifficultyTopicGuessPage from './pages/MiniGames/GuessTopic/DifficultyTopicGuessPage';
+import TopicGuessCategoriesPage from './pages/MiniGames/GuessTopic/TopicGuessCategoriesPage';
+import WinTopicGuessPage from './pages/MiniGames/GuessTopic/WinTopicGuessPage';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -269,6 +271,26 @@ function App(): React.JSX.Element {
             <Stack.Screen
               name="DifficultyTopicGuessPage"
               component={DifficultyTopicGuessPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="TopicGuessCategoriesPage"
+              component={TopicGuessCategoriesPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="WinTopicGuessPage"
+              component={WinTopicGuessPage}
               options={{
                 title: '',
                 headerShown: false,

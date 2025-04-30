@@ -5,8 +5,6 @@ import {
   HARD_MODE,
 } from '../../../../gameSettings/TopicGuess/settings';
 
-// EnterNumberOfPlayersTopicGuess
-
 const initialState = {
   numberOfPlayers: 3,
   playerNames: [],

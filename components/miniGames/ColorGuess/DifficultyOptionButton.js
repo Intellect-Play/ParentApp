@@ -8,6 +8,7 @@ const DifficultyOptionButton = ({
   backgroundColor = '#f2f2f2',
   textColor = '#000',
   secondsColor = '#000', // ✅ yeni eklendi
+  wordCount = false,
   width = 330,
   height = 60,
   borderRadius = 16,
@@ -36,7 +37,7 @@ const DifficultyOptionButton = ({
           styles.secondsText,
           {color: secondsColor, fontSize: fontSize - 2},
         ]}>
-        {seconds} seconds
+        {seconds} seconds {wordCount && `- ${wordCount} words`}
       </Text>
     </TouchableOpacity>
   );
