@@ -1,5 +1,5 @@
-const EASY_MODE = 15;
+const EASY_MODE = 10;
 const MEDIUM_MODE = 10;
-const HARD_MODE = 5;
+const HARD_MODE = 10;
 
 export {EASY_MODE, MEDIUM_MODE, HARD_MODE};
