@@ -32,6 +32,8 @@ import PlayerTopicNames from './pages/MiniGames/GuessTopic/PlayerNames';
 import DifficultyTopicGuessPage from './pages/MiniGames/GuessTopic/DifficultyTopicGuessPage';
 import TopicGuessCategoriesPage from './pages/MiniGames/GuessTopic/TopicGuessCategoriesPage';
 import WinTopicGuessPage from './pages/MiniGames/GuessTopic/WinTopicGuessPage';
+import GuessShadowPage from './pages/MiniGames/GuessShadow/GuessShadow';
+import EnterNumberOfPlayersShadowGuess from './pages/MiniGames/GuessShadow/EnterNumberOfPlayersShadowGuess';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -291,6 +293,27 @@ function App(): React.JSX.Element {
             <Stack.Screen
               name="WinTopicGuessPage"
               component={WinTopicGuessPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            {/* ---------------------------------------------- GUESS SHADOW GAME ---------------------- */}
+            <Stack.Screen
+              name="GuessShadowPage"
+              component={GuessShadowPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="EnterNumberOfPlayersShadowGuess"
+              component={EnterNumberOfPlayersShadowGuess}
               options={{
                 title: '',
                 headerShown: false,
