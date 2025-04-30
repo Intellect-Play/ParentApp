@@ -25,6 +25,7 @@ const DifficultyShadowGuessPage = () => {
         seconds={EASY_MODE}
         selected={selectedDifficulty === 'easy'}
         secondsColor="green"
+        selectedTextColor="#fff"
         selectedColor="#7985e9"
         onPress={() => dispatch(setDifficulty('easy'))}
       />
@@ -35,6 +36,7 @@ const DifficultyShadowGuessPage = () => {
         selected={selectedDifficulty === 'medium'}
         secondsColor="orange"
         selectedColor="#7985e9"
+        selectedTextColor="#fff"
         onPress={() => dispatch(setDifficulty('medium'))}
       />
 
@@ -44,6 +46,7 @@ const DifficultyShadowGuessPage = () => {
         selected={selectedDifficulty === 'hard'}
         secondsColor="red"
         selectedColor="#7985e9"
+        selectedTextColor="#fff"
         onPress={() => dispatch(setDifficulty('hard'))}
       />
 
@@ -55,7 +58,7 @@ const DifficultyShadowGuessPage = () => {
           backgroundColor="#7985e9"
           textColor="#fff"
           borderRadius={20}
-          onPress={() => navigation.navigate('EmojiGuessWordsPage')}
+          onPress={() => navigation.navigate('ShadowGuessAnimalsPage')}
         />
       </View>
     </View>
