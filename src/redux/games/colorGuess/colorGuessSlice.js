@@ -9,7 +9,7 @@ const initialState = {
   numberOfPlayers: 3,
   playerNames: [],
   difficulty: 'easy',
-  timePerRound: 15,
+  timePerRound: EASY_MODE,
   currentRound: 1,
   scores: {},
   currentPlayerIndex: 0,

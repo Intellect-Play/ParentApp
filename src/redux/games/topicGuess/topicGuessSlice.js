@@ -3,7 +3,7 @@ import {
   EASY_MODE,
   MEDIUM_MODE,
   HARD_MODE,
-} from '../../../../gameSettings/EmojiGuess/settings';
+} from '../../../../gameSettings/ColorGuess/settings';
 
 const initialState = {
   numberOfPlayers: 3,
@@ -15,19 +15,10 @@ const initialState = {
   currentPlayerIndex: 0,
   gameStarted: false,
   gameEnded: false,
-
-  emojis: [
-    {emojis: ['🦶', '⚽'], answer: 'football'},
-    {emojis: ['🚗', '💨'], answer: 'fast car'},
-    {emojis: ['🌧️', '☂️'], answer: 'rainy day'},
-    {emojis: ['🍎', '📱'], answer: 'apple phone'},
-  ],
-  currentEmojiIndex: 0,
-  showAnswer: false,
 };
 
-const emojiGuessSlice = createSlice({
-  name: 'emojiGuess',
+const topicGuessSlice = createSlice({
+  name: 'topicGuess',
   initialState,
   reducers: {
     setNumberOfPlayers: (state, action) => {
@@ -77,12 +68,6 @@ const emojiGuessSlice = createSlice({
     nextPlayer: state => {
       state.currentPlayerIndex =
         (state.currentPlayerIndex + 1) % state.numberOfPlayers;
-      state.showAnswer = false;
-      state.currentEmojiIndex =
-        (state.currentEmojiIndex + 1) % state.emojis.length;
-    },
-    showAnswerNow: state => {
-      state.showAnswer = true;
     },
     startGame: state => {
       state.gameStarted = true;
@@ -102,10 +87,9 @@ export const {
   setDifficulty,
   incrementScore,
   nextPlayer,
-  showAnswerNow,
   startGame,
   endGame,
   resetGame,
-} = emojiGuessSlice.actions;
+} = topicGuessSlice.actions;
 
-export default emojiGuessSlice.reducer;
+export default topicGuessSlice.reducer;

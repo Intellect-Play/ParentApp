@@ -229,6 +229,18 @@ function App(): React.JSX.Element {
                 presentation: 'modal',
               }}
             />
+
+            {/* ------------------------------- GUESS TOPIC GAME --------------------- */}
+
+            <Stack.Screen
+              name="GuessTopicPage"
+              component={GuessEmojiPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
