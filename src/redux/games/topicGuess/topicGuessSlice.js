@@ -3,7 +3,7 @@ import {
   EASY_MODE,
   MEDIUM_MODE,
   HARD_MODE,
-} from '../../../../gameSettings/ColorGuess/settings';
+} from '../../../../gameSettings/TopicGuess/settings';
 
 const initialState = {
   numberOfPlayers: 3,
