@@ -65,11 +65,11 @@ const ShadowGuessAnimalsPage = () => {
 
   const handleCorrect = () => {
     dispatch(incrementScore(currentPlayer));
-    navigation.navigate('WinEmojiGuessPage', {winner: currentPlayer});
+    navigation.navigate('WinShadowGuessPage', {winner: currentPlayer});
   };
 
   const handleWrong = () => {
-    navigation.navigate('WinEmojiGuessPage', {winner: currentPlayer});
+    navigation.navigate('WinShadowGuessPage', {winner: currentPlayer});
   };
 
   const handleShowAnswer = () => {
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
   player: {
     fontSize: 35,
-    color: '#fff',
+    color: '#black',
     fontWeight: 'bold',
   },
   pageTitleHeading: {
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   pageTitleHeading2: {
-    color: '#fdd05b',
+    color: '#7985e9',
     fontSize: 64,
     fontFamily: 'LuckiestGuy-Regular',
     textAlign: 'center',
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   scoreText: {
-    color: '#ffff',
+    color: '#7985e9',
   },
   textCenter: {
     textAlign: 'center',
