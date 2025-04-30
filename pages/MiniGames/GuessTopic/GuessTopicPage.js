@@ -40,7 +40,16 @@ const GuessTopicPage = () => {
             }}
           />
         </View>
-        <InfoButton message="Emoji Guess is a fun guessing game where players see a set of emojis and try to guess the word they represent. Each round, a different player gives clues based on the emojis. Points are earned for correct answers. First to 10 points wins!" />
+        <InfoButton
+          message="Guess Topic - How to Play
+
+Imitate or describe the topic shown on the screen without saying any part of it!
+The topic could be a famous person, a car brand, a cartoon character, or more.
+Others try to guess the correct answer.
+Press “Show Answer” if needed.
+Click “Got it Right” or “Got it Wrong” to move to the next round.
+The first player to reach 10 points wins the game!"
+        />
       </View>
     </View>
   );

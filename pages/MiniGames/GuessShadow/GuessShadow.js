@@ -40,7 +40,15 @@ const GuessShadowPage = () => {
             }}
           />
         </View>
-        <InfoButton message="Emoji Guess is a fun guessing game where players see a set of emojis and try to guess the word they represent. Each round, a different player gives clues based on the emojis. Points are earned for correct answers. First to 10 points wins!" />
+        <InfoButton
+          message="Shadow Guess - How to Play
+Guess the animal by looking at its shadow!
+One player looks at the shadow image and gives clues without saying the name.
+Others try to guess what animal it is.
+Press “Show Answer” to reveal the correct answer.
+Tap “Got it Right” or “Got it Wrong” to continue.
+Reach 10 points to win the game!"
+        />
       </View>
     </View>
   );
