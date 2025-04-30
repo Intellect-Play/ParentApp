@@ -1,6 +1,5 @@
 import {StyleSheet, Text, View} from 'react-native';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
-import {setDifficulty} from '../../../src/redux/games/emojiGuess/emojiGuessSlice';
 import DifficultyOptionButton from '../../../components/miniGames/ColorGuess/DifficultyOptionButton';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
@@ -9,10 +8,11 @@ import {
   HARD_MODE,
   MEDIUM_MODE,
 } from '../../../gameSettings/TopicGuess/settings';
+import {setDifficulty} from '../../../src/redux/games/topicGuess/topicGuessSlice';
 
 const DifficultyTopicGuessPage = () => {
   const dispatch = useDispatch();
-  const selectedDifficulty = useSelector(state => state.emojiGuess.difficulty);
+  const selectedDifficulty = useSelector(state => state.topicGuess.difficulty);
   const navigation = useNavigation();
 
   return (
@@ -25,7 +25,7 @@ const DifficultyTopicGuessPage = () => {
         seconds={EASY_MODE}
         selected={selectedDifficulty === 'easy'}
         secondsColor="green"
-        selectedColor="#fdd05b"
+        selectedColor="#ecfd5a"
         onPress={() => dispatch(setDifficulty('easy'))}
       />
 
@@ -34,7 +34,7 @@ const DifficultyTopicGuessPage = () => {
         seconds={MEDIUM_MODE}
         selected={selectedDifficulty === 'medium'}
         secondsColor="orange"
-        selectedColor="#fdd05b"
+        selectedColor="#ecfd5a"
         onPress={() => dispatch(setDifficulty('medium'))}
       />
 
@@ -43,7 +43,7 @@ const DifficultyTopicGuessPage = () => {
         seconds={HARD_MODE}
         selected={selectedDifficulty === 'hard'}
         secondsColor="red"
-        selectedColor="#fdd05b"
+        selectedColor="#ecfd5a"
         onPress={() => dispatch(setDifficulty('hard'))}
       />
 
@@ -52,7 +52,7 @@ const DifficultyTopicGuessPage = () => {
           title="Next"
           width={350}
           height={60}
-          backgroundColor="#fdd05b"
+          backgroundColor="#ecfd5a"
           textColor="#333"
           borderRadius={20}
           onPress={() => navigation.navigate('EmojiGuessWordsPage')}
@@ -67,7 +67,7 @@ export default DifficultyTopicGuessPage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e97a91',
+    backgroundColor: '#7cd7eb',
     alignItems: 'center',
     paddingTop: 80,
   },
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   pageTitleHeading2: {
-    color: '#fdd05b',
+    color: '#ecfd5a',
     fontSize: 64,
     fontFamily: 'LuckiestGuy-Regular',
     textAlign: 'center',
