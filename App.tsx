@@ -50,6 +50,10 @@ import PlayerFlagNames from './pages/MiniGames/GuessFlag/PlayerNames';
 import DifficultyFlagGuessPage from './pages/MiniGames/GuessFlag/DifficultyFlagGuessPage';
 import FlagGuessWordsPage from './pages/MiniGames/GuessFlag/FlagGuessWordsPage';
 import WinFlagGuessPage from './pages/MiniGames/GuessFlag/WinFlagGuessPage';
+import GuessKeyPage from './pages/MiniGames/GuessKey/GuessKeyPage';
+import EnterNumberOfPlayersKeyGuess from './pages/MiniGames/GuessKey/EnterNumberOfPlayersKeyGuess';
+import PlayerKeyNames from './pages/MiniGames/GuessKey/PlayerNames';
+import DifficultyKeyGuessPage from './pages/MiniGames/GuessKey/DifficultyKeyGuessPage';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -499,6 +503,48 @@ function App(): React.JSX.Element {
                 headerShown: false,
                 presentation: 'modal',
                 animation: 'none',
+              }}
+            />
+
+            {/* --------------------------------------------------------- KEY GUESS GAME ------------- */}
+
+            <Stack.Screen
+              name="GuessKeyPage"
+              component={GuessKeyPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="EnterNumberOfPlayersKeyGuess"
+              component={EnterNumberOfPlayersKeyGuess}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="PlayerKeyGuessNames"
+              component={PlayerKeyNames}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="DifficultyKeyGuessPage"
+              component={DifficultyKeyGuessPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
               }}
             />
           </Stack.Navigator>

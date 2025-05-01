@@ -33,6 +33,8 @@ const HomePage = () => {
       <Text onPress={() => navigation.navigate('GuessFlagPage')}>
         Flag guess
       </Text>
+
+      <Text onPress={() => navigation.navigate('GuessKeyPage')}>Key guess</Text>
     </View>
   );
 };

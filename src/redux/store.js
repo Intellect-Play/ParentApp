@@ -5,6 +5,7 @@ import topicGuessReducer from './games/topicGuess';
 import shadowGuessReducer from './games/shadowGuess';
 import charadeGuessReducer from './games/charadeGuess';
 import flagGuessReducer from './games/flagGuess';
+import keyGuessReducer from './games/keyGuess';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     shadowGuess: shadowGuessReducer,
     charadeGuess: charadeGuessReducer,
     flagGuess: flagGuessReducer,
+    keyGuess: keyGuessReducer,
   },
 });
 
