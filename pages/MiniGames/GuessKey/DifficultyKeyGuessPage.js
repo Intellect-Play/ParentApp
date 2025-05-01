@@ -55,7 +55,7 @@ const DifficultyKeyGuessPage = () => {
           backgroundColor="#fdd05b"
           textColor="#333"
           borderRadius={20}
-          onPress={() => navigation.navigate('EmojiGuessWordsPage')}
+          onPress={() => navigation.navigate('KeyGuessWordsPage')}
         />
       </View>
     </View>

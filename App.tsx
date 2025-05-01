@@ -54,6 +54,8 @@ import GuessKeyPage from './pages/MiniGames/GuessKey/GuessKeyPage';
 import EnterNumberOfPlayersKeyGuess from './pages/MiniGames/GuessKey/EnterNumberOfPlayersKeyGuess';
 import PlayerKeyNames from './pages/MiniGames/GuessKey/PlayerNames';
 import DifficultyKeyGuessPage from './pages/MiniGames/GuessKey/DifficultyKeyGuessPage';
+import KeyGuessWordsPage from './pages/MiniGames/GuessKey/KeyGuessWordsPage';
+import WinKeyGuessPage from './pages/MiniGames/GuessKey/WinKeyGuessPage';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -541,6 +543,26 @@ function App(): React.JSX.Element {
             <Stack.Screen
               name="DifficultyKeyGuessPage"
               component={DifficultyKeyGuessPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="KeyGuessWordsPage"
+              component={KeyGuessWordsPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="WinKeyGuessPage"
+              component={WinKeyGuessPage}
               options={{
                 title: '',
                 headerShown: false,
