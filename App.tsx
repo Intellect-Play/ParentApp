@@ -56,6 +56,7 @@ import PlayerKeyNames from './pages/MiniGames/GuessKey/PlayerNames';
 import DifficultyKeyGuessPage from './pages/MiniGames/GuessKey/DifficultyKeyGuessPage';
 import KeyGuessWordsPage from './pages/MiniGames/GuessKey/KeyGuessWordsPage';
 import WinKeyGuessPage from './pages/MiniGames/GuessKey/WinKeyGuessPage';
+import PullStickPage from './pages/MiniGames/pullStick/pullStickPage';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -563,6 +564,18 @@ function App(): React.JSX.Element {
             <Stack.Screen
               name="WinKeyGuessPage"
               component={WinKeyGuessPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            {/* --------------------------------------------------------- PULL STICK PAGE --------------- */}
+
+            <Stack.Screen
+              name="PullStickPage"
+              component={PullStickPage}
               options={{
                 title: '',
                 headerShown: false,

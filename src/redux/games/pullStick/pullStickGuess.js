@@ -5,6 +5,7 @@ const initialState = {
   activePlayers: [],
   eliminatedPlayers: [],
   currentPlayerIndex: 0,
+  numberOfPlayers: 3,
   sticks: [],
   maxDrawsPerTurn: 3,
   currentDraws: 0,
@@ -27,6 +28,9 @@ const stickDrawSlice = createSlice({
       state.gameEnded = false;
       state.loser = null;
       state.winner = null;
+    },
+    setNumberOfPlayers: (state, action) => {
+      state.numberOfPlayers = action.payload;
     },
     setSticks: (state, action) => {
       state.sticks = Array(action.payload).fill(true); // true = stick not drawn yet

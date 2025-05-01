@@ -35,6 +35,10 @@ const HomePage = () => {
       </Text>
 
       <Text onPress={() => navigation.navigate('GuessKeyPage')}>Key guess</Text>
+
+      <Text onPress={() => navigation.navigate('PullStickPage')}>
+        Pull stick
+      </Text>
     </View>
   );
 };
