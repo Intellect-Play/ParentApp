@@ -98,7 +98,7 @@ const WinCharadeGuessPage = ({route}) => {
           title="Next Round"
           onPress={() => {
             dispatch(nextPlayer());
-            navigation.navigate('PlayerCharadeGuessNames');
+            navigation.navigate('CharadeGuessWordsPage');
           }}
         />
         <ColorGuessButton

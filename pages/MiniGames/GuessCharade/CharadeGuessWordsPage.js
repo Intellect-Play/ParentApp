@@ -60,11 +60,11 @@ const CharadeGuessWordsPage = () => {
 
   const handleCorrect = () => {
     dispatch(incrementScore(currentPlayer));
-    navigation.navigate('WinCharadesGuessPage', {winner: currentPlayer});
+    navigation.navigate('WinCharadeGuessPage', {winner: currentPlayer});
   };
 
   const handleWrong = () => {
-    navigation.navigate('WinCharadesGuessPage', {winner: currentPlayer});
+    navigation.navigate('WinCharadsGuessPage', {winner: currentPlayer});
   };
 
   return (
