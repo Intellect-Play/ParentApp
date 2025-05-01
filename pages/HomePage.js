@@ -29,6 +29,10 @@ const HomePage = () => {
       <Text onPress={() => navigation.navigate('GuessCharadePage')}>
         Charade guess
       </Text>
+
+      <Text onPress={() => navigation.navigate('GuessFlagPage')}>
+        Flag guess
+      </Text>
     </View>
   );
 };

@@ -44,6 +44,12 @@ import PlayerCharadeGuessNames from './pages/MiniGames/GuessCharade/PlayerNames'
 import DifficultyCharadeGuessPage from './pages/MiniGames/GuessCharade/DifficultyCharadeGuessPage';
 import CharadeGuessWordsPage from './pages/MiniGames/GuessCharade/CharadeGuessWordsPage';
 import WinCharadeGuessPage from './pages/MiniGames/GuessCharade/WinCharadeGuessPage';
+import GuessFlagPage from './pages/MiniGames/GuessFlag/GuessFlagPage';
+import EnterNumberOfPlayersFlagGuess from './pages/MiniGames/GuessFlag/EnterNumberOfPlayersFlagGuess';
+import PlayerFlagNames from './pages/MiniGames/GuessFlag/PlayerNames';
+import DifficultyFlagGuessPage from './pages/MiniGames/GuessFlag/DifficultyFlagGuessPage';
+import FlagGuessWordsPage from './pages/MiniGames/GuessFlag/FlagGuessWordsPage';
+import WinFlagGuessPage from './pages/MiniGames/GuessFlag/WinFlagGuessPage';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -429,6 +435,70 @@ function App(): React.JSX.Element {
                 title: '',
                 headerShown: false,
                 presentation: 'modal',
+              }}
+            />
+
+            {/*----------------------------------------------- GUESS FLAG GAME ---------------------------  */}
+
+            <Stack.Screen
+              name="GuessFlagPage"
+              component={GuessFlagPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="EnterNumberOfPlayersFlagGuess"
+              component={EnterNumberOfPlayersFlagGuess}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="PlayerFlagGuessNames"
+              component={PlayerFlagNames}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="DifficultyFlagGuessPage"
+              component={DifficultyFlagGuessPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="FlagGuessWordsPage"
+              component={FlagGuessWordsPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+                animation: 'none',
+              }}
+            />
+
+            <Stack.Screen
+              name="WinFlagGuessPage"
+              component={WinFlagGuessPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+                animation: 'none',
               }}
             />
           </Stack.Navigator>
