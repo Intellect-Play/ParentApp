@@ -25,7 +25,7 @@ const GuessCharadePage = () => {
             textColor="#333"
             borderRadius={20}
             onPress={() => {
-              navigation.navigate('EnterNumberOfPlayersColorGuess');
+              navigation.navigate('EnterNumberOfPlayersCharadeGuess');
             }}
           />
 

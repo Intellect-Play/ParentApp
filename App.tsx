@@ -40,6 +40,7 @@ import ShadowGuessAnimalsPage from './pages/MiniGames/GuessShadow/ShadowGuessAni
 import WinShadowGuessPage from './pages/MiniGames/GuessShadow/WinShadowGuessPage';
 import GuessCharadePage from './pages/MiniGames/GuessCharade/GuessCharadePage';
 import EnterNumberOfPlayersCharadeGuess from './pages/MiniGames/GuessCharade/EnterNumberOfPlayersCharadeGuess';
+import PlayerCharadeGuessNames from './pages/MiniGames/GuessCharade/PlayerNames';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -390,7 +391,7 @@ function App(): React.JSX.Element {
 
             <Stack.Screen
               name="PlayerCharadeGuessNames"
-              component={GuessCharadePage}
+              component={PlayerCharadeGuessNames}
               options={{
                 title: '',
                 headerShown: false,

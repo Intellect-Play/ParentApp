@@ -71,7 +71,7 @@ export default EnterNumberOfPlayersCharadeGuess;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e97a91',
+    backgroundColor: '#936dfe',
     alignItems: 'center',
     paddingTop: 80,
   },
