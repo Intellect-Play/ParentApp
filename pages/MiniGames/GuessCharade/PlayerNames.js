@@ -65,7 +65,7 @@ const PlayerCharadeGuessNames = () => {
               }
 
               setError('');
-              navigation.navigate('DifficultyEmojiGuessPage');
+              navigation.navigate('DifficultyCharadeGuessPage');
             }}
           />
           {error ? (
