@@ -98,7 +98,7 @@ const WinCharadeGuessPage = ({route}) => {
           title="Next Round"
           onPress={() => {
             dispatch(nextPlayer());
-            navigation.navigate('EmojiGuessWordsPage');
+            navigation.navigate('PlayerCharadeGuessNames');
           }}
         />
         <ColorGuessButton
@@ -106,7 +106,7 @@ const WinCharadeGuessPage = ({route}) => {
           title="Finish Game"
           onPress={() => {
             dispatch(resetGame());
-            navigation.navigate('GuessEmojiPage');
+            navigation.navigate('GuessCharadePage');
           }}
         />
       </View>
