@@ -58,7 +58,7 @@ const EnterNumberOfPlayersPullStick = () => {
             backgroundColor="#ecfd5a"
             textColor="#333"
             borderRadius={20}
-            onPress={() => navigation.navigate('PullStickNames')}
+            onPress={() => navigation.navigate('PlayerStickNames')}
           />
         </View>
       </View>

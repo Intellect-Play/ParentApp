@@ -1,21 +1,39 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import CustomPlayerInput from '../../../components/miniGames/ColorGuess/CustomPlayerInput';
 import {useNavigation} from '@react-navigation/native';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {setPlayers} from '../../../src/redux/games/pullStick/pullStickSlice';
+
 const PlayerStickNames = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const numberOfPlayers = useSelector(state => state.stickDraw.numberOfPlayers);
-  const playerNames = useSelector(state => state.stickDraw.playerNames);
+  const [localNames, setLocalNames] = useState(Array(numberOfPlayers).fill(''));
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    setLocalNames(Array(numberOfPlayers).fill(''));
+  }, [numberOfPlayers]);
+
   const handleNameChange = (text, index) => {
-    const newNames = [...playerNames];
+    const newNames = [...localNames];
     newNames[index] = text;
-    dispatch(setPlayers(newNames)); // ✅ düzeltildi
+    setLocalNames(newNames);
+  };
+
+  const handleNext = () => {
+    const hasEmpty = localNames.some(name => !name || name.trim() === '');
+
+    if (hasEmpty) {
+      setError('Please fill in all player names');
+      return;
+    }
+
+    setError('');
+    dispatch(setPlayers(localNames));
+    navigation.navigate('StickDrawGamePage');
   };
 
   return (
@@ -28,7 +46,7 @@ const PlayerStickNames = () => {
           <CustomPlayerInput
             key={index}
             placeholder={`Player ${index + 1}`}
-            value={playerNames[index] || ''}
+            value={localNames[index] || ''}
             onChangeText={text => handleNameChange(text, index)}
             width={350}
             height={50}
@@ -48,23 +66,7 @@ const PlayerStickNames = () => {
             backgroundColor="#ecfd5a"
             textColor="#333"
             borderRadius={20}
-            onPress={() => {
-              const hasEmpty = Array.from({length: numberOfPlayers}).some(
-                (_, index) => {
-                  const name = playerNames[index];
-                  return !name || name.trim() === '';
-                },
-              );
-
-              if (hasEmpty) {
-                setError('Please fill in all player names');
-                return;
-              }
-
-              setError('');
-              dispatch(setPlayers(playerNames)); // oyuncu listesi güncellenmeli
-              navigation.navigate('DifficultyStickDrawPage');
-            }}
+            onPress={handleNext}
           />
           {error ? (
             <Text style={{color: 'red', textAlign: 'center', marginTop: 10}}>
@@ -85,13 +87,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#7cd7eb',
     paddingHorizontal: 20,
     paddingTop: 60,
-  },
-  title: {
-    color: '#fff',
-    fontSize: 24,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    marginBottom: 20,
   },
   inputContainer: {
     alignItems: 'center',
