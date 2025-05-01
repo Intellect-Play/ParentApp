@@ -38,6 +38,8 @@ import PlayerShadowNames from './pages/MiniGames/GuessShadow/PlayerNames';
 import DifficultyShadowGuessPage from './pages/MiniGames/GuessShadow/DifficultyShadowGuessPage';
 import ShadowGuessAnimalsPage from './pages/MiniGames/GuessShadow/ShadowGuessAnimalsPage';
 import WinShadowGuessPage from './pages/MiniGames/GuessShadow/WinShadowGuessPage';
+import GuessCharadePage from './pages/MiniGames/GuessCharade/GuessCharadePage';
+import EnterNumberOfPlayersCharadeGuess from './pages/MiniGames/GuessCharade/EnterNumberOfPlayersCharadeGuess';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -358,6 +360,37 @@ function App(): React.JSX.Element {
             <Stack.Screen
               name="WinShadowGuessPage"
               component={WinShadowGuessPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            {/* --------------------------- GUESS CHARADE GAME --------------------------------- */}
+            <Stack.Screen
+              name="GuessCharadePage"
+              component={GuessCharadePage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="EnterNumberOfPlayersCharadeGuess"
+              component={EnterNumberOfPlayersCharadeGuess}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="PlayerCharadeGuessNames"
+              component={GuessCharadePage}
               options={{
                 title: '',
                 headerShown: false,
