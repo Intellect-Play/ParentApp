@@ -6,7 +6,7 @@ import shadowGuessReducer from './games/shadowGuess';
 import charadeGuessReducer from './games/charadeGuess';
 import flagGuessReducer from './games/flagGuess';
 import keyGuessReducer from './games/keyGuess';
-import pullStickReducer from './games/pullStick';
+import stickDrawReducer from './games/pullStick';
 
 const store = configureStore({
   reducer: {
@@ -17,7 +17,7 @@ const store = configureStore({
     charadeGuess: charadeGuessReducer,
     flagGuess: flagGuessReducer,
     keyGuess: keyGuessReducer,
-    pullStick: pullStickReducer,
+    stickDraw: stickDrawReducer,
   },
 });
 

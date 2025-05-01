@@ -1,3 +1,3 @@
-import reducer from './pullStickGuess';
+import reducer from './pullStickSlice';
 
 export default reducer;

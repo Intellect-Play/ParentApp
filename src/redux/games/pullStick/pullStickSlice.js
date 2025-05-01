@@ -5,7 +5,7 @@ const initialState = {
   activePlayers: [],
   eliminatedPlayers: [],
   currentPlayerIndex: 0,
-  numberOfPlayers: 3,
+  numberOfPlayers: 4,
   sticks: [],
   maxDrawsPerTurn: 3,
   currentDraws: 0,
@@ -77,7 +77,13 @@ const stickDrawSlice = createSlice({
   },
 });
 
-export const {setPlayers, setSticks, drawStick, nextPlayer, resetGame} =
-  stickDrawSlice.actions;
+export const {
+  setPlayers,
+  setSticks,
+  drawStick,
+  nextPlayer,
+  resetGame,
+  setNumberOfPlayers,
+} = stickDrawSlice.actions;
 
 export default stickDrawSlice.reducer;

@@ -2,14 +2,14 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
-import {setNumberOfPlayers} from '../../../src/redux/games/topicGuess/topicGuessSlice';
+import {setNumberOfPlayers} from '../../../src/redux/games/pullStick/pullStickSlice';
 
 const EnterNumberOfPlayersPullStick = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const selected = useSelector(state => state.topicGuess.numberOfPlayers);
+  const selected = useSelector(state => state.stickDraw.numberOfPlayers);
 
-  const options = [1, 2, 3, 4, 5];
+  const options = [2, 3, 4, 5, 6];
 
   const handleSelect = value => {
     dispatch(setNumberOfPlayers(value));
@@ -58,7 +58,7 @@ const EnterNumberOfPlayersPullStick = () => {
             backgroundColor="#ecfd5a"
             textColor="#333"
             borderRadius={20}
-            onPress={() => navigation.navigate('PlayerTopicGuessNames')}
+            onPress={() => navigation.navigate('PullStickNames')}
           />
         </View>
       </View>

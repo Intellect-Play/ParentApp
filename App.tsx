@@ -57,6 +57,8 @@ import DifficultyKeyGuessPage from './pages/MiniGames/GuessKey/DifficultyKeyGues
 import KeyGuessWordsPage from './pages/MiniGames/GuessKey/KeyGuessWordsPage';
 import WinKeyGuessPage from './pages/MiniGames/GuessKey/WinKeyGuessPage';
 import PullStickPage from './pages/MiniGames/pullStick/pullStickPage';
+import EnterNumberOfPlayersPullStick from './pages/MiniGames/pullStick/EnterNumberOfPlayersPullStick';
+import PlayerStickNames from './pages/MiniGames/pullStick/playerNames';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -576,6 +578,26 @@ function App(): React.JSX.Element {
             <Stack.Screen
               name="PullStickPage"
               component={PullStickPage}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="EnterNumberOfPlayersPullStick"
+              component={EnterNumberOfPlayersPullStick}
+              options={{
+                title: '',
+                headerShown: false,
+                presentation: 'modal',
+              }}
+            />
+
+            <Stack.Screen
+              name="PlayerStickNames"
+              component={PlayerStickNames}
               options={{
                 title: '',
                 headerShown: false,
