@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {
   drawStick,
   nextPlayer,
+  resetGame,
   setSticks,
 } from '../../../src/redux/games/pullStick/pullStickSlice';
 
@@ -48,13 +49,34 @@ const StickDrawGamePage = () => {
     dispatch(drawStick());
   };
 
+  const handleNext = () => {
+    dispatch(nextPlayer());
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Pull the Stick!</Text>
 
       {gameEnded ? (
         <>
-          <Text style={styles.winnerText}>🎉 {winner} wins! 🎉</Text>
+          <View>
+            <Text style={styles.winnerText}>🎉 {winner} wins! 🎉</Text>
+            <View style={styles.topButtonContainer}>
+              <ColorGuessButton
+                title="Next Round"
+                backgroundColor="#faebc0"
+                onPress={() => navigation.navigate('StickDrawGamePage')}
+                width={150}
+              />
+
+              <ColorGuessButton
+                title="Finish Game"
+                backgroundColor="#faebc0"
+                onPress={handleNext}
+                width={150}
+              />
+            </View>
+          </View>
         </>
       ) : (
         <>
@@ -75,12 +97,23 @@ const StickDrawGamePage = () => {
             contentContainerStyle={styles.stickContainer}
           />
 
-          <ColorGuessButton
-            title="Draw Stick"
-            backgroundColor="#ecfd5a"
-            onPress={handleDraw}
-            width={300}
-          />
+          <View style={styles.buttonContainer}>
+            <ColorGuessButton
+              title="Draw Stick"
+              backgroundColor="#ecfd5a"
+              onPress={handleDraw}
+              width={150}
+            />
+
+            {currentDraws >= 1 && (
+              <ColorGuessButton
+                title="Next"
+                backgroundColor="#faebc0"
+                onPress={handleNext}
+                width={150}
+              />
+            )}
+          </View>
         </>
       )}
 
@@ -128,13 +161,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   stick: {
-    width: 100,
+    width: 250,
     height: 20,
     borderRadius: 4,
     marginVertical: 5,
   },
+  relative: {
+    position: 'relative',
+  },
   eliminatedContainer: {
-    marginTop: 40,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 10,
+    marginTop: 30,
   },
   eliminatedTitle: {
     fontSize: 18,
@@ -151,5 +192,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 40,
     textAlign: 'center',
+  },
+  buttonContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 10,
+    position: 'absolute',
+    bottom: 80,
+  },
+
+  topButtonContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginTop: 30,
+    gap: 10,
   },
 });
