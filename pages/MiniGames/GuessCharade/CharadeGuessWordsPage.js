@@ -60,17 +60,17 @@ const CharadeGuessWordsPage = () => {
 
   const handleCorrect = () => {
     dispatch(incrementScore(currentPlayer));
-    navigation.navigate('WinTopicGuessPage', {winner: currentPlayer});
+    navigation.navigate('WinCharadesGuessPage', {winner: currentPlayer});
   };
 
   const handleWrong = () => {
-    navigation.navigate('WinTopicGuessPage', {winner: currentPlayer});
+    navigation.navigate('WinCharadesGuessPage', {winner: currentPlayer});
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.pageTitleHeading}>Guess</Text>
-      <Text style={styles.pageTitleHeading2}>words</Text>
+      <Text style={styles.pageTitleHeading2}>Charades</Text>
 
       <View style={styles.topicBox}>
         <Text style={styles.topicText}>{currentCharade}</Text>
