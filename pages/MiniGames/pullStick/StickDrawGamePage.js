@@ -44,7 +44,6 @@ const StickDrawGamePage = () => {
     //eslint-disable-next-line
   }, [activePlayers.length, sticks.length, gameEnded]);
 
-  // Otomatik geçiş
   useEffect(() => {
     if (currentDraws >= 3) {
       const timeout = setTimeout(() => {
@@ -58,7 +57,7 @@ const StickDrawGamePage = () => {
     if (gameEnded && winner) {
       const timeout = setTimeout(() => {
         navigation.navigate('StickDrawWinPage');
-      }, 0); // 1.5 saniye sonra geçiş
+      }, 0);
       return () => clearTimeout(timeout);
     }
   }, [gameEnded, winner, navigation]);
@@ -137,14 +136,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   title: {
-    fontSize: 34,
-    fontWeight: 'bold',
+    fontSize: 44,
+    // fontWeight: 'bold',
     marginBottom: 30,
     textAlign: 'center',
+    fontFamily: 'LuckiestGuy-Regular',
+    color: '#fff',
+  },
+  font: {
+    fontFamily: 'LuckiestGuy-Regular',
   },
   playerText: {
     fontSize: 22,
     marginBottom: 10,
+    fontFamily: 'POPPINS',
   },
   drawText: {
     fontSize: 18,

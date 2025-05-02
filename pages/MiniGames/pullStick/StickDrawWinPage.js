@@ -88,7 +88,7 @@ const StickDrawWinPage = () => {
         <ColorGuessButton
           backgroundColor="#ecfd5a"
           width={300}
-          title="Next raund"
+          title="Next round"
           onPress={() => {
             // dispatch(resetGame());
             navigation.navigate('PlayerStickNames');
