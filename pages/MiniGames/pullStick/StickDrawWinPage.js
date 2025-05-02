@@ -13,16 +13,12 @@ const StickDrawWinPage = () => {
 
   const winner = useSelector(state => state.stickDraw.winner);
   const eliminated = useSelector(state => state.stickDraw.eliminatedPlayers);
-  const fullRanking = [...eliminated].reverse();
+  const fullRanking = [...eliminated, winner].reverse();
 
-  if (winner) {
-    fullRanking.push(winner);
-  }
-
-  const first = fullRanking[fullRanking.length - 1];
-  const second = fullRanking[fullRanking.length - 2];
-  const third = fullRanking[fullRanking.length - 3];
-  const others = fullRanking.slice(0, fullRanking.length - 3).reverse();
+  const first = fullRanking[0];
+  const second = fullRanking[1];
+  const third = fullRanking[2];
+  const others = fullRanking.slice(3);
 
   return (
     <View style={styles.container}>

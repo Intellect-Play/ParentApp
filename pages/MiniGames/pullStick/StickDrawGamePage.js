@@ -6,7 +6,6 @@ import {useNavigation} from '@react-navigation/native';
 import {
   drawStick,
   nextPlayer,
-  resetGame,
   setSticks,
 } from '../../../src/redux/games/pullStick/pullStickSlice';
 
@@ -155,7 +154,7 @@ export default StickDrawGamePage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#a7eb7c',
+    backgroundColor: '#7cd7eb',
     alignItems: 'center',
     paddingTop: 60,
     paddingHorizontal: 20,
