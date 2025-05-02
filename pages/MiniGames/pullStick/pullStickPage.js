@@ -41,14 +41,10 @@ const PullStickPage = () => {
           />
         </View>
         <InfoButton
-          message="Guess Topic - How to Play
-
-Imitate or describe the topic shown on the screen without saying any part of it!
-The topic could be a famous person, a car brand, a cartoon character, or more.
-Others try to guess the correct answer.
-Press “Show Answer” if needed.
-Click “Got it Right” or “Got it Wrong” to move to the next round.
-The first player to reach 10 points wins the game!"
+          message="Each player takes turns drawing sticks. You can draw up to 3 sticks per turn — or pass early.
+                The player who draws the last stick loses!
+                Round by round, players are eliminated.
+                The last remaining player wins the game!"
         />
       </View>
     </View>
