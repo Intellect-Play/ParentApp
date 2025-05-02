@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Text, View, StyleSheet, FlatList} from 'react-native';
+import {Text, View, StyleSheet, FlatList, Alert} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
@@ -61,6 +61,13 @@ const StickDrawGamePage = () => {
       return () => clearTimeout(timeout);
     }
   }, [gameEnded, winner, navigation]);
+
+  useEffect(() => {
+    if (eliminatedPlayers.length > 0) {
+      const lastEliminated = eliminatedPlayers[eliminatedPlayers.length - 1];
+      Alert.alert('Eliminated!', `${lastEliminated} has been eliminated.`);
+    }
+  }, [eliminatedPlayers]);
 
   const handleDraw = () => {
     dispatch(drawStick());
