@@ -40,7 +40,10 @@ const GuessKeyPage = () => {
             }}
           />
         </View>
-        <InfoButton message="Emoji Guess is a fun guessing game where players see a set of emojis and try to guess the word they represent. Each round, a different player gives clues based on the emojis. Points are earned for correct answers. First to 10 points wins!" />
+        <InfoButton
+          message="You'll see 3 related clues — for example: book, pen, notebook.Your task is to guess the key word that connects them all — in this case: student. Work together or challenge each other! The faster you guess, the better your chances of winning!
+"
+        />
       </View>
     </View>
   );

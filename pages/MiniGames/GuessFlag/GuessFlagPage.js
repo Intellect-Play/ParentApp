@@ -40,7 +40,13 @@ const GuessFlagPage = () => {
             }}
           />
         </View>
-        <InfoButton message="Emoji Guess is a fun guessing game where players see a set of emojis and try to guess the word they represent. Each round, a different player gives clues based on the emojis. Points are earned for correct answers. First to 10 points wins!" />
+        <InfoButton
+          message="A flag emoji will appear on the screen.
+Your mission: Guess which country it belongs to!
+Some are easy 🇫🇷, some will make you think 🇧🇹...
+Get it right to earn points.
+Can you recognize them all?"
+        />
       </View>
     </View>
   );

@@ -1,5 +1,9 @@
 const flags = [
   {
+    emoji: '🇦🇿',
+    answer: 'Azerbaijan',
+  },
+  {
     emoji: '🇺🇸',
     answer: 'United States',
   },
