@@ -75,28 +75,6 @@ const StickDrawGamePage = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Pull the Stick!</Text>
 
-      {/* {gameEnded ? (
-        <>
-          <View>
-            <Text style={styles.winnerText}>🎉 {winner} wins! 🎉</Text>
-            <View style={styles.topButtonContainer}>
-              <ColorGuessButton
-                title="Next Round"
-                backgroundColor="#faebc0"
-                onPress={() => navigation.navigate('StickDrawGamePage')}
-                width={150}
-              />
-
-              <ColorGuessButton
-                title="Finish Game"
-                backgroundColor="#faebc0"
-                onPress={handleNext}
-                width={150}
-              />
-            </View>
-          </View>
-        </>
-      ) : ( */}
       <>
         <Text style={styles.playerText}>Current Player: {currentPlayer}</Text>
         <Text style={styles.drawText}>Draws this turn: {currentDraws}/3</Text>
@@ -133,7 +111,6 @@ const StickDrawGamePage = () => {
           )}
         </View>
       </>
-      {/* )} */}
 
       {eliminatedPlayers.length > 0 && (
         <View style={styles.eliminatedContainer}>
@@ -193,7 +170,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     gap: 10,
-    marginTop: 30,
+    marginBottom: 30,
   },
   eliminatedTitle: {
     fontSize: 18,
