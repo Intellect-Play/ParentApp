@@ -27,13 +27,23 @@ const StickDrawGamePage = () => {
   const currentPlayer = activePlayers[currentPlayerIndex];
 
   // İlk açılışta çubukları ayarla
+  // useEffect(() => {
+  //   if (sticks.length === 0) {
+  //     const options = [17, 20, 23];
+  //     const count = options[Math.floor(Math.random() * options.length)];
+  //     dispatch(setSticks(count));
+  //   }
+  // }, [sticks, dispatch]);
+
   useEffect(() => {
-    if (sticks.length === 0) {
-      const options = [6, 9, 11];
+    if (!gameEnded && sticks.length === 0 && activePlayers.length > 1) {
+      const options = [17, 20, 23];
       const count = options[Math.floor(Math.random() * options.length)];
       dispatch(setSticks(count));
     }
-  }, [sticks, dispatch]);
+
+    //eslint-disable-next-line
+  }, [activePlayers.length, sticks.length, gameEnded]);
 
   // Otomatik geçiş
   useEffect(() => {
@@ -44,6 +54,15 @@ const StickDrawGamePage = () => {
       return () => clearTimeout(timeout);
     }
   }, [currentDraws, dispatch]);
+
+  useEffect(() => {
+    if (gameEnded && winner) {
+      const timeout = setTimeout(() => {
+        navigation.navigate('StickDrawWinPage');
+      }, 0); // 1.5 saniye sonra geçiş
+      return () => clearTimeout(timeout);
+    }
+  }, [gameEnded, winner, navigation]);
 
   const handleDraw = () => {
     dispatch(drawStick());
@@ -57,7 +76,7 @@ const StickDrawGamePage = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Pull the Stick!</Text>
 
-      {gameEnded ? (
+      {/* {gameEnded ? (
         <>
           <View>
             <Text style={styles.winnerText}>🎉 {winner} wins! 🎉</Text>
@@ -78,44 +97,44 @@ const StickDrawGamePage = () => {
             </View>
           </View>
         </>
-      ) : (
-        <>
-          <Text style={styles.playerText}>Current Player: {currentPlayer}</Text>
-          <Text style={styles.drawText}>Draws this turn: {currentDraws}/3</Text>
+      ) : ( */}
+      <>
+        <Text style={styles.playerText}>Current Player: {currentPlayer}</Text>
+        <Text style={styles.drawText}>Draws this turn: {currentDraws}/3</Text>
 
-          <FlatList
-            data={sticks}
-            keyExtractor={(_, index) => index.toString()}
-            renderItem={({item}) => (
-              <View
-                style={[
-                  styles.stick,
-                  {backgroundColor: item ? '#ecfd5a' : '#ccc'},
-                ]}
-              />
-            )}
-            contentContainerStyle={styles.stickContainer}
+        <FlatList
+          data={sticks}
+          keyExtractor={(_, index) => index.toString()}
+          renderItem={({item}) => (
+            <View
+              style={[
+                styles.stick,
+                {backgroundColor: item ? '#ecfd5a' : '#ccc'},
+              ]}
+            />
+          )}
+          contentContainerStyle={styles.stickContainer}
+        />
+
+        <View style={styles.buttonContainer}>
+          <ColorGuessButton
+            title="Draw Stick"
+            backgroundColor="#ecfd5a"
+            onPress={handleDraw}
+            width={150}
           />
 
-          <View style={styles.buttonContainer}>
+          {currentDraws >= 1 && (
             <ColorGuessButton
-              title="Draw Stick"
-              backgroundColor="#ecfd5a"
-              onPress={handleDraw}
+              title="Next"
+              backgroundColor="#faebc0"
+              onPress={handleNext}
               width={150}
             />
-
-            {currentDraws >= 1 && (
-              <ColorGuessButton
-                title="Next"
-                backgroundColor="#faebc0"
-                onPress={handleNext}
-                width={150}
-              />
-            )}
-          </View>
-        </>
-      )}
+          )}
+        </View>
+      </>
+      {/* )} */}
 
       {eliminatedPlayers.length > 0 && (
         <View style={styles.eliminatedContainer}>
@@ -162,9 +181,9 @@ const styles = StyleSheet.create({
   },
   stick: {
     width: 250,
-    height: 20,
+    height: 6,
     borderRadius: 4,
-    marginVertical: 5,
+    marginVertical: 2,
   },
   relative: {
     position: 'relative',
