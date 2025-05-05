@@ -5,8 +5,11 @@ import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGues
 import {useNavigation} from '@react-navigation/native';
 import topics from '../../../gameSettings/TopicGuess/topics';
 import {
+  addAnsweredPlayer,
   endGame,
   incrementScore,
+  nextPlayer,
+  resetAnsweredPlayers,
 } from '../../../src/redux/games/topicGuess/topicGuessSlice';
 
 const TopicGuessCategoriesPage = () => {
@@ -19,7 +22,9 @@ const TopicGuessCategoriesPage = () => {
   const scores = useSelector(state => state.topicGuess.scores);
   const timePerRound = useSelector(state => state.topicGuess.timePerRound);
   const currentRound = useSelector(state => state.topicGuess.currentRound);
-
+  const answeredPlayers = useSelector(
+    state => state.topicGuess.answeredPlayers,
+  );
   const currentPlayer = playerNames[currentIndex];
   const [timeLeft, setTimeLeft] = useState(timePerRound);
   const [currentTopic, setCurrentTopic] = useState('');
@@ -58,14 +63,33 @@ const TopicGuessCategoriesPage = () => {
   //   }
   // }, [scores, dispatch, navigation]);
 
+  // const handleCorrect = () => {
+  //   dispatch(incrementScore(currentPlayer));
+  //   navigation.navigate('WinTopicGuessPage', {winner: currentPlayer});
+  // };
+
+  // const handleWrong = () => {
+  //   navigation.navigate('WinTopicGuessPage', {winner: currentPlayer});
+  // };
+
   const handleCorrect = () => {
     dispatch(incrementScore(currentPlayer));
-    navigation.navigate('WinTopicGuessPage', {winner: currentPlayer});
+    dispatch(addAnsweredPlayer(currentPlayer));
+    dispatch(nextPlayer());
   };
 
   const handleWrong = () => {
-    navigation.navigate('WinTopicGuessPage', {winner: currentPlayer});
+    dispatch(addAnsweredPlayer(currentPlayer));
+    dispatch(nextPlayer());
   };
+
+  useEffect(() => {
+    if (answeredPlayers.length === playerNames.length) {
+      dispatch(endGame());
+      navigation.navigate('WinTopicGuessPage', {scores});
+      dispatch(resetAnsweredPlayers());
+    }
+  }, [answeredPlayers, dispatch, navigation, playerNames.length, scores]);
 
   return (
     <View style={styles.container}>
