@@ -16,7 +16,7 @@ const initialState = {
   currentPlayerIndex: 0,
   gameStarted: false,
   gameEnded: false,
-
+  answeredPlayers: [],
   flags: flags,
   currentFlagIndex: 0,
   showAnswer: false,
@@ -92,6 +92,14 @@ const keyGuessSlice = createSlice({
       state.gameEnded = true;
     },
     resetGame: () => initialState,
+    addAnsweredPlayer: (state, action) => {
+      if (!state.answeredPlayers.includes(action.payload)) {
+        state.answeredPlayers.push(action.payload);
+      }
+    },
+    resetAnsweredPlayers: state => {
+      state.answeredPlayers = [];
+    },
   },
 });
 
@@ -105,6 +113,8 @@ export const {
   startGame,
   endGame,
   resetGame,
+  addAnsweredPlayer,
+  resetAnsweredPlayers,
 } = keyGuessSlice.actions;
 
 export default keyGuessSlice.reducer;

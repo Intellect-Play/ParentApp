@@ -12,6 +12,7 @@ const initialState = {
   timePerRound: EASY_MODE,
   currentRound: 1,
   scores: {},
+  answeredPlayers: [],
   currentPlayerIndex: 0,
   gameStarted: false,
   gameEnded: false,
@@ -85,6 +86,14 @@ const topicGuessSlice = createSlice({
       state.gameEnded = true;
     },
     resetGame: () => initialState,
+    addAnsweredPlayer: (state, action) => {
+      if (!state.answeredPlayers.includes(action.payload)) {
+        state.answeredPlayers.push(action.payload);
+      }
+    },
+    resetAnsweredPlayers: state => {
+      state.answeredPlayers = [];
+    },
   },
 });
 
@@ -97,6 +106,8 @@ export const {
   startGame,
   endGame,
   resetGame,
+  addAnsweredPlayer,
+  resetAnsweredPlayers,
 } = topicGuessSlice.actions;
 
 export default topicGuessSlice.reducer;

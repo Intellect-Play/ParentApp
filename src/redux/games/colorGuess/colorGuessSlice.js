@@ -13,6 +13,7 @@ const initialState = {
   currentRound: 1,
   scores: {},
   currentPlayerIndex: 0,
+  answeredPlayers: [],
   gameStarted: false,
   gameEnded: false,
 };
@@ -85,6 +86,14 @@ const colorGuessSlice = createSlice({
       state.gameEnded = true;
     },
     resetGame: () => initialState,
+    addAnsweredPlayer: (state, action) => {
+      if (!state.answeredPlayers.includes(action.payload)) {
+        state.answeredPlayers.push(action.payload);
+      }
+    },
+    resetAnsweredPlayers: state => {
+      state.answeredPlayers = [];
+    },
   },
 });
 
@@ -97,6 +106,8 @@ export const {
   startGame,
   endGame,
   resetGame,
+  addAnsweredPlayer,
+  resetAnsweredPlayers,
 } = colorGuessSlice.actions;
 
 export default colorGuessSlice.reducer;

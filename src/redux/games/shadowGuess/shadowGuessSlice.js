@@ -16,7 +16,7 @@ const initialState = {
   currentPlayerIndex: 0,
   gameStarted: false,
   gameEnded: false,
-
+  answeredPlayers: [],
   shadows: shadows,
   currentShadowIndex: 0,
   showAnswer: false,
@@ -95,6 +95,14 @@ const shadowGuessSlice = createSlice({
       state.gameEnded = true;
     },
     resetGame: () => initialState,
+    addAnsweredPlayer: (state, action) => {
+      if (!state.answeredPlayers.includes(action.payload)) {
+        state.answeredPlayers.push(action.payload);
+      }
+    },
+    resetAnsweredPlayers: state => {
+      state.answeredPlayers = [];
+    },
   },
 });
 
@@ -108,6 +116,8 @@ export const {
   startGame,
   endGame,
   resetGame,
+  addAnsweredPlayer,
+  resetAnsweredPlayers,
 } = shadowGuessSlice.actions;
 
 export default shadowGuessSlice.reducer;

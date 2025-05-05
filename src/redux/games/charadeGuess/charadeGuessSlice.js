@@ -13,6 +13,7 @@ const initialState = {
   timePerRound: EASY_MODE,
   currentRound: 1,
   scores: {},
+  answeredPlayers: [],
   charades: charades,
   currentPlayerIndex: 0,
   gameStarted: false,
@@ -83,6 +84,14 @@ const charadeGuessSlice = createSlice({
       state.gameEnded = true;
     },
     resetGame: () => initialState,
+    addAnsweredPlayer: (state, action) => {
+      if (!state.answeredPlayers.includes(action.payload)) {
+        state.answeredPlayers.push(action.payload);
+      }
+    },
+    resetAnsweredPlayers: state => {
+      state.answeredPlayers = [];
+    },
   },
 });
 
@@ -95,6 +104,8 @@ export const {
   startGame,
   endGame,
   resetGame,
+  addAnsweredPlayer,
+  resetAnsweredPlayers,
 } = charadeGuessSlice.actions;
 
 export default charadeGuessSlice.reducer;

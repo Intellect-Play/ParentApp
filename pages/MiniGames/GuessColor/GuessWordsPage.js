@@ -3,8 +3,11 @@ import {StyleSheet, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {
+  addAnsweredPlayer,
   endGame,
   incrementScore,
+  nextPlayer,
+  resetAnsweredPlayers,
 } from '../../../src/redux/games/colorGuess/colorGuessSlice';
 import {useNavigation} from '@react-navigation/native';
 const colors = ['White', 'Purple', 'Green', 'Yellow', 'Orange', 'Blue'];
@@ -62,14 +65,37 @@ const GuessWordsPage = () => {
   //   }
   // }, [scores, dispatch, navigation]);
 
+  // const handleCorrect = () => {
+  //   dispatch(incrementScore(currentPlayer));
+  //   navigation.navigate('WinColorGuessPage', {winner: currentPlayer});
+  // };
+
+  // const handleWrong = () => {
+  //   navigation.navigate('WinColorGuessPage', {winner: currentPlayer});
+  // };
+
   const handleCorrect = () => {
     dispatch(incrementScore(currentPlayer));
-    navigation.navigate('WinColorGuessPage', {winner: currentPlayer});
+    dispatch(addAnsweredPlayer(currentPlayer));
+    dispatch(nextPlayer());
   };
 
   const handleWrong = () => {
-    navigation.navigate('WinColorGuessPage', {winner: currentPlayer});
+    dispatch(addAnsweredPlayer(currentPlayer));
+    dispatch(nextPlayer());
   };
+
+  const answeredPlayers = useSelector(
+    state => state.colorGuess.answeredPlayers,
+  );
+
+  useEffect(() => {
+    if (answeredPlayers.length === playerNames.length) {
+      dispatch(endGame());
+      navigation.navigate('WinColorGuessPage', {scores});
+      dispatch(resetAnsweredPlayers());
+    }
+  }, [answeredPlayers, dispatch, navigation, playerNames.length, scores]);
 
   return (
     <View style={styles.container}>
