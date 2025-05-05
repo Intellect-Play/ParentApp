@@ -4,8 +4,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
 import {
+  addAnsweredPlayer,
   endGame,
   incrementScore,
+  nextPlayer,
+  resetAnsweredPlayers,
   showAnswerNow,
 } from '../../../src/redux/games/keyGuess/keyGuessSlice';
 import keys from '../../../gameSettings/keyGuess/keys';
@@ -18,6 +21,7 @@ const KeyGuessWordsPage = () => {
     useSelector(state => state.keyGuess);
   const currentRound = useSelector(state => state.keyGuess.currentRound);
   const currentPlayer = playerNames[currentPlayerIndex];
+  const answeredPlayers = useSelector(state => state.keyGuess.answeredPlayers);
 
   const [timeLeft, setTimeLeft] = useState(timePerRound);
   const [lastIndex, setLastIndex] = useState(null);
@@ -56,18 +60,37 @@ const KeyGuessWordsPage = () => {
     return () => clearTimeout(timer);
   }, [timeLeft]);
 
-  const handleCorrect = () => {
-    dispatch(incrementScore(currentPlayer));
-    navigation.navigate('WinKeyGuessPage', {winner: currentPlayer});
-  };
+  // const handleCorrect = () => {
+  //   dispatch(incrementScore(currentPlayer));
+  //   navigation.navigate('WinKeyGuessPage', {winner: currentPlayer});
+  // };
 
-  const handleWrong = () => {
-    navigation.navigate('WinKeyGuessPage', {winner: currentPlayer});
-  };
+  // const handleWrong = () => {
+  //   navigation.navigate('WinKeyGuessPage', {winner: currentPlayer});
+  // };
 
   const handleShowAnswer = () => {
     dispatch(showAnswerNow());
   };
+
+  const handleCorrect = () => {
+    dispatch(incrementScore(currentPlayer));
+    dispatch(addAnsweredPlayer(currentPlayer));
+    dispatch(nextPlayer());
+  };
+
+  const handleWrong = () => {
+    dispatch(addAnsweredPlayer(currentPlayer));
+    dispatch(nextPlayer());
+  };
+
+  useEffect(() => {
+    if (answeredPlayers.length === playerNames.length) {
+      dispatch(endGame());
+      navigation.navigate('WinKeyGuessPage', {scores});
+      dispatch(resetAnsweredPlayers());
+    }
+  }, [answeredPlayers, dispatch, navigation, playerNames.length, scores]);
 
   return (
     <View style={styles.container}>

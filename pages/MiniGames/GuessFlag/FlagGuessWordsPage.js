@@ -4,8 +4,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
 import {
+  addAnsweredPlayer,
   endGame,
   incrementScore,
+  nextPlayer,
+  resetAnsweredPlayers,
   showAnswerNow,
 } from '../../../src/redux/games/flagGuess/flagGuessSlice';
 
@@ -22,6 +25,7 @@ const FlagGuessWordsPage = () => {
     showAnswer,
   } = useSelector(state => state.flagGuess);
   const currentRound = useSelector(state => state.flagGuess.currentRound);
+  const answeredPlayers = useSelector(state => state.flagGuess.answeredPlayers);
   const currentPlayer = playerNames[currentPlayerIndex];
 
   const [timeLeft, setTimeLeft] = useState(timePerRound);
@@ -61,18 +65,37 @@ const FlagGuessWordsPage = () => {
     return () => clearTimeout(timer);
   }, [timeLeft]);
 
-  const handleCorrect = () => {
-    dispatch(incrementScore(currentPlayer));
-    navigation.navigate('WinFlagGuessPage', {winner: currentPlayer});
-  };
+  // const handleCorrect = () => {
+  //   dispatch(incrementScore(currentPlayer));
+  //   navigation.navigate('WinFlagGuessPage', {winner: currentPlayer});
+  // };
 
-  const handleWrong = () => {
-    navigation.navigate('WinFlagGuessPage', {winner: currentPlayer});
-  };
+  // const handleWrong = () => {
+  //   navigation.navigate('WinFlagGuessPage', {winner: currentPlayer});
+  // };
 
   const handleShowAnswer = () => {
     dispatch(showAnswerNow());
   };
+
+  const handleCorrect = () => {
+    dispatch(incrementScore(currentPlayer));
+    dispatch(addAnsweredPlayer(currentPlayer));
+    dispatch(nextPlayer());
+  };
+
+  const handleWrong = () => {
+    dispatch(addAnsweredPlayer(currentPlayer));
+    dispatch(nextPlayer());
+  };
+
+  useEffect(() => {
+    if (answeredPlayers.length === playerNames.length) {
+      dispatch(endGame());
+      navigation.navigate('WinFlagGuessPage', {scores});
+      dispatch(resetAnsweredPlayers());
+    }
+  }, [answeredPlayers, dispatch, navigation, playerNames.length, scores]);
 
   return (
     <View style={styles.container}>

@@ -505,7 +505,6 @@ function App(): React.JSX.Element {
                 title: '',
                 headerShown: false,
                 presentation: 'modal',
-                animation: 'none',
               }}
             />
 
@@ -516,7 +515,6 @@ function App(): React.JSX.Element {
                 title: '',
                 headerShown: false,
                 presentation: 'modal',
-                animation: 'none',
               }}
             />
 
