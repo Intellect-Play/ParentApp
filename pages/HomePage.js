@@ -1,11 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import MiniGamePhoto from '../components/HomePage/miniGamePhoto';
 import {homeGames} from '../mockdb/mockdb';
 // Luckiest guys
