@@ -1,29 +1,40 @@
 import {useNavigation} from '@react-navigation/native';
-import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {
+  Dimensions,
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import MiniGamePhoto from '../components/HomePage/miniGamePhoto';
 import {homeGames} from '../mockdb/mockdb';
 // Luckiest guys
+
+const ITEM_SIZE = 160;
+const GAP = 10;
 
 const HomePage = () => {
   const navigation = useNavigation();
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.grid}>
-        {homeGames.map((game, index) => (
-          <TouchableOpacity
-            key={index}
-            onPress={() => navigation.navigate(game.screen)}>
-            <MiniGamePhoto
-              image={game.image}
-              title={game?.title}
-              width={160}
-              height={160}
-            />
-          </TouchableOpacity>
-        ))}
-      </View>
-    </ScrollView>
+    <FlatList
+      data={homeGames}
+      keyExtractor={(_, i) => i.toString()}
+      numColumns={2}
+      contentContainerStyle={styles.flatListContainer}
+      columnWrapperStyle={styles.row}
+      renderItem={({item}) => (
+        <TouchableOpacity onPress={() => navigation.navigate(item.screen)}>
+          <MiniGamePhoto
+            image={item.image}
+            title={item.title}
+            width={ITEM_SIZE}
+            height={ITEM_SIZE}
+          />
+        </TouchableOpacity>
+      )}
+    />
   );
 };
 
@@ -40,5 +51,15 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     gap: 10,
+  },
+  flatListContainer: {
+    marginTop: 30,
+    paddingVertical: 20,
+    alignItems: 'center',
+  },
+
+  row: {
+    justifyContent: 'space-evenly',
+    marginBottom: GAP,
   },
 });
