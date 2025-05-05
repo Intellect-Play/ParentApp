@@ -4,7 +4,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
 import {
+  addAnsweredPlayer,
+  endGame,
   incrementScore,
+  nextPlayer,
+  resetAnsweredPlayers,
   showAnswerNow,
 } from '../../../src/redux/games/shadowGuess/shadowGuessSlice';
 import shadows from '../../../gameSettings/shadowGuess/shadows';
@@ -22,6 +26,9 @@ const ShadowGuessAnimalsPage = () => {
   const [lastIndex, setLastIndex] = useState(null);
   const [randomShadowIndex, setRandomShadowIndex] = useState(null);
   const currentShadow = shadows[randomShadowIndex];
+  const answeredPlayers = useSelector(
+    state => state.shadowGuess.answeredPlayers,
+  );
 
   const getRandomIndex = () => {
     if (shadows.length <= 1) return 0;
@@ -63,14 +70,33 @@ const ShadowGuessAnimalsPage = () => {
   //   }
   // }, [scores, dispatch, navigation]);
 
+  // const handleCorrect = () => {
+  //   dispatch(incrementScore(currentPlayer));
+  //   navigation.navigate('WinShadowGuessPage', {winner: currentPlayer});
+  // };
+
+  // const handleWrong = () => {
+  //   navigation.navigate('WinShadowGuessPage', {winner: currentPlayer});
+  // };
+
   const handleCorrect = () => {
     dispatch(incrementScore(currentPlayer));
-    navigation.navigate('WinShadowGuessPage', {winner: currentPlayer});
+    dispatch(addAnsweredPlayer(currentPlayer));
+    dispatch(nextPlayer());
   };
 
   const handleWrong = () => {
-    navigation.navigate('WinShadowGuessPage', {winner: currentPlayer});
+    dispatch(addAnsweredPlayer(currentPlayer));
+    dispatch(nextPlayer());
   };
+
+  useEffect(() => {
+    if (answeredPlayers.length === playerNames.length) {
+      dispatch(endGame());
+      navigation.navigate('WinShadowGuessPage', {scores});
+      dispatch(resetAnsweredPlayers());
+    }
+  }, [answeredPlayers, dispatch, navigation, playerNames.length, scores]);
 
   const handleShowAnswer = () => {
     dispatch(showAnswerNow());
