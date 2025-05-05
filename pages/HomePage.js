@@ -31,6 +31,7 @@ export default HomePage;
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 30,
     paddingVertical: 20,
     alignItems: 'center',
   },

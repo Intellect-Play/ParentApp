@@ -2,16 +2,16 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import WelcomePage from './pages/WelcomePage';
-import LoginPage from './pages/LoginPage';
+// import WelcomePage from './pages/WelcomePage';
+// import LoginPage from './pages/LoginPage';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fab} from '@fortawesome/free-brands-svg-icons';
 import {faSquareCheck} from '@fortawesome/free-solid-svg-icons/faSquareCheck';
 import {faMugSaucer} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
-import RegisterPage from './pages/RegisterPage';
-import ResetPasswordPage from './pages/ResetPasswordPage';
-import MainPage from './pages/MainPage';
-import AiVoicePage from './pages/AiChatPages/AiVoicePage';
+// import RegisterPage from './pages/RegisterPage';
+// import ResetPasswordPage from './pages/ResetPasswordPage';
+// import MainPage from './pages/MainPage';
+// import AiVoicePage from './pages/AiChatPages/AiVoicePage';
 import GuessColorPage from './pages/MiniGames/GuessColor/GuessColorPage';
 import {Provider} from 'react-redux';
 import store from './src/redux/store';
@@ -61,6 +61,7 @@ import EnterNumberOfPlayersPullStick from './pages/MiniGames/pullStick/EnterNumb
 import PlayerStickNames from './pages/MiniGames/pullStick/playerNames';
 import StickDrawGamePage from './pages/MiniGames/pullStick/StickDrawGamePage';
 import StickDrawWinPage from './pages/MiniGames/pullStick/StickDrawWinPage';
+import HomePage from './pages/HomePage';
 
 // import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 // import {faMugEmpty} from '@fortawesome/free-solid-svg-icons/faMugEmpty';
@@ -73,13 +74,13 @@ function App(): React.JSX.Element {
     <>
       <Provider store={store}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="WelcomePage">
-            <Stack.Screen
+          <Stack.Navigator initialRouteName="HomePage">
+            {/* <Stack.Screen
               name="WelcomePage"
               component={WelcomePage}
               options={{headerShown: false}}
-            />
-            <Stack.Screen
+            /> */}
+            {/* <Stack.Screen
               name="LoginPage"
               component={LoginPage}
               options={{
@@ -91,8 +92,8 @@ function App(): React.JSX.Element {
                   fontWeight: 'bold',
                 },
               }}
-            />
-            <Stack.Screen
+            /> */}
+            {/* <Stack.Screen
               name="RegisterPage"
               component={RegisterPage}
               options={{
@@ -104,9 +105,9 @@ function App(): React.JSX.Element {
                   fontWeight: 'bold',
                 },
               }}
-            />
+            /> */}
 
-            <Stack.Screen
+            {/* <Stack.Screen
               name="ResetPassword"
               component={ResetPasswordPage}
               options={{
@@ -118,14 +119,20 @@ function App(): React.JSX.Element {
                   fontWeight: 'bold',
                 },
               }}
-            />
-            <Stack.Screen
+            /> */}
+            {/* <Stack.Screen
               name="AiChatPageWithDrawer"
               component={MainPage}
               options={{headerShown: false}}
-            />
+            /> */}
 
             <Stack.Screen
+              name="Home"
+              component={HomePage}
+              options={{headerShown: false}}
+            />
+
+            {/* <Stack.Screen
               name="AiVoicePage"
               component={AiVoicePage}
               options={{
@@ -139,7 +146,7 @@ function App(): React.JSX.Element {
                 },
                 presentation: 'modal',
               }}
-            />
+            /> */}
 
             {/*-------------------------------- GUESS COLOR GAME ---------------------------------------*/}
             <Stack.Screen
