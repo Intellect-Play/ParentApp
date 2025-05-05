@@ -97,7 +97,7 @@ const WinCharadeGuessPage = ({route}) => {
           width={300}
           title="Next Round"
           onPress={() => {
-            dispatch(nextPlayer());
+            // dispatch(nextPlayer());
             navigation.navigate('CharadeGuessWordsPage');
           }}
         />

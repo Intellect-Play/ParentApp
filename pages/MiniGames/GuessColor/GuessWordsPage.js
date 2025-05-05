@@ -31,6 +31,9 @@ const GuessWordsPage = () => {
   const scores = useSelector(state => state.colorGuess.scores);
   const timePerRound = useSelector(state => state.colorGuess.timePerRound);
   const currentRound = useSelector(state => state.colorGuess.currentRound);
+  const answeredPlayers = useSelector(
+    state => state.colorGuess.answeredPlayers,
+  );
 
   const currentPlayer = playerNames[currentIndex];
   const [timeLeft, setTimeLeft] = useState(timePerRound);
@@ -84,10 +87,6 @@ const GuessWordsPage = () => {
     dispatch(addAnsweredPlayer(currentPlayer));
     dispatch(nextPlayer());
   };
-
-  const answeredPlayers = useSelector(
-    state => state.colorGuess.answeredPlayers,
-  );
 
   useEffect(() => {
     if (answeredPlayers.length === playerNames.length) {

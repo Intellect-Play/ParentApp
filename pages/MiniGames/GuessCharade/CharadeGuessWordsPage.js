@@ -4,8 +4,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
 import {
+  addAnsweredPlayer,
   endGame,
   incrementScore,
+  nextPlayer,
+  resetAnsweredPlayers,
 } from '../../../src/redux/games/charadeGuess/charadeGuessSlice';
 import charades from '../../../gameSettings/CharadeGuess/charades';
 
@@ -19,7 +22,9 @@ const CharadeGuessWordsPage = () => {
   const scores = useSelector(state => state.charadeGuess.scores);
   const timePerRound = useSelector(state => state.charadeGuess.timePerRound);
   const currentRound = useSelector(state => state.charadeGuess.currentRound);
-
+  const answeredPlayers = useSelector(
+    state => state.charadeGuess.answeredPlayers,
+  );
   const currentPlayer = playerNames[currentIndex];
   const [timeLeft, setTimeLeft] = useState(timePerRound);
   const [currentCharade, setCurrentCharade] = useState('');
@@ -60,12 +65,22 @@ const CharadeGuessWordsPage = () => {
 
   const handleCorrect = () => {
     dispatch(incrementScore(currentPlayer));
-    navigation.navigate('WinCharadeGuessPage', {winner: currentPlayer});
+    dispatch(addAnsweredPlayer(currentPlayer));
+    dispatch(nextPlayer());
   };
 
   const handleWrong = () => {
-    navigation.navigate('WinCharadeGuessPage', {winner: currentPlayer});
+    dispatch(addAnsweredPlayer(currentPlayer));
+    dispatch(nextPlayer());
   };
+
+  useEffect(() => {
+    if (answeredPlayers.length === playerNames.length) {
+      dispatch(endGame());
+      navigation.navigate('WinCharadeGuessPage', {scores});
+      dispatch(resetAnsweredPlayers());
+    }
+  }, [answeredPlayers, dispatch, navigation, playerNames.length, scores]);
 
   return (
     <View style={styles.container}>
