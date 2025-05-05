@@ -1,45 +1,35 @@
 import {useNavigation} from '@react-navigation/native';
-import {StyleSheet, Text, View} from 'react-native';
-
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import MiniGamePhoto from '../components/HomePage/miniGamePhoto';
+import {homeGames} from '../mockdb/mockdb';
 // Luckiest guys
 
 const HomePage = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
-      <Text>COMING SOON...</Text>
-
-      <Text onPress={() => navigation.navigate('GuessColorPage')}>
-        Color guess
-      </Text>
-
-      <Text onPress={() => navigation.navigate('GuessEmojiPage')}>
-        Emoji guess
-      </Text>
-
-      <Text onPress={() => navigation.navigate('GuessTopicPage')}>
-        Topic guess
-      </Text>
-
-      <Text onPress={() => navigation.navigate('GuessShadowPage')}>
-        Shadow guess
-      </Text>
-
-      <Text onPress={() => navigation.navigate('GuessCharadePage')}>
-        Charade guess
-      </Text>
-
-      <Text onPress={() => navigation.navigate('GuessFlagPage')}>
-        Flag guess
-      </Text>
-
-      <Text onPress={() => navigation.navigate('GuessKeyPage')}>Key guess</Text>
-
-      <Text onPress={() => navigation.navigate('PullStickPage')}>
-        Pull stick
-      </Text>
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.grid}>
+        {homeGames.map((game, index) => (
+          <TouchableOpacity
+            key={index}
+            onPress={() => navigation.navigate(game.screen)}>
+            <MiniGamePhoto
+              image={game.image}
+              title={game?.title}
+              width={160}
+              height={160}
+            />
+          </TouchableOpacity>
+        ))}
+      </View>
+    </ScrollView>
   );
 };
 
@@ -47,10 +37,13 @@ export default HomePage;
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
+    paddingVertical: 20,
     alignItems: 'center',
+  },
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 10,
   },
 });

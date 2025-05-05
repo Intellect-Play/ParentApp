@@ -23,3 +23,38 @@ export const mockData = {
     },
   ],
 };
+
+export const homeGames = [
+  {
+    image: require('../assets/images/miniGames/ColorGuess/color_home.png'),
+    screen: 'GuessColorPage',
+  },
+  {
+    image: require('../assets/images/miniGames/EmojiGuess/emoji_home.png'),
+    screen: 'GuessEmojiPage',
+  },
+  {
+    image: require('../assets/images/miniGames/topicGuess/quiz_home.png'),
+    screen: 'GuessTopicPage',
+  },
+  {
+    image: require('../assets/images/miniGames/shadows/guess_home.png'),
+    screen: 'GuessShadowPage',
+  },
+  {
+    image: require('../assets/images/miniGames/CharadeGuess/charade_home.png'),
+    screen: 'GuessCharadePage',
+  },
+  {
+    image: require('../assets/images/miniGames/EmojiGuess/emoji_home.png'),
+    screen: 'GuessFlagPage',
+  },
+  {
+    image: require('../assets/images/miniGames/EmojiGuess/emoji_home.png'),
+    screen: 'GuessKeyPage',
+  },
+  {
+    image: require('../assets/images/miniGames/EmojiGuess/emoji_home.png'),
+    screen: 'PullStickPage',
+  },
+];
