@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import DifficultyOptionButton from '../../../components/miniGames/ColorGuess/DifficultyOptionButton';
 import {useDispatch, useSelector} from 'react-redux';
@@ -16,7 +16,7 @@ const DifficultyTopicGuessPage = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.pageTitleHeading}>difficulty</Text>
       <Text style={styles.pageTitleHeading2}>level</Text>
 
@@ -61,7 +61,7 @@ const DifficultyTopicGuessPage = () => {
           onPress={() => navigation.navigate('TopicGuessCategoriesPage')}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
