@@ -25,92 +25,90 @@ const WinKeyGuessPage = ({route}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <LuckiestText style={styles.leaderboardTitle}>Leaderboard</LuckiestText>
+      <LuckiestText style={styles.leaderboardTitle}>Leaderboard</LuckiestText>
 
-        <View style={styles.topThreeContainer}>
-          {second && (
-            <View style={[styles.smallAvatarContainer, styles.relative]}>
-              <View style={styles.avatarContainer}>
-                <Image
-                  source={require('../../../assets/images/avatar/avatar_default.png')}
-                  style={[styles.avatarOther, styles.avatarBorder]}
-                />
-                <Text style={styles.avatarName}>{second[0]}</Text>
-                <Text style={styles.avatarScore}>{second[1]} pts</Text>
-                <View style={styles.horizontalPlayerCircle}>
-                  <Text>2</Text>
-                </View>
+      <View style={styles.topThreeContainer}>
+        {second && (
+          <View style={[styles.smallAvatarContainer, styles.relative]}>
+            <View style={styles.avatarContainer}>
+              <Image
+                source={require('../../../assets/images/avatar/avatar_default.png')}
+                style={[styles.avatarOther, styles.avatarBorder]}
+              />
+              <Text style={styles.avatarName}>{second[0]}</Text>
+              <Text style={styles.avatarScore}>{second[1]} pts</Text>
+              <View style={styles.horizontalPlayerCircle}>
+                <Text>2</Text>
               </View>
             </View>
-          )}
+          </View>
+        )}
 
-          {first && (
-            <View style={[styles.bigAvatarContainer, styles.relative]}>
-              <View style={styles.avatarContainer}>
-                <Image
-                  source={require('../../../assets/images/avatar/avatar_default.png')}
-                  style={[styles.avatarFirst, styles.avatarBorder]}
-                />
-                <Text style={styles.avatarName}>{first[0]}</Text>
-                <Text style={styles.avatarScore}>{first[1]} pts</Text>
-                <View style={styles.firstPlayerCircle}>
-                  <Text>1</Text>
-                </View>
-                <View style={styles.firstPlayerCrown}>
-                  <FontAwesomeIcon icon={faCrown} size={30} color="#fdd05b" />
-                </View>
+        {first && (
+          <View style={[styles.bigAvatarContainer, styles.relative]}>
+            <View style={styles.avatarContainer}>
+              <Image
+                source={require('../../../assets/images/avatar/avatar_default.png')}
+                style={[styles.avatarFirst, styles.avatarBorder]}
+              />
+              <Text style={styles.avatarName}>{first[0]}</Text>
+              <Text style={styles.avatarScore}>{first[1]} pts</Text>
+              <View style={styles.firstPlayerCircle}>
+                <Text>1</Text>
+              </View>
+              <View style={styles.firstPlayerCrown}>
+                <FontAwesomeIcon icon={faCrown} size={30} color="#fdd05b" />
               </View>
             </View>
-          )}
+          </View>
+        )}
 
-          {third && (
-            <View style={[styles.smallAvatarContainer, styles.relative]}>
-              <View style={styles.avatarContainer}>
-                <Image
-                  source={require('../../../assets/images/avatar/avatar_default.png')}
-                  style={[styles.avatarOther, styles.avatarBorder]}
-                />
-                <Text style={styles.avatarName}>{third[0]}</Text>
-                <Text style={styles.avatarScore}>{third[1]} pts</Text>
-                <View style={styles.horizontalPlayerCircle}>
-                  <Text>3</Text>
-                </View>
+        {third && (
+          <View style={[styles.smallAvatarContainer, styles.relative]}>
+            <View style={styles.avatarContainer}>
+              <Image
+                source={require('../../../assets/images/avatar/avatar_default.png')}
+                style={[styles.avatarOther, styles.avatarBorder]}
+              />
+              <Text style={styles.avatarName}>{third[0]}</Text>
+              <Text style={styles.avatarScore}>{third[1]} pts</Text>
+              <View style={styles.horizontalPlayerCircle}>
+                <Text>3</Text>
               </View>
             </View>
-          )}
-        </View>
+          </View>
+        )}
+      </View>
 
-        <View style={{marginTop: 40, width: '100%'}}>
-          {others.map(([name, score], index) => (
-            <View key={name} style={styles.playerRow}>
-              <Text style={styles.playerName}>
-                {index + 4}. {name}
-              </Text>
-              <Text style={styles.playerScore}>{score} pts</Text>
-            </View>
-          ))}
-        </View>
+      <View style={{marginTop: 40, width: '100%'}}>
+        {others.map(([name, score], index) => (
+          <View key={name} style={styles.playerRow}>
+            <Text style={styles.playerName}>
+              {index + 4}. {name}
+            </Text>
+            <Text style={styles.playerScore}>{score} pts</Text>
+          </View>
+        ))}
+      </View>
 
-        <View style={styles.buttonContainer}>
-          <ColorGuessButton
-            backgroundColor="#fdd05b"
-            width={300}
-            title="Next Round"
-            onPress={() => {
-              // dispatch(nextPlayer());
-              navigation.navigate('KeyGuessWordsPage');
-            }}
-          />
-          <ColorGuessButton
-            width={300}
-            title="Finish Game"
-            onPress={() => {
-              dispatch(resetGame());
-              navigation.navigate('GuessKeyPage');
-            }}
-          />
-        </View>
+      <View style={styles.buttonContainer}>
+        <ColorGuessButton
+          backgroundColor="#fdd05b"
+          width={300}
+          title="Next Round"
+          onPress={() => {
+            // dispatch(nextPlayer());
+            navigation.navigate('KeyGuessWordsPage');
+          }}
+        />
+        <ColorGuessButton
+          width={300}
+          title="Finish Game"
+          onPress={() => {
+            dispatch(resetGame());
+            navigation.navigate('GuessKeyPage');
+          }}
+        />
       </View>
     </SafeAreaView>
   );

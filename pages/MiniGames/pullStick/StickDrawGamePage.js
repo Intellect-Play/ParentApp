@@ -1,5 +1,12 @@
 import React, {useEffect} from 'react';
-import {Text, View, StyleSheet, FlatList, Alert} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  Alert,
+  SafeAreaView,
+} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
@@ -78,7 +85,7 @@ const StickDrawGamePage = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Pull the Stick!</Text>
 
       <>
@@ -128,7 +135,7 @@ const StickDrawGamePage = () => {
           ))}
         </View>
       )}
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -1,6 +1,6 @@
 import {faCrown} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet, Image, SafeAreaView} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
@@ -21,7 +21,7 @@ const StickDrawWinPage = () => {
   const others = fullRanking.slice(3);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <LuckiestText style={styles.leaderboardTitle}>Leaderboard</LuckiestText>
 
       <View style={styles.topThreeContainer}>
@@ -96,7 +96,7 @@ const StickDrawWinPage = () => {
         />
 
         <ColorGuessButton
-          backgroundColor="#ecfd5a"
+          backgroundColor="#fff"
           width={300}
           title="Finish Game"
           onPress={() => {
@@ -105,7 +105,7 @@ const StickDrawWinPage = () => {
           }}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
