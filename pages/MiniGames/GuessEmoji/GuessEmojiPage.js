@@ -1,4 +1,4 @@
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, SafeAreaView, StyleSheet, View} from 'react-native';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
 import InfoButton from '../../../components/miniGames/infoButton';
@@ -7,42 +7,44 @@ const GuessEmojiPage = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.mainScreen}>
-      <View style={styles.centeredItems}>
-        <View style={[styles.centeredItems, styles.imageContainer]}>
-          <Image
-            style={styles.image}
-            source={require('../../../assets/images/miniGames/EmojiGuess/emojiGuess.png')}
-          />
-        </View>
-        <View style={styles.buttonsContainer}>
-          <ColorGuessButton
-            title="Play"
-            width={350}
-            height={60}
-            backgroundColor="#fdd05b"
-            textColor="#333"
-            borderRadius={20}
-            onPress={() => {
-              navigation.navigate('EnterNumberOfPlayersEmojiGuess');
-            }}
-          />
+    <SafeAreaView style={styles.mainScreen}>
+      <View>
+        <View style={styles.centeredItems}>
+          <View style={[styles.centeredItems, styles.imageContainer]}>
+            <Image
+              style={styles.image}
+              source={require('../../../assets/images/miniGames/EmojiGuess/emojiGuess.png')}
+            />
+          </View>
+          <View style={styles.buttonsContainer}>
+            <ColorGuessButton
+              title="Play"
+              width={350}
+              height={60}
+              backgroundColor="#fdd05b"
+              textColor="#333"
+              borderRadius={20}
+              onPress={() => {
+                navigation.navigate('EnterNumberOfPlayersEmojiGuess');
+              }}
+            />
 
-          <ColorGuessButton
-            title="Quit"
-            width={350}
-            height={60}
-            backgroundColor="#fff"
-            textColor="#333"
-            borderRadius={20}
-            onPress={() => {
-              navigation.navigate('Home');
-            }}
-          />
+            <ColorGuessButton
+              title="Quit"
+              width={350}
+              height={60}
+              backgroundColor="#fff"
+              textColor="#333"
+              borderRadius={20}
+              onPress={() => {
+                navigation.navigate('Home');
+              }}
+            />
+          </View>
+          <InfoButton message="Emoji Guess is a fun guessing game where players see a set of emojis and try to guess the word they represent. Each round, a different player gives clues based on the emojis. Points are earned for correct answers. First to 10 points wins!" />
         </View>
-        <InfoButton message="Emoji Guess is a fun guessing game where players see a set of emojis and try to guess the word they represent. Each round, a different player gives clues based on the emojis. Points are earned for correct answers. First to 10 points wins!" />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
