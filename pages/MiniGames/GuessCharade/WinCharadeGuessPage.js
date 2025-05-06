@@ -5,13 +5,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
 import LuckiestText from '../../../components/miniGames/LuckiestText';
-import {
-  nextPlayer,
-  resetGame,
-} from '../../../src/redux/games/charadeGuess/charadeGuessSlice';
+import {resetGame} from '../../../src/redux/games/charadeGuess/charadeGuessSlice';
 
 const WinCharadeGuessPage = ({route}) => {
-  const {winner} = route.params;
+  // const {winner} = route.params;
   const scores = useSelector(state => state.charadeGuess.scores);
   const dispatch = useDispatch();
   const navigation = useNavigation();
