@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {setNumberOfPlayers} from '../../../src/redux/games/colorGuess/colorGuessSlice';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
@@ -17,53 +23,58 @@ const EnterNumberOfPlayersColorGuess = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.pageTitleHeading}>Enter{'\n'}the number of</Text>
-      <Text style={styles.pageTitleHeading2}>Players</Text>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <Text style={styles.pageTitleHeading}>Enter{'\n'}the number of</Text>
+        <Text style={styles.pageTitleHeading2}>Players</Text>
 
-      <View style={styles.optionContainer}>
-        {options.map((num, index) => {
-          const distance = Math.abs(index - (selected - 1));
-          const maxWidth = 300;
-          const minWidth = 160;
-          const width = Math.max(minWidth, maxWidth - distance * 40);
-          const isSelected = num === selected;
+        <View style={styles.optionContainer}>
+          {options.map((num, index) => {
+            const distance = Math.abs(index - (selected - 1));
+            const maxWidth = 300;
+            const minWidth = 160;
+            const width = Math.max(minWidth, maxWidth - distance * 40);
+            const isSelected = num === selected;
 
-          return (
-            <View key={num} style={styles.centeredDiv}>
-              <TouchableOpacity
-                style={[
-                  styles.item,
-                  {
-                    width,
-                    opacity: isSelected ? 1 : 0.5,
-                    backgroundColor: isSelected ? '#00e6e6' : '#6dd5fa',
-                    transform: [{scale: isSelected ? 1.1 : 1}],
-                  },
-                ]}
-                onPress={() => handleSelect(num)}
-                activeOpacity={0.8}>
-                <Text
-                  style={[styles.itemText, isSelected && styles.selectedText]}>
-                  {num}
-                </Text>
-              </TouchableOpacity>
-            </View>
-          );
-        })}
-        <View style={styles.buttonContainer}>
-          <ColorGuessButton
-            title="Next"
-            width={350}
-            height={60}
-            backgroundColor="#5df9f6"
-            textColor="#333"
-            borderRadius={20}
-            onPress={() => navigation.navigate('PlayerColorGuessNames')}
-          />
+            return (
+              <View key={num} style={styles.centeredDiv}>
+                <TouchableOpacity
+                  style={[
+                    styles.item,
+                    {
+                      width,
+                      opacity: isSelected ? 1 : 0.5,
+                      backgroundColor: isSelected ? '#00e6e6' : '#6dd5fa',
+                      transform: [{scale: isSelected ? 1.1 : 1}],
+                    },
+                  ]}
+                  onPress={() => handleSelect(num)}
+                  activeOpacity={0.8}>
+                  <Text
+                    style={[
+                      styles.itemText,
+                      isSelected && styles.selectedText,
+                    ]}>
+                    {num}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            );
+          })}
+          <View style={styles.buttonContainer}>
+            <ColorGuessButton
+              title="Next"
+              width={350}
+              height={60}
+              backgroundColor="#5df9f6"
+              textColor="#333"
+              borderRadius={20}
+              onPress={() => navigation.navigate('PlayerColorGuessNames')}
+            />
+          </View>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

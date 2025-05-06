@@ -2,6 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import {
   Dimensions,
   FlatList,
+  SafeAreaView,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
@@ -18,23 +19,25 @@ const HomePage = () => {
   const navigation = useNavigation();
 
   return (
-    <FlatList
-      data={homeGames}
-      keyExtractor={(_, i) => i.toString()}
-      numColumns={2}
-      contentContainerStyle={styles.flatListContainer}
-      columnWrapperStyle={styles.row}
-      renderItem={({item}) => (
-        <TouchableOpacity onPress={() => navigation.navigate(item.screen)}>
-          <MiniGamePhoto
-            image={item.image}
-            title={item.title}
-            width={ITEM_SIZE}
-            height={ITEM_SIZE}
-          />
-        </TouchableOpacity>
-      )}
-    />
+    <SafeAreaView>
+      <FlatList
+        data={homeGames}
+        keyExtractor={(_, i) => i.toString()}
+        numColumns={2}
+        contentContainerStyle={styles.flatListContainer}
+        columnWrapperStyle={styles.row}
+        renderItem={({item}) => (
+          <TouchableOpacity onPress={() => navigation.navigate(item.screen)}>
+            <MiniGamePhoto
+              image={item.image}
+              title={item.title}
+              width={ITEM_SIZE}
+              height={ITEM_SIZE}
+            />
+          </TouchableOpacity>
+        )}
+      />
+    </SafeAreaView>
   );
 };
 

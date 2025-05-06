@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {
@@ -97,7 +97,7 @@ const GuessWordsPage = () => {
   }, [answeredPlayers, dispatch, navigation, playerNames.length, scores]);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.pageTitleHeading}>Guess</Text>
       <Text style={styles.pageTitleHeading2}>2 words</Text>
 
@@ -142,7 +142,7 @@ const GuessWordsPage = () => {
           onPress={handleCorrect}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

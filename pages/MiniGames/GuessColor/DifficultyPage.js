@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import DifficultyOptionButton from '../../../components/miniGames/ColorGuess/DifficultyOptionButton';
 import {setDifficulty} from '../../../src/redux/games/colorGuess/colorGuessSlice';
 import {useDispatch, useSelector} from 'react-redux';
@@ -16,46 +16,48 @@ const DifficultyPage = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.pageTitleHeading}>difficulty</Text>
-      <Text style={styles.pageTitleHeading2}>level</Text>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <Text style={styles.pageTitleHeading}>difficulty</Text>
+        <Text style={styles.pageTitleHeading2}>level</Text>
 
-      <DifficultyOptionButton
-        level="Easy"
-        seconds={EASY_MODE}
-        selected={selectedDifficulty === 'easy'}
-        secondsColor="green"
-        onPress={() => dispatch(setDifficulty('easy'))}
-      />
-
-      <DifficultyOptionButton
-        level="Medium"
-        seconds={MEDIUM_MODE}
-        selected={selectedDifficulty === 'medium'}
-        secondsColor="orange"
-        onPress={() => dispatch(setDifficulty('medium'))}
-      />
-
-      <DifficultyOptionButton
-        level="Hard"
-        seconds={HARD_MODE}
-        selected={selectedDifficulty === 'hard'}
-        secondsColor="red"
-        onPress={() => dispatch(setDifficulty('hard'))}
-      />
-
-      <View style={styles.buttonContainer}>
-        <ColorGuessButton
-          title="Next"
-          width={350}
-          height={60}
-          backgroundColor="#5df9f6"
-          textColor="#333"
-          borderRadius={20}
-          onPress={() => navigation.navigate('GuessWordsPage')}
+        <DifficultyOptionButton
+          level="Easy"
+          seconds={EASY_MODE}
+          selected={selectedDifficulty === 'easy'}
+          secondsColor="green"
+          onPress={() => dispatch(setDifficulty('easy'))}
         />
+
+        <DifficultyOptionButton
+          level="Medium"
+          seconds={MEDIUM_MODE}
+          selected={selectedDifficulty === 'medium'}
+          secondsColor="orange"
+          onPress={() => dispatch(setDifficulty('medium'))}
+        />
+
+        <DifficultyOptionButton
+          level="Hard"
+          seconds={HARD_MODE}
+          selected={selectedDifficulty === 'hard'}
+          secondsColor="red"
+          onPress={() => dispatch(setDifficulty('hard'))}
+        />
+
+        <View style={styles.buttonContainer}>
+          <ColorGuessButton
+            title="Next"
+            width={350}
+            height={60}
+            backgroundColor="#5df9f6"
+            textColor="#333"
+            borderRadius={20}
+            onPress={() => navigation.navigate('GuessWordsPage')}
+          />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
