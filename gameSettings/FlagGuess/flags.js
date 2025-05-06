@@ -189,7 +189,7 @@ const flags = [
   },
   {
     emoji: '🇧🇶',
-    answer: 'Bonaire, Sint Eustatius and Saba',
+    answer: 'Bonaire',
   },
   {
     emoji: '🇧🇫',
@@ -233,7 +233,7 @@ const flags = [
   },
   {
     emoji: '🇧🇴',
-    answer: 'Bolivia, Plurinational State of',
+    answer: 'Bolivia',
   },
   {
     emoji: '🇧🇧',
@@ -261,7 +261,7 @@ const flags = [
   },
   {
     emoji: '🇨🇨',
-    answer: 'Cocos (Keeling) Islands',
+    answer: 'Cocos Islands',
   },
   {
     emoji: '🇨🇲',
@@ -269,7 +269,7 @@ const flags = [
   },
   {
     emoji: '🇨🇩',
-    answer: 'Congo, The Democratic Republic of the',
+    answer: 'Congo, Democratic Republic',
   },
   {
     emoji: '🇨🇬',
@@ -365,7 +365,7 @@ const flags = [
   },
   {
     emoji: '🇫🇰',
-    answer: 'Falkland Islands (Malvinas)',
+    answer: 'Falkland Islands',
   },
   {
     emoji: '🇫🇴',
@@ -373,7 +373,7 @@ const flags = [
   },
   {
     emoji: '🇫🇲',
-    answer: 'Micronesia, Federated States of',
+    answer: 'Micronesia',
   },
   {
     emoji: '🇬🇦',
