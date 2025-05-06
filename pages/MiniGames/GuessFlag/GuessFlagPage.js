@@ -1,4 +1,4 @@
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, SafeAreaView, StyleSheet, View} from 'react-native';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
 import InfoButton from '../../../components/miniGames/infoButton';
@@ -7,48 +7,50 @@ const GuessFlagPage = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.mainScreen}>
-      <View style={styles.centeredItems}>
-        <View style={[styles.centeredItems, styles.imageContainer]}>
-          <Image
-            style={styles.image}
-            source={require('../../../assets/images/miniGames/EmojiGuess/emojiGuess.png')}
-          />
-        </View>
-        <View style={styles.buttonsContainer}>
-          <ColorGuessButton
-            title="Play"
-            width={350}
-            height={60}
-            backgroundColor="#fdd05b"
-            textColor="#333"
-            borderRadius={20}
-            onPress={() => {
-              navigation.navigate('EnterNumberOfPlayersFlagGuess');
-            }}
-          />
+    <SafeAreaView style={styles.mainScreen}>
+      <View>
+        <View style={styles.centeredItems}>
+          <View style={[styles.centeredItems, styles.imageContainer]}>
+            <Image
+              style={styles.image}
+              source={require('../../../assets/images/miniGames/EmojiGuess/emojiGuess.png')}
+            />
+          </View>
+          <View style={styles.buttonsContainer}>
+            <ColorGuessButton
+              title="Play"
+              width={350}
+              height={60}
+              backgroundColor="#fdd05b"
+              textColor="#333"
+              borderRadius={20}
+              onPress={() => {
+                navigation.navigate('EnterNumberOfPlayersFlagGuess');
+              }}
+            />
 
-          <ColorGuessButton
-            title="Quit"
-            width={350}
-            height={60}
-            backgroundColor="#fff"
-            textColor="#333"
-            borderRadius={20}
-            onPress={() => {
-              navigation.navigate('Home');
-            }}
-          />
-        </View>
-        <InfoButton
-          message="A flag emoji will appear on the screen.
+            <ColorGuessButton
+              title="Quit"
+              width={350}
+              height={60}
+              backgroundColor="#fff"
+              textColor="#333"
+              borderRadius={20}
+              onPress={() => {
+                navigation.navigate('Home');
+              }}
+            />
+          </View>
+          <InfoButton
+            message="A flag emoji will appear on the screen.
 Your mission: Guess which country it belongs to!
 Some are easy 🇫🇷, some will make you think 🇧🇹...
 Get it right to earn points.
 Can you recognize them all?"
-        />
+          />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
