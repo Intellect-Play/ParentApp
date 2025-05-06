@@ -44,7 +44,10 @@ const DifficultyOptionButton = ({
           styles.secondsText,
           {color: actualSecondsColor, fontSize: fontSize - 2},
         ]}>
-        {seconds} seconds {wordCount && `- ${wordCount} words`}
+        {seconds} seconds{' '}
+        <Text style={styles.wordCountText}>
+          {wordCount && `- ${wordCount} words`}{' '}
+        </Text>
       </Text>
     </TouchableOpacity>
   );
@@ -65,5 +68,8 @@ const styles = StyleSheet.create({
   },
   secondsText: {
     fontWeight: '600',
+  },
+  wordCountText: {
+    color: 'black',
   },
 });
