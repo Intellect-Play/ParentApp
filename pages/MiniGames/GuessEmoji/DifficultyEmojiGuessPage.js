@@ -17,48 +17,46 @@ const DifficultyEmojiGuessPage = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <Text style={styles.pageTitleHeading}>difficulty</Text>
-        <Text style={styles.pageTitleHeading2}>level</Text>
+      <Text style={styles.pageTitleHeading}>difficulty</Text>
+      <Text style={styles.pageTitleHeading2}>level</Text>
 
-        <DifficultyOptionButton
-          level="Easy"
-          seconds={EASY_MODE}
-          selected={selectedDifficulty === 'easy'}
-          secondsColor="green"
-          selectedColor="#fdd05b"
-          onPress={() => dispatch(setDifficulty('easy'))}
+      <DifficultyOptionButton
+        level="Easy"
+        seconds={EASY_MODE}
+        selected={selectedDifficulty === 'easy'}
+        secondsColor="green"
+        selectedColor="#fdd05b"
+        onPress={() => dispatch(setDifficulty('easy'))}
+      />
+
+      <DifficultyOptionButton
+        level="Medium"
+        seconds={MEDIUM_MODE}
+        selected={selectedDifficulty === 'medium'}
+        secondsColor="orange"
+        selectedColor="#fdd05b"
+        onPress={() => dispatch(setDifficulty('medium'))}
+      />
+
+      <DifficultyOptionButton
+        level="Hard"
+        seconds={HARD_MODE}
+        selected={selectedDifficulty === 'hard'}
+        secondsColor="red"
+        selectedColor="#fdd05b"
+        onPress={() => dispatch(setDifficulty('hard'))}
+      />
+
+      <View style={styles.buttonContainer}>
+        <ColorGuessButton
+          title="Next"
+          width={350}
+          height={60}
+          backgroundColor="#fdd05b"
+          textColor="#333"
+          borderRadius={20}
+          onPress={() => navigation.navigate('EmojiGuessWordsPage')}
         />
-
-        <DifficultyOptionButton
-          level="Medium"
-          seconds={MEDIUM_MODE}
-          selected={selectedDifficulty === 'medium'}
-          secondsColor="orange"
-          selectedColor="#fdd05b"
-          onPress={() => dispatch(setDifficulty('medium'))}
-        />
-
-        <DifficultyOptionButton
-          level="Hard"
-          seconds={HARD_MODE}
-          selected={selectedDifficulty === 'hard'}
-          secondsColor="red"
-          selectedColor="#fdd05b"
-          onPress={() => dispatch(setDifficulty('hard'))}
-        />
-
-        <View style={styles.buttonContainer}>
-          <ColorGuessButton
-            title="Next"
-            width={350}
-            height={60}
-            backgroundColor="#fdd05b"
-            textColor="#333"
-            borderRadius={20}
-            onPress={() => navigation.navigate('EmojiGuessWordsPage')}
-          />
-        </View>
       </View>
     </SafeAreaView>
   );
