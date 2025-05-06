@@ -1,6 +1,6 @@
 import {faCrown} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet, Image, SafeAreaView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
@@ -24,7 +24,7 @@ const WinCharadeGuessPage = ({route}) => {
   const third = sortedPlayers[2];
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <LuckiestText style={styles.leaderboardTitle}>Leaderboard</LuckiestText>
 
       <View style={styles.topThreeContainer}>
@@ -110,7 +110,7 @@ const WinCharadeGuessPage = ({route}) => {
           }}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

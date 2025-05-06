@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, SafeAreaView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import CustomPlayerInput from '../../../components/miniGames/ColorGuess/CustomPlayerInput';
 import {useNavigation} from '@react-navigation/native';
@@ -22,60 +22,62 @@ const PlayerCharadeGuessNames = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.pageTitleHeading}>Enter player</Text>
-      <Text style={styles.pageTitleHeading2}>names</Text>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <Text style={styles.pageTitleHeading}>Enter player</Text>
+        <Text style={styles.pageTitleHeading2}>names</Text>
 
-      <ScrollView contentContainerStyle={styles.inputContainer}>
-        {Array.from({length: numberOfPlayers}).map((_, index) => (
-          <CustomPlayerInput
-            key={index}
-            placeholder={`Player ${index + 1}`}
-            value={playerNames[index] || ''}
-            onChangeText={text => handleNameChange(text, index)}
-            width={350}
-            height={50}
-            borderRadius={16}
-            backgroundColor="#f2f2f2"
-            textColor="#000"
-            fontSize={18}
-            style={{marginVertical: 8}}
-          />
-        ))}
+        <ScrollView contentContainerStyle={styles.inputContainer}>
+          {Array.from({length: numberOfPlayers}).map((_, index) => (
+            <CustomPlayerInput
+              key={index}
+              placeholder={`Player ${index + 1}`}
+              value={playerNames[index] || ''}
+              onChangeText={text => handleNameChange(text, index)}
+              width={350}
+              height={50}
+              borderRadius={16}
+              backgroundColor="#f2f2f2"
+              textColor="#000"
+              fontSize={18}
+              style={{marginVertical: 8}}
+            />
+          ))}
 
-        <View style={styles.buttonContainer}>
-          <ColorGuessButton
-            title="Next"
-            width={350}
-            height={60}
-            backgroundColor="#fdd05b"
-            textColor="#333"
-            borderRadius={20}
-            onPress={() => {
-              const hasEmpty = Array.from({length: numberOfPlayers}).some(
-                (_, index) => {
-                  const name = playerNames[index];
-                  return !name || name.trim() === '';
-                },
-              );
+          <View style={styles.buttonContainer}>
+            <ColorGuessButton
+              title="Next"
+              width={350}
+              height={60}
+              backgroundColor="#fdd05b"
+              textColor="#333"
+              borderRadius={20}
+              onPress={() => {
+                const hasEmpty = Array.from({length: numberOfPlayers}).some(
+                  (_, index) => {
+                    const name = playerNames[index];
+                    return !name || name.trim() === '';
+                  },
+                );
 
-              if (hasEmpty) {
-                setError('Please fill in all player names');
-                return;
-              }
+                if (hasEmpty) {
+                  setError('Please fill in all player names');
+                  return;
+                }
 
-              setError('');
-              navigation.navigate('DifficultyCharadeGuessPage');
-            }}
-          />
-          {error ? (
-            <Text style={{color: 'red', textAlign: 'center', marginTop: 10}}>
-              {error}
-            </Text>
-          ) : null}
-        </View>
-      </ScrollView>
-    </View>
+                setError('');
+                navigation.navigate('DifficultyCharadeGuessPage');
+              }}
+            />
+            {error ? (
+              <Text style={{color: 'red', textAlign: 'center', marginTop: 10}}>
+                {error}
+              </Text>
+            ) : null}
+          </View>
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 };
 
