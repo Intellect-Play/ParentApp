@@ -77,7 +77,7 @@ const WinCharadeGuessPage = ({route}) => {
         )}
       </View>
 
-      <View style={{marginTop: 40, width: '100%'}}>
+      <View style={styles.otherPlayersContainer}>
         {others.map(([name, score], index) => (
           <View key={name} style={styles.playerRow}>
             <Text style={styles.playerName}>
@@ -257,5 +257,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     gap: 15,
     marginTop: 20,
+  },
+
+  otherPlayersContainer: {
+    marginTop: 40,
+    width: '100%',
   },
 });

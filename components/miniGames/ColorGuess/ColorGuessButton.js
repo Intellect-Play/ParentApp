@@ -1,5 +1,10 @@
-import React from 'react';
-import {TouchableOpacity, Text, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+} from 'react-native';
 
 const ColorGuessButton = ({
   title = 'Button',
@@ -11,9 +16,20 @@ const ColorGuessButton = ({
   borderRadius = 12,
   fontSize = 16,
 }) => {
+  const [loading, setLoading] = useState(false);
+
+  const handlePress = () => {
+    setLoading(true);
+    onPress();
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  };
+
   return (
     <TouchableOpacity
-      onPress={onPress}
+      onPress={handlePress}
+      disabled={loading}
       style={[
         styles.button,
         {
@@ -23,7 +39,11 @@ const ColorGuessButton = ({
           borderRadius,
         },
       ]}>
-      <Text style={[styles.text, {color: textColor, fontSize}]}>{title}</Text>
+      {loading ? (
+        <ActivityIndicator color={textColor} />
+      ) : (
+        <Text style={[styles.text, {color: textColor, fontSize}]}>{title}</Text>
+      )}
     </TouchableOpacity>
   );
 };
