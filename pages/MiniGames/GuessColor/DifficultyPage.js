@@ -17,45 +17,43 @@ const DifficultyPage = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <Text style={styles.pageTitleHeading}>difficulty</Text>
-        <Text style={styles.pageTitleHeading2}>level</Text>
+      <Text style={styles.pageTitleHeading}>difficulty</Text>
+      <Text style={styles.pageTitleHeading2}>level</Text>
 
-        <DifficultyOptionButton
-          level="Easy"
-          seconds={EASY_MODE}
-          selected={selectedDifficulty === 'easy'}
-          secondsColor="green"
-          onPress={() => dispatch(setDifficulty('easy'))}
+      <DifficultyOptionButton
+        level="Easy"
+        seconds={EASY_MODE}
+        selected={selectedDifficulty === 'easy'}
+        secondsColor="green"
+        onPress={() => dispatch(setDifficulty('easy'))}
+      />
+
+      <DifficultyOptionButton
+        level="Medium"
+        seconds={MEDIUM_MODE}
+        selected={selectedDifficulty === 'medium'}
+        secondsColor="orange"
+        onPress={() => dispatch(setDifficulty('medium'))}
+      />
+
+      <DifficultyOptionButton
+        level="Hard"
+        seconds={HARD_MODE}
+        selected={selectedDifficulty === 'hard'}
+        secondsColor="red"
+        onPress={() => dispatch(setDifficulty('hard'))}
+      />
+
+      <View style={styles.buttonContainer}>
+        <ColorGuessButton
+          title="Next"
+          width={350}
+          height={60}
+          backgroundColor="#5df9f6"
+          textColor="#333"
+          borderRadius={20}
+          onPress={() => navigation.navigate('GuessWordsPage')}
         />
-
-        <DifficultyOptionButton
-          level="Medium"
-          seconds={MEDIUM_MODE}
-          selected={selectedDifficulty === 'medium'}
-          secondsColor="orange"
-          onPress={() => dispatch(setDifficulty('medium'))}
-        />
-
-        <DifficultyOptionButton
-          level="Hard"
-          seconds={HARD_MODE}
-          selected={selectedDifficulty === 'hard'}
-          secondsColor="red"
-          onPress={() => dispatch(setDifficulty('hard'))}
-        />
-
-        <View style={styles.buttonContainer}>
-          <ColorGuessButton
-            title="Next"
-            width={350}
-            height={60}
-            backgroundColor="#5df9f6"
-            textColor="#333"
-            borderRadius={20}
-            onPress={() => navigation.navigate('GuessWordsPage')}
-          />
-        </View>
       </View>
     </SafeAreaView>
   );
