@@ -5,10 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import ColorGuessButton from '../../../components/miniGames/ColorGuess/ColorGuessButton';
 import {useNavigation} from '@react-navigation/native';
 import LuckiestText from '../../../components/miniGames/LuckiestText';
-import {
-  nextPlayer,
-  resetGame,
-} from '../../../src/redux/games/shadowGuess/shadowGuessSlice';
+import {resetGame} from '../../../src/redux/games/shadowGuess/shadowGuessSlice';
 
 const WinShadowGuessPage = ({route}) => {
   const {winner} = route.params;
