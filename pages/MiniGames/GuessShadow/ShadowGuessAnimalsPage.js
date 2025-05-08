@@ -12,7 +12,6 @@ import {
   showAnswerNow,
 } from '../../../src/redux/games/shadowGuess/shadowGuessSlice';
 import shadows from '../../../gameSettings/shadowGuess/shadows';
-// t
 const ShadowGuessAnimalsPage = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
